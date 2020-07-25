@@ -14,13 +14,19 @@ protocol LocalizableProtocol {
 
 extension UIButton: LocalizableProtocol {
     func set(localizationKey key: String) {
-        setTitle(key.localized, for: .normal)
+        self.setTitle(key.localized, for: .normal)
     }
 }
 
 extension UILabel: LocalizableProtocol {
     func set(localizationKey key: String) {
-        text = key.localized
+        self.text = key.localized
+    }
+}
+
+extension UITextField: LocalizableProtocol {
+        func set(localizationKey key: String) {
+            self.placeholder = key.localized
     }
 }
 
