@@ -14,6 +14,10 @@
 		DDC5D8A824CC0CD9007538F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8A724CC0CD9007538F7 /* Assets.xcassets */; };
 		DDC5D8AB24CC0CD9007538F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8A924CC0CD9007538F7 /* LaunchScreen.storyboard */; };
 		DDC5D8B624CC0CD9007538F7 /* SocialteqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8B524CC0CD9007538F7 /* SocialteqTests.swift */; };
+		DDC5D8CB24CC120F007538F7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8CA24CC120F007538F7 /* Injected.swift */; };
+		DDC5D8D024CC129A007538F7 /* DIContainerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */; };
+		DDC5D8D324CC1387007538F7 /* TypeIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8D224CC1386007538F7 /* TypeIdentifiable.swift */; };
+		DDC5D8D524CC13D0007538F7 /* Registerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8D424CC13D0007538F7 /* Registerable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		DDC5D8B124CC0CD9007538F7 /* SocialteqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialteqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC5D8B524CC0CD9007538F7 /* SocialteqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialteqTests.swift; sourceTree = "<group>"; };
 		DDC5D8B724CC0CD9007538F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC5D8CA24CC120F007538F7 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DIContainerProtocol.swift; path = Source/Helpers/PropertyWrappers/DIContainerProtocol.swift; sourceTree = SOURCE_ROOT; };
+		DDC5D8D224CC1386007538F7 /* TypeIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeIdentifiable.swift; sourceTree = "<group>"; };
+		DDC5D8D424CC13D0007538F7 /* Registerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registerable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +69,8 @@
 		DDC5D89224CC0CD9007538F7 = {
 			isa = PBXGroup;
 			children = (
-				DDC5D89D24CC0CD9007538F7 /* Socialteq */,
-				DDC5D8B424CC0CD9007538F7 /* SocialteqTests */,
+				DDC5D89D24CC0CD9007538F7 /* Source */,
+				DDC5D8B424CC0CD9007538F7 /* Tests */,
 				DDC5D89C24CC0CD9007538F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,27 +84,119 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DDC5D89D24CC0CD9007538F7 /* Socialteq */ = {
+		DDC5D89D24CC0CD9007538F7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8D624CC151C007538F7 /* Resources */,
+				DDC5D8C724CC0FEB007538F7 /* Coordinators */,
+				DDC5D8C024CC0F9C007538F7 /* ViewControllers */,
+				DDC5D8C124CC0FA3007538F7 /* Views */,
+				DDC5D8C324CC0FBA007538F7 /* Models */,
+				DDC5D8C224CC0FAE007538F7 /* ViewModels */,
+				DDC5D8C624CC0FD1007538F7 /* Containers */,
+				DDC5D8C424CC0FC2007538F7 /* Helpers */,
+				DDC5D8C524CC0FC9007538F7 /* Extensions */,
 				DDC5D89E24CC0CD9007538F7 /* AppDelegate.swift */,
 				DDC5D8A024CC0CD9007538F7 /* SceneDelegate.swift */,
 				DDC5D8A224CC0CD9007538F7 /* ViewController.swift */,
-				DDC5D8A424CC0CD9007538F7 /* Main.storyboard */,
 				DDC5D8A724CC0CD9007538F7 /* Assets.xcassets */,
 				DDC5D8A924CC0CD9007538F7 /* LaunchScreen.storyboard */,
 				DDC5D8AC24CC0CD9007538F7 /* Info.plist */,
 			);
-			path = Socialteq;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		DDC5D8B424CC0CD9007538F7 /* SocialteqTests */ = {
+		DDC5D8B424CC0CD9007538F7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				DDC5D8B524CC0CD9007538F7 /* SocialteqTests.swift */,
 				DDC5D8B724CC0CD9007538F7 /* Info.plist */,
 			);
-			path = SocialteqTests;
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		DDC5D8C024CC0F9C007538F7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DDC5D8C124CC0FA3007538F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDC5D8C224CC0FAE007538F7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DDC5D8C324CC0FBA007538F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DDC5D8C424CC0FC2007538F7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8D124CC136B007538F7 /* Protocols */,
+				DDC5D8C924CC1203007538F7 /* PropertyWrappers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DDC5D8C524CC0FC9007538F7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DDC5D8C624CC0FD1007538F7 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		DDC5D8C724CC0FEB007538F7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		DDC5D8C924CC1203007538F7 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8CA24CC120F007538F7 /* Injected.swift */,
+				DDC5D8D424CC13D0007538F7 /* Registerable.swift */,
+			);
+			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		DDC5D8D124CC136B007538F7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8D224CC1386007538F7 /* TypeIdentifiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DDC5D8D624CC151C007538F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8A424CC0CD9007538F7 /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +300,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC5D8D524CC13D0007538F7 /* Registerable.swift in Sources */,
 				DDC5D8A324CC0CD9007538F7 /* ViewController.swift in Sources */,
+				DDC5D8D324CC1387007538F7 /* TypeIdentifiable.swift in Sources */,
 				DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */,
 				DDC5D8A124CC0CD9007538F7 /* SceneDelegate.swift in Sources */,
+				DDC5D8D024CC129A007538F7 /* DIContainerProtocol.swift in Sources */,
+				DDC5D8CB24CC120F007538F7 /* Injected.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BPYLDK5ZR2;
-				INFOPLIST_FILE = Socialteq/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BPYLDK5ZR2;
-				INFOPLIST_FILE = Socialteq/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,7 +505,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BPYLDK5ZR2;
-				INFOPLIST_FILE = SocialteqTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,7 +527,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BPYLDK5ZR2;
-				INFOPLIST_FILE = SocialteqTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

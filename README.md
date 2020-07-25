@@ -8,3 +8,7 @@
     - feature
       - xcodeproject
       
+### Architecture
+
+- MVVM -> Combine
+- Coordinator -> Soroush khanlou
