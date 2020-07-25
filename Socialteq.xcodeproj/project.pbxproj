@@ -14,6 +14,8 @@
 		DDC5D8A824CC0CD9007538F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8A724CC0CD9007538F7 /* Assets.xcassets */; };
 		DDC5D8AB24CC0CD9007538F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8A924CC0CD9007538F7 /* LaunchScreen.storyboard */; };
 		DDC5D8B624CC0CD9007538F7 /* SocialteqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8B524CC0CD9007538F7 /* SocialteqTests.swift */; };
+		DDC5D8CB24CC120F007538F7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8CA24CC120F007538F7 /* Injected.swift */; };
+		DDC5D8D024CC129A007538F7 /* DIContainerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		DDC5D8B124CC0CD9007538F7 /* SocialteqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialteqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC5D8B524CC0CD9007538F7 /* SocialteqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialteqTests.swift; sourceTree = "<group>"; };
 		DDC5D8B724CC0CD9007538F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC5D8CA24CC120F007538F7 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DIContainerProtocol.swift; path = Source/Helpers/PropertyWrappers/DIContainerProtocol.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 		DDC5D8C424CC0FC2007538F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8C924CC1203007538F7 /* PropertyWrappers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 		DDC5D8C624CC0FD1007538F7 /* Containers */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 			children = (
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		DDC5D8C924CC1203007538F7 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8CA24CC120F007538F7 /* Injected.swift */,
+			);
+			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +281,8 @@
 				DDC5D8A324CC0CD9007538F7 /* ViewController.swift in Sources */,
 				DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */,
 				DDC5D8A124CC0CD9007538F7 /* SceneDelegate.swift in Sources */,
+				DDC5D8D024CC129A007538F7 /* DIContainerProtocol.swift in Sources */,
+				DDC5D8CB24CC120F007538F7 /* Injected.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
