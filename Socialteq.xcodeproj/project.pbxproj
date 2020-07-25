@@ -18,6 +18,12 @@
 		DDC5D8D024CC129A007538F7 /* DIContainerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */; };
 		DDC5D8D324CC1387007538F7 /* TypeIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8D224CC1386007538F7 /* TypeIdentifiable.swift */; };
 		DDC5D8D524CC13D0007538F7 /* Registerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8D424CC13D0007538F7 /* Registerable.swift */; };
+		DDC5D8D824CC1AD1007538F7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8D724CC1AD1007538F7 /* User.swift */; };
+		DDC5D8DA24CC1B07007538F7 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8D924CC1B07007538F7 /* AppStorage.swift */; };
+		DDC5D8DE24CC22D5007538F7 /* LocalizableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8DD24CC22D5007538F7 /* LocalizableProtocol.swift */; };
+		DDC5D8E024CC2393007538F7 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8DF24CC2393007538F7 /* String+Localized.swift */; };
+		DDC5D8E224CC2434007538F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8E124CC2434007538F7 /* Localizable.strings */; };
+		DDC5D8E424CC24D1007538F7 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8E324CC24D1007538F7 /* Localized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +49,15 @@
 		DDC5D8B524CC0CD9007538F7 /* SocialteqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialteqTests.swift; sourceTree = "<group>"; };
 		DDC5D8B724CC0CD9007538F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC5D8CA24CC120F007538F7 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
-		DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DIContainerProtocol.swift; path = Source/Helpers/PropertyWrappers/DIContainerProtocol.swift; sourceTree = SOURCE_ROOT; };
+		DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DIContainerProtocol.swift; path = Source/Helpers/Protocols/DIContainerProtocol.swift; sourceTree = SOURCE_ROOT; };
 		DDC5D8D224CC1386007538F7 /* TypeIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeIdentifiable.swift; sourceTree = "<group>"; };
 		DDC5D8D424CC13D0007538F7 /* Registerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registerable.swift; sourceTree = "<group>"; };
+		DDC5D8D724CC1AD1007538F7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Source/Helpers/PropertyWrappers/User.swift; sourceTree = SOURCE_ROOT; };
+		DDC5D8D924CC1B07007538F7 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
+		DDC5D8DD24CC22D5007538F7 /* LocalizableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableProtocol.swift; sourceTree = "<group>"; };
+		DDC5D8DF24CC2393007538F7 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		DDC5D8E124CC2434007538F7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		DDC5D8E324CC24D1007538F7 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +151,7 @@
 		DDC5D8C324CC0FBA007538F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8D724CC1AD1007538F7 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +168,7 @@
 		DDC5D8C524CC0FC9007538F7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8DF24CC2393007538F7 /* String+Localized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,7 +176,6 @@
 		DDC5D8C624CC0FD1007538F7 /* Containers */ = {
 			isa = PBXGroup;
 			children = (
-				DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -179,6 +192,8 @@
 			children = (
 				DDC5D8CA24CC120F007538F7 /* Injected.swift */,
 				DDC5D8D424CC13D0007538F7 /* Registerable.swift */,
+				DDC5D8D924CC1B07007538F7 /* AppStorage.swift */,
+				DDC5D8E324CC24D1007538F7 /* Localized.swift */,
 			);
 			path = PropertyWrappers;
 			sourceTree = "<group>";
@@ -186,6 +201,8 @@
 		DDC5D8D124CC136B007538F7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8DD24CC22D5007538F7 /* LocalizableProtocol.swift */,
+				DDC5D8CF24CC129A007538F7 /* DIContainerProtocol.swift */,
 				DDC5D8D224CC1386007538F7 /* TypeIdentifiable.swift */,
 			);
 			path = Protocols;
@@ -195,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC5D8A424CC0CD9007538F7 /* Main.storyboard */,
+				DDC5D8E124CC2434007538F7 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -281,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC5D8AB24CC0CD9007538F7 /* LaunchScreen.storyboard in Resources */,
+				DDC5D8E224CC2434007538F7 /* Localizable.strings in Resources */,
 				DDC5D8A824CC0CD9007538F7 /* Assets.xcassets in Resources */,
 				DDC5D8A624CC0CD9007538F7 /* Main.storyboard in Resources */,
 			);
@@ -301,11 +320,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC5D8D524CC13D0007538F7 /* Registerable.swift in Sources */,
+				DDC5D8E424CC24D1007538F7 /* Localized.swift in Sources */,
 				DDC5D8A324CC0CD9007538F7 /* ViewController.swift in Sources */,
+				DDC5D8DE24CC22D5007538F7 /* LocalizableProtocol.swift in Sources */,
 				DDC5D8D324CC1387007538F7 /* TypeIdentifiable.swift in Sources */,
 				DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */,
+				DDC5D8D824CC1AD1007538F7 /* User.swift in Sources */,
 				DDC5D8A124CC0CD9007538F7 /* SceneDelegate.swift in Sources */,
 				DDC5D8D024CC129A007538F7 /* DIContainerProtocol.swift in Sources */,
+				DDC5D8DA24CC1B07007538F7 /* AppStorage.swift in Sources */,
+				DDC5D8E024CC2393007538F7 /* String+Localized.swift in Sources */,
 				DDC5D8CB24CC120F007538F7 /* Injected.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
