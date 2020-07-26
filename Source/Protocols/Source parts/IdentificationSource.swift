@@ -9,7 +9,6 @@
 import Foundation
 
 protocol IdentificationSource {
-    "_id": "5e7a40aed2dd69acb979d605",
-    "slug": "carwash",
-    "id": "5e7a40aed2dd69acb979d605"
+    var _id: String? { get }
+    var id: String? { get }
 }

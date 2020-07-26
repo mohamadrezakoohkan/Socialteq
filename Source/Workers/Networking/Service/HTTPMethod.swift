@@ -1,5 +1,5 @@
 //
-//  ImageUrlResolver.swift
+//  HTTPMethod.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/4/1399 AP.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ImageUrlResolver {
-    
-    var imageURL: URL? { get }
+enum HTTPMethod: String {
+    case get = "GET"
+    case head = "HEAD"
 }

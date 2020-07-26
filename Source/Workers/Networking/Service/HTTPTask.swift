@@ -1,5 +1,5 @@
 //
-//  ImageUrlResolver.swift
+//  HTTPTask.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/4/1399 AP.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol ImageUrlResolver {
-    
-    var imageURL: URL? { get }
+typealias HTTPHeaders = [String: String]
+
+enum HTTPTask {
+    case request
 }

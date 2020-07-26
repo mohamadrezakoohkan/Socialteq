@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DisplayType: String {
+enum DisplayType: String, Codable {
     
     case subService
     case priceList

@@ -1,5 +1,5 @@
 //
-//  ImageSets.swift
+//  ImageSource.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/4/1399 AP.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ImageSets {
+protocol ImageSource {
     var originalUrl: String? { get }
     var originalUrl2x: String? { get }
     var originalUrl3x: String? { get }

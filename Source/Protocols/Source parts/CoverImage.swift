@@ -1,5 +1,5 @@
 //
-//  ImageUrlResolver.swift
+//  CoverImage.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/4/1399 AP.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol ImageUrlResolver {
+struct CoverImage: Codable {
     
-    var imageURL: URL? { get }
 }

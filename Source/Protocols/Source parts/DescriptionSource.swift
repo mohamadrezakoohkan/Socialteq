@@ -13,5 +13,3 @@ protocol DescriptionSource {
     var shortDescriptions: UniversalString? { get }
     var slogans: UniversalString? { get }
 }
-
-typealias Descriptioned = DescriptionSource & SingleDescriptionSource

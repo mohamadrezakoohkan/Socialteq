@@ -1,5 +1,5 @@
 //
-//  ShowOption.swift
+//  DisplayTypeSource.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/4/1399 AP.
@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol ShowOption {
-    
-    var isActive: Bool? { get }
-    var sort: Int? { get }
-    var hasNewBadge: Bool? { get }
+protocol DisplayTypeSource {
     var displayType: DisplayType? { get }
 }

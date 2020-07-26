@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Promotion: Codable, ImageStorageSource {
+    
+    let image: Image?
+}

@@ -12,5 +12,3 @@ protocol TitleSource {
     var titles: UniversalString? { get }
     var subTitles: UniversalString? { get }
 }
-
-typealias Titled = TitleSource & SingleTitleSource

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit.UIDevice
 
-struct Image: ImageSets, Codable  {
+struct Image: Codable, ImageSource  {
     
     let originalUrl: String?
     let originalUrl2x: String?
