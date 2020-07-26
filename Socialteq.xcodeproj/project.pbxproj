@@ -66,6 +66,7 @@
 		DDC5D94724CCBFBF007538F7 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */; };
 		DDC5D94924CCBFCA007538F7 /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */; };
 		DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */; };
+		DDC5D97C24CE26C2007538F7 /* CurvedTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D97B24CE26C2007538F7 /* CurvedTabbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
 		DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProvider.swift; sourceTree = "<group>"; };
 		DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingDIContainer.swift; path = Source/Workers/Networking/Providers/NetworkingDIContainer.swift; sourceTree = SOURCE_ROOT; };
+		DDC5D97B24CE26C2007538F7 /* CurvedTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedTabbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 		DDC5D8C124CC0FA3007538F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D94C24CE08DD007538F7 /* Tabbar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +410,14 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		DDC5D94C24CE08DD007538F7 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D97B24CE26C2007538F7 /* CurvedTabbar.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -550,6 +561,7 @@
 				DDC5D92C24CCA9D7007538F7 /* DIContainer.swift in Sources */,
 				DDC5D94924CCBFCA007538F7 /* CategoryProvider.swift in Sources */,
 				DDC5D93324CCB13D007538F7 /* HTTPError.swift in Sources */,
+				DDC5D97C24CE26C2007538F7 /* CurvedTabbar.swift in Sources */,
 				DDC5D93B24CCB45F007538F7 /* Router.swift in Sources */,
 				DDC5D92424CC9FC8007538F7 /* ServiceStorageSource.swift in Sources */,
 				DDC5D92F24CCB03C007538F7 /* HTTPMethod.swift in Sources */,

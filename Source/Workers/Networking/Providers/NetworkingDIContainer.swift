@@ -22,7 +22,7 @@ final class NetworkingDIContainer: DIContainerProtocol {
         }else if T.self == HTTPManager.self {
             return HTTPManager() as! T
         }else{
-            fatalError("Container could not resolve: \(String(describing: T.self))")
+            fatalError("\(String(describing: Self.self)) could not resolve: \(String(describing: T.self))")
         }
     }
 }

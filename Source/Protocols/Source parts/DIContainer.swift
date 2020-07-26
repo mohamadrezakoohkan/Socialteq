@@ -18,7 +18,7 @@ final class DIContainer: DIContainerProtocol {
         if T.self == User.self {
             return User() as! T
         }else{
-            fatalError("Container could not resolve: \(String(describing: T.self))")
+            fatalError("\(String(describing: Self.self)) could not resolve: \(String(describing: T.self))")
         }
     }
 }
