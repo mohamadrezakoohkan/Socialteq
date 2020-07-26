@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol TypeIdentifiable {
+protocol IdentifiableProtocol {
     
     static var identifier: String { get }
 }
 
-extension TypeIdentifiable where Self: UITableViewCell {
+extension IdentifiableProtocol where Self: UITableViewCell {
     
     static var identifier: String {
         String(describing: Self.self)
     }
 }
 
-extension UITableViewCell: TypeIdentifiable { }
+extension UITableViewCell: IdentifiableProtocol { }

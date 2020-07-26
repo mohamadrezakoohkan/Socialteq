@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// Localize  assosiated interface  (`LocalizableProtocol`)  with given key
+///
+///
 @propertyWrapper
 struct Localized<Value: LocalizableProtocol> {
     
