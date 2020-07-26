@@ -65,6 +65,7 @@
 		DDC5D94024CCB9BE007538F7 /* HTTPEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D93F24CCB9BE007538F7 /* HTTPEnvironment.swift */; };
 		DDC5D94724CCBFBF007538F7 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */; };
 		DDC5D94924CCBFCA007538F7 /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */; };
+		DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		DDC5D93F24CCB9BE007538F7 /* HTTPEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnvironment.swift; sourceTree = "<group>"; };
 		DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
 		DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProvider.swift; sourceTree = "<group>"; };
+		DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingDIContainer.swift; path = Source/Workers/Networking/Providers/NetworkingDIContainer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC5D92B24CCA9D7007538F7 /* DIContainer.swift */,
+				DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				DDC5D93B24CCB45F007538F7 /* Router.swift in Sources */,
 				DDC5D92424CC9FC8007538F7 /* ServiceStorageSource.swift in Sources */,
 				DDC5D92F24CCB03C007538F7 /* HTTPMethod.swift in Sources */,
+				DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */,
 				DDC5D90924CC52C4007538F7 /* Promotion.swift in Sources */,
 				DDC5D91124CC55A5007538F7 /* IdentificationSource.swift in Sources */,
 				DDC5D8E824CC34E0007538F7 /* Domain.swift in Sources */,

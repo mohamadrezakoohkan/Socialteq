@@ -17,8 +17,6 @@ final class DIContainer: DIContainerProtocol {
     func resolve<T>() -> T {
         if T.self == User.self {
             return User() as! T
-        }else if T.self == HTTPManager.self {
-            return HTTPManager() as! T
         }else{
             fatalError("Container could not resolve: \(String(describing: T.self))")
         }
