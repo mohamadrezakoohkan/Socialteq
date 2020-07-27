@@ -12,7 +12,7 @@ import Foundation
 /// User represent actual end user that working with app
 ///
 /// This model could be also a singleton, but we choosed struct over class to have easier memory management
-///
+/// 
 struct User {
     
     init() { }

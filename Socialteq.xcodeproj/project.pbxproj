@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD96C9CB24CEF6BC00E6689E /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */; };
+		DD96C9CC24CEF6BC00E6689E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C824CEF6BB00E6689E /* TabBarController.swift */; };
+		DD96C9CD24CEF6BC00E6689E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C924CEF6BB00E6689E /* TabBarView.swift */; };
+		DD96C9CE24CEF6BC00E6689E /* TabBarStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9CA24CEF6BC00E6689E /* TabBarStackView.swift */; };
+		DD96C9D024CEF71700E6689E /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9CF24CEF71700E6689E /* UIColor+AppColors.swift */; };
+		DD96C9D224CEF72400E6689E /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9D124CEF72400E6689E /* UIFont+AppFonts.swift */; };
+		DD96C9E624CEFB5E00E6689E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD96C9D424CEFB5C00E6689E /* Poppins-SemiBold.ttf */; };
+		DD96C9E724CEFB5E00E6689E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD96C9D524CEFB5C00E6689E /* Poppins-Regular.ttf */; };
+		DD96C9E924CEFB5E00E6689E /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD96C9D724CEFB5C00E6689E /* Poppins-LightItalic.ttf */; };
+		DD96C9EC24CEFB5E00E6689E /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD96C9DA24CEFB5D00E6689E /* Poppins-Light.ttf */; };
+		DD96C9F224CEFB5E00E6689E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD96C9E024CEFB5D00E6689E /* Poppins-Medium.ttf */; };
+		DD96C9F724CEFB5E00E6689E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD96C9E524CEFB5E00E6689E /* Poppins-Bold.ttf */; };
+		DD96C9F924CEFDED00E6689E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9F824CEFDED00E6689E /* MainTabBarController.swift */; };
 		DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D89E24CC0CD9007538F7 /* AppDelegate.swift */; };
 		DDC5D8A124CC0CD9007538F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8A024CC0CD9007538F7 /* SceneDelegate.swift */; };
 		DDC5D8A324CC0CD9007538F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8A224CC0CD9007538F7 /* ViewController.swift */; };
@@ -65,6 +78,7 @@
 		DDC5D94024CCB9BE007538F7 /* HTTPEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D93F24CCB9BE007538F7 /* HTTPEnvironment.swift */; };
 		DDC5D94724CCBFBF007538F7 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */; };
 		DDC5D94924CCBFCA007538F7 /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */; };
+		DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +92,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		DD96C9C824CEF6BB00E6689E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DD96C9C924CEF6BB00E6689E /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		DD96C9CA24CEF6BC00E6689E /* TabBarStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarStackView.swift; sourceTree = "<group>"; };
+		DD96C9CF24CEF71700E6689E /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
+		DD96C9D124CEF72400E6689E /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
+		DD96C9D424CEFB5C00E6689E /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		DD96C9D524CEFB5C00E6689E /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		DD96C9D724CEFB5C00E6689E /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		DD96C9DA24CEFB5D00E6689E /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		DD96C9E024CEFB5D00E6689E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		DD96C9E524CEFB5E00E6689E /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		DD96C9F824CEFDED00E6689E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Source/Extensions/MainTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		DDC5D89B24CC0CD9007538F7 /* Socialteq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialteq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC5D89E24CC0CD9007538F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDC5D8A024CC0CD9007538F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +167,7 @@
 		DDC5D93F24CCB9BE007538F7 /* HTTPEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnvironment.swift; sourceTree = "<group>"; };
 		DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
 		DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProvider.swift; sourceTree = "<group>"; };
+		DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingDIContainer.swift; path = Source/Workers/Networking/Providers/NetworkingDIContainer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +188,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD96C9D324CEFAD200E6689E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD96C9E524CEFB5E00E6689E /* Poppins-Bold.ttf */,
+				DD96C9D424CEFB5C00E6689E /* Poppins-SemiBold.ttf */,
+				DD96C9E024CEFB5D00E6689E /* Poppins-Medium.ttf */,
+				DD96C9D524CEFB5C00E6689E /* Poppins-Regular.ttf */,
+				DD96C9DA24CEFB5D00E6689E /* Poppins-Light.ttf */,
+				DD96C9D724CEFB5C00E6689E /* Poppins-LightItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DDC5D89224CC0CD9007538F7 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +255,7 @@
 		DDC5D8C024CC0F9C007538F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD96C9F824CEFDED00E6689E /* MainTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -221,6 +263,7 @@
 		DDC5D8C124CC0FA3007538F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDC5D94C24CE08DD007538F7 /* Tabbar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +303,8 @@
 		DDC5D8C524CC0FC9007538F7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DD96C9CF24CEF71700E6689E /* UIColor+AppColors.swift */,
+				DD96C9D124CEF72400E6689E /* UIFont+AppFonts.swift */,
 				DDC5D8DF24CC2393007538F7 /* String+Localized.swift */,
 				DDC5D8EF24CC3D16007538F7 /* UIDevice+Idiom.swift */,
 				DDC5D8FA24CC424B007538F7 /* URL+ExpressibleByStringLiteral.swift */,
@@ -271,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC5D92B24CCA9D7007538F7 /* DIContainer.swift */,
+				DDC5D94A24CE082D007538F7 /* NetworkingDIContainer.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -308,6 +354,7 @@
 			children = (
 				DDC5D8A424CC0CD9007538F7 /* Main.storyboard */,
 				DDC5D8E124CC2434007538F7 /* Localizable.strings */,
+				DD96C9D324CEFAD200E6689E /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -404,6 +451,17 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		DDC5D94C24CE08DD007538F7 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				DD96C9C824CEF6BB00E6689E /* TabBarController.swift */,
+				DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */,
+				DD96C9CA24CEF6BC00E6689E /* TabBarStackView.swift */,
+				DD96C9C924CEF6BB00E6689E /* TabBarView.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,10 +543,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD96C9F224CEFB5E00E6689E /* Poppins-Medium.ttf in Resources */,
+				DD96C9F724CEFB5E00E6689E /* Poppins-Bold.ttf in Resources */,
+				DD96C9E624CEFB5E00E6689E /* Poppins-SemiBold.ttf in Resources */,
 				DDC5D8AB24CC0CD9007538F7 /* LaunchScreen.storyboard in Resources */,
 				DDC5D8E224CC2434007538F7 /* Localizable.strings in Resources */,
+				DD96C9E724CEFB5E00E6689E /* Poppins-Regular.ttf in Resources */,
 				DDC5D8A824CC0CD9007538F7 /* Assets.xcassets in Resources */,
 				DDC5D8A624CC0CD9007538F7 /* Main.storyboard in Resources */,
+				DD96C9EC24CEFB5E00E6689E /* Poppins-Light.ttf in Resources */,
+				DD96C9E924CEFB5E00E6689E /* Poppins-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,8 +581,10 @@
 				DDC5D92824CCA7FB007538F7 /* CategoryStorageSource.swift in Sources */,
 				DDC5D90D24CC54D3007538F7 /* ShowOptionSource.swift in Sources */,
 				DDC5D8A324CC0CD9007538F7 /* ViewController.swift in Sources */,
+				DD96C9CE24CEF6BC00E6689E /* TabBarStackView.swift in Sources */,
 				DDC5D8EC24CC39CD007538F7 /* Image.swift in Sources */,
 				DDC5D90524CC50BB007538F7 /* ImageStorageSource.swift in Sources */,
+				DD96C9CB24CEF6BC00E6689E /* TabBarButton.swift in Sources */,
 				DDC5D8DE24CC22D5007538F7 /* LocalizableProtocol.swift in Sources */,
 				DDC5D8FD24CC4F5C007538F7 /* TitleSource.swift in Sources */,
 				DDC5D91C24CC9E27007538F7 /* PriceSource.swift in Sources */,
@@ -528,8 +594,11 @@
 				DDC5D8D324CC1387007538F7 /* IdentifiableProtocol.swift in Sources */,
 				DDC5D90124CC4FF3007538F7 /* SingleTitleSource.swift in Sources */,
 				DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */,
+				DD96C9F924CEFDED00E6689E /* MainTabBarController.swift in Sources */,
 				DDC5D92A24CCA812007538F7 /* PromotionStorageSource.swift in Sources */,
 				DDC5D93124CCB086007538F7 /* HTTPTask.swift in Sources */,
+				DD96C9CD24CEF6BC00E6689E /* TabBarView.swift in Sources */,
+				DD96C9CC24CEF6BC00E6689E /* TabBarController.swift in Sources */,
 				DDC5D8FF24CC4FAA007538F7 /* DescriptionSource.swift in Sources */,
 				DDC5D8F524CC3F77007538F7 /* UniversalString.swift in Sources */,
 				DDC5D8D824CC1AD1007538F7 /* User.swift in Sources */,
@@ -544,12 +613,15 @@
 				DDC5D91324CC9B21007538F7 /* Service.swift in Sources */,
 				DDC5D8F024CC3D16007538F7 /* UIDevice+Idiom.swift in Sources */,
 				DDC5D91724CC9D19007538F7 /* SlugSource.swift in Sources */,
+				DD96C9D024CEF71700E6689E /* UIColor+AppColors.swift in Sources */,
+				DD96C9D224CEF72400E6689E /* UIFont+AppFonts.swift in Sources */,
 				DDC5D92C24CCA9D7007538F7 /* DIContainer.swift in Sources */,
 				DDC5D94924CCBFCA007538F7 /* CategoryProvider.swift in Sources */,
 				DDC5D93324CCB13D007538F7 /* HTTPError.swift in Sources */,
 				DDC5D93B24CCB45F007538F7 /* Router.swift in Sources */,
 				DDC5D92424CC9FC8007538F7 /* ServiceStorageSource.swift in Sources */,
 				DDC5D92F24CCB03C007538F7 /* HTTPMethod.swift in Sources */,
+				DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */,
 				DDC5D90924CC52C4007538F7 /* Promotion.swift in Sources */,
 				DDC5D91124CC55A5007538F7 /* IdentificationSource.swift in Sources */,
 				DDC5D8E824CC34E0007538F7 /* Domain.swift in Sources */,
