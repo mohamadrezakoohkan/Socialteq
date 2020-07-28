@@ -11,14 +11,13 @@ import Foundation
 
 /// User represent actual end user that working with app
 ///
-/// This model could be also a singleton, but we choosed struct over class to have easier memory management
-/// 
-struct User {
+class User {
     
-    init() { }
+    static let shared: User = User()
+    private init() { }
     
     @AppStorage(key: "user.name", defaultValue: String.guest.localized)
-    var name: String
+    var name: String?
     
     @AppStorage(key: "user.address", defaultValue: nil)
     var address: String?
@@ -36,6 +35,6 @@ extension User: Equatable {
 
 extension User: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name + (address ?? "") + (avatar ?? ""))
+        hasher.combine((name ?? "") + (address ?? "") + (avatar ?? ""))
     }
 }

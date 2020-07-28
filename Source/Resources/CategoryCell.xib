@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-LightItalic.ttf">
+            <string>Poppins-LightItalic</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="gTV-IL-0wX" customClass="CategoryCell" customModule="Socialteq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqn-Dy-35i" customClass="RoundedView" customModule="Socialteq" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LcZ-e9-hH7">
+                                <rect key="frame" x="16" y="16" width="143" height="179"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fop-yk-I5y">
+                                        <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JNK-gc-ULM" customClass="LoadingImageView" customModule="Socialteq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="NPj-el-EmT"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TY-FK-FRM">
+                                                <rect key="frame" x="71.5" y="0.0" width="71.5" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffx-yr-oin" customClass="BadgeLabel" customModule="Socialteq" customModuleProvider="target">
+                                                        <rect key="frame" x="48.5" y="0.0" width="23" height="14"/>
+                                                        <color key="backgroundColor" name="appLightRed"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
+                                                        <color key="textColor" name="appBlack"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Ffx-yr-oin" secondAttribute="trailing" id="3xd-Xw-GYt"/>
+                                                    <constraint firstItem="Ffx-yr-oin" firstAttribute="top" secondItem="2TY-FK-FRM" secondAttribute="top" id="akV-if-V2c"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QEH-Zb-TAY">
+                                        <rect key="frame" x="0.0" y="70" width="143" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carwash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCq-xl-jtH">
+                                                <rect key="frame" x="0.0" y="0.0" width="143" height="25"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                                <color key="textColor" name="appBlack"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Package" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AR0-59-Uao">
+                                                <rect key="frame" x="0.0" y="25" width="143" height="25"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                <color key="textColor" name="appBlack"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tNz-SR-7zJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic | Eco | Pro | VIP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAb-3F-GPR">
+                                        <rect key="frame" x="0.0" y="140" width="143" height="39"/>
+                                        <fontDescription key="fontDescription" name="Poppins-LightItalic" family="Poppins" pointSize="12"/>
+                                        <color key="textColor" name="appBlack"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LcZ-e9-hH7" firstAttribute="top" secondItem="rqn-Dy-35i" secondAttribute="top" constant="16" id="Ck9-2L-hYj"/>
+                            <constraint firstAttribute="bottom" secondItem="LcZ-e9-hH7" secondAttribute="bottom" constant="16" id="VGC-Rf-qnR"/>
+                            <constraint firstAttribute="trailing" secondItem="LcZ-e9-hH7" secondAttribute="trailing" constant="16" id="oWa-5A-1Nr"/>
+                            <constraint firstItem="LcZ-e9-hH7" firstAttribute="leading" secondItem="rqn-Dy-35i" secondAttribute="leading" constant="16" id="upD-ZL-IUr"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeft" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRight" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="rqn-Dy-35i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2pp-hY-sCi"/>
+                <constraint firstItem="rqn-Dy-35i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4Bm-dG-oIT"/>
+                <constraint firstAttribute="bottom" secondItem="rqn-Dy-35i" secondAttribute="bottom" id="Wed-BK-7x5"/>
+                <constraint firstAttribute="trailing" secondItem="rqn-Dy-35i" secondAttribute="trailing" id="rhw-mW-lZJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="284" height="785"/>
+            <connections>
+                <outlet property="image" destination="JNK-gc-ULM" id="2Vq-m6-Uc5"/>
+                <outlet property="newBadge" destination="Ffx-yr-oin" id="ByT-GL-Ltx"/>
+                <outlet property="shortDescription" destination="VAb-3F-GPR" id="d62-4K-Tps"/>
+                <outlet property="subTitle" destination="AR0-59-Uao" id="PPP-LK-qbx"/>
+                <outlet property="title" destination="BCq-xl-jtH" id="CTa-hy-IJg"/>
+            </connections>
+            <point key="canvasLocation" x="51.449275362318843" y="148.32589285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="appBlack">
+            <color red="0.030999999493360519" green="0.078000001609325409" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appLightRed">
+            <color red="0.98799997568130493" green="0.23899999260902405" blue="0.22400000691413879" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ServiceStorageSource {
-    var data: [Service]? { get }
+protocol CategoryPackageStorageSource {
+    var data: [CategoryPackage]? { get }
 }

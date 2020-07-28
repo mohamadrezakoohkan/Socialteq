@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CategoriesVC: UIViewController, Storyboarded {
+final class CategoriesVC: BaseViewController, Storyboarded {
     
     weak var coordinator: CategoriesCoordinator?
 

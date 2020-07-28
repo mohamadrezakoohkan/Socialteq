@@ -18,7 +18,7 @@ final class MainTabBarController: TabBarController {
     let help: HelpCoordinator = createCoordinator(title: .help, image: .helpCircle)
 
     override var itemsFont: UIFont {
-        .semiBold(size: 14)
+        return .semiBold(size: 14)
     }
     
     override var startedIndex: Int {
@@ -26,11 +26,11 @@ final class MainTabBarController: TabBarController {
     }
     
     override var selectedColor: UIColor {
-        .highlight
+        return .appHighlight
     }
     
     override var unselectedColor: UIColor {
-       .secondary
+       return .appSecondary
     }
     
     override func viewDidLoad() {

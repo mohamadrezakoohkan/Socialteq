@@ -30,11 +30,11 @@ struct Image: Codable, ImageSource  {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.originalUrl = try container.decode(String?.self, forKey: .originalUrl)
-        self.originalUrl2x = try container.decode(String?.self, forKey: .originalUrl2x)
-        self.originalUrl3x = try container.decode(String?.self, forKey: .originalUrl3x)
-        self.originalUrl4x = try container.decode(String?.self, forKey: .originalUrl4x)
-        self.originalUrlPDF = try container.decode(String?.self, forKey: .originalUrlPDF)
-        self.originalUrlSVG = try container.decode(String?.self, forKey: .originalUrlSVG)
+        self.originalUrl2x = try? container.decode(String?.self, forKey: .originalUrl2x)
+        self.originalUrl3x = try? container.decode(String?.self, forKey: .originalUrl3x)
+        self.originalUrl4x = try? container.decode(String?.self, forKey: .originalUrl4x)
+        self.originalUrlPDF = try? container.decode(String?.self, forKey: .originalUrlPDF)
+        self.originalUrlSVG = try? container.decode(String?.self, forKey: .originalUrlSVG)
     }
 }
 

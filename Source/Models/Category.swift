@@ -10,7 +10,7 @@ import Foundation
 
 /// Also known as services in UI, in the backend object named category
 ///
-struct Category: Codable, TitleSource, SingleTitleSource, DescriptionSource, SingleDescriptionSource, ImageStorageSource, IdentificationSource, SlugSource, ShowOptionSource, DisplayTypeSource, ServiceStorageSource {
+struct Category: Codable, TitleSource, SingleTitleSource, DescriptionSource, SingleDescriptionSource, ImageStorageSource, IdentificationSource, SlugSource, ShowOptionSource, DisplayTypeSource, CategoryPackageStorageSource {
     
     let _id: String?
     let slug: String?
@@ -30,7 +30,7 @@ struct Category: Codable, TitleSource, SingleTitleSource, DescriptionSource, Sin
     let sort: Int?
     let hasNewBadge: Bool?
     let displayType: DisplayType?
-    let data: [Service]?
+    let data: [CategoryPackage]?
     
 }
 

@@ -39,6 +39,7 @@ final class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
                     }
                 }
             }
+            self.task?.resume()
         }catch{
             DispatchQueue.main.async {
                 completion(.failure(error))

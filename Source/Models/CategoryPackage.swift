@@ -10,7 +10,7 @@ import Foundation
 
 /// Also known as packages in UI, in the backend object named service
 ///
-struct Service: Codable, TitleSource, SingleTitleSource, DescriptionSource, SingleDescriptionSource, SubCategorySource, ShowOptionSource, PriceSource, CoverImageStorageSource {
+struct CategoryPackage: Codable, TitleSource, SingleTitleSource, DescriptionSource, SingleDescriptionSource, SubCategorySource, ShowOptionSource, PriceSource, CoverImageStorageSource {
     
     let titles: UniversalString?
     let subTitles: UniversalString?

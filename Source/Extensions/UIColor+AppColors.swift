@@ -10,20 +10,20 @@ import UIKit.UIColor
 
 extension UIColor {
     
-    class var highlight: UIColor {
-        return UIColor(named: "highlight")!
+    class var appHighlight: UIColor {
+        return UIColor(named: "appHighlight")!
     }
     
-    class var secondary: UIColor {
-        return UIColor(named: "secondary")!
+    class var appSecondary: UIColor {
+        return UIColor(named: "appSecondary")!
     }
     
-    class var badge: UIColor {
-        return UIColor(named: "badge")!
+    class var appBadge: UIColor {
+        return UIColor(named: "appBadge")!
     }
-    
-    class var background: UIColor {
-        return UIColor(named: "background")!
+
+    class var appBackground: UIColor {
+        return UIColor(named: "appBackground")!
     }
     
     class var appWhite: UIColor {
@@ -32,5 +32,22 @@ extension UIColor {
     
     class var appRed: UIColor {
         return UIColor(named: "appRed")!
+    }
+    
+    class var appGray: UIColor {
+        return UIColor(named: "appGray")!
+
+    }
+    
+    class var appDarkGray: UIColor {
+        return UIColor(named: "appDarkGray")!
+    }
+    
+    class var appBlack: UIColor {
+        return UIColor(named: "appBlack")!
+    }
+    
+    class var appLightRed: UIColor {
+        return UIColor(named: "appLightRed")!
     }
 }
