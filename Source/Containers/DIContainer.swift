@@ -16,7 +16,7 @@ final class DIContainer: DIContainerProtocol {
     
     func resolve<T>() -> T {
         if T.self == User.self {
-            return User() as! T
+            return User.shared as! T
         }else{
             fatalError("\(String(describing: Self.self)) could not resolve: \(String(describing: T.self))")
         }

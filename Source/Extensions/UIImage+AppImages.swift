@@ -26,4 +26,23 @@ extension UIImage {
         return UIImage(named: "help-circle")!
     }
     
+    class var hand: UIImage {
+        return UIImage(named: "hand")!
+    }
+    
+    class var union: UIImage {
+        return UIImage(named: "union")!
+    }
+    
+    class var rectangle: UIImage {
+        return UIImage(named: "rectangle")!
+    }
+    
+    class var dropDown: UIImage {
+          return UIImage(named: "dropDown")!
+      }
+    
+    class var pin: UIImage {
+          return UIImage(named: "pin")!
+      }
 }

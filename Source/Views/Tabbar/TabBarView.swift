@@ -8,10 +8,7 @@
 
 import UIKit.UIView
 
-final class TabBarView: UIView {
-    
-    private let cornerRadius: CGFloat = 25
-    private let corners: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+final class TabBarView: RoundedView {
     
     func add(to view: UITabBar) {
         self.frame = view.frame
@@ -29,17 +26,9 @@ final class TabBarView: UIView {
         self.constraintFill(view: view)
     }
     
-    private func setShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.masksToBounds = false
-        self.layer.shadowOpacity = 0.08
-        self.layer.shadowRadius = 20
-        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        self.layer.cornerRadius = self.cornerRadius
-    }
-    
     private func setShape() {
-        self.layer.maskedCorners = self.corners
-        self.layer.cornerRadius = self.cornerRadius
+        self.cornerRadius = 25
+        self.topLeft = true
+        self.topRight = true
     }
 }

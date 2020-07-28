@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HelpVC: UIViewController, Storyboarded {
+final class HelpVC: BaseViewController, Storyboarded {
     
     weak var coordinator: HelpCoordinator?
 

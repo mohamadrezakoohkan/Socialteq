@@ -26,11 +26,11 @@ class TabBarController: UITabBarController {
     }
     
     open var selectedColor: UIColor {
-        self.tabBar.tintColor ?? .highlight
+        self.tabBar.tintColor ?? .appHighlight
     }
     
     open var unselectedColor: UIColor {
-        self.tabBar.unselectedItemTintColor ?? .secondary
+        self.tabBar.unselectedItemTintColor ?? .appSecondary
     }
     
     override var viewControllers: [UIViewController]? {

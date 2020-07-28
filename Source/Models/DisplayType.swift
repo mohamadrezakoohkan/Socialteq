@@ -10,6 +10,6 @@ import Foundation
 
 enum DisplayType: String, Codable {
     
-    case subService
+    case subServices
     case priceList
 }

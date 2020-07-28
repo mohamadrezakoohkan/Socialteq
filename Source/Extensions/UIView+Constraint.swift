@@ -19,4 +19,10 @@ extension UIView {
         self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
+    func constraintCenter(in view: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
 }
