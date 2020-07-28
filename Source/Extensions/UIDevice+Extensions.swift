@@ -6,7 +6,7 @@
 //  Copyright © 1399 AP Mohamadreza Koohkan. All rights reserved.
 //
 
-import UIKit.UIDevice
+import UIKit
 
 extension UIDevice {
     
@@ -17,4 +17,12 @@ extension UIDevice {
     var isIphone: Bool {
         return self.userInterfaceIdiom == .phone
     }
+    
+    class var isLandscape: Bool {
+        let window = UIApplication.shared.windows.first
+        let windowScene = window?.windowScene
+        let orientation = windowScene?.interfaceOrientation
+        return orientation?.isLandscape == true
+    }
 }
+

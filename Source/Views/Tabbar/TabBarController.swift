@@ -14,6 +14,8 @@ class TabBarController: UITabBarController {
     private lazy var itemsStackView: TabBarStackView = .init()
     private var buttons = [TabBarButton]()
     private var didSetupedTabbar: Bool = false
+    private let animationDuration: TimeInterval = 0.4
+    private let animationVelocity: CGFloat = 0.9
     
     open var itemsFont: UIFont {
         .semiBold()
@@ -44,31 +46,35 @@ class TabBarController: UITabBarController {
         self.setupTabbar()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        self.tabbarView.deviceRotated(with: coordinator)
-    }
-    
     @objc func buttonSelected(_ sender: TabBarButton) {
-        self.selectedIndex = sender.tag
-        self.buttons.enumerated().forEach { index, btn in
-            if index != self.selectedIndex {
-                btn.setText(nil)
-                    .setColor(self.unselectedColor)
-            }else{
-                btn.setText(self.viewControllers![index].tabBarItem.title)
-                    .setColor(self.selectedColor)
-            }
-        }
-        
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
-            self.view.layoutIfNeeded()
-            
-        }, completion: nil)
+        self.changeIndex(selected: sender.tag)
+        self.updateButtons(selected: sender.tag)
+        self.animateOnTap()
     }
     
+    private func updateButtons(selected selectedIndex: Int) {
+        self.buttons.enumerated().forEach { index, btn in
+            _ = index != selectedIndex
+                ? btn.setText(nil)
+                    .setColor(self.unselectedColor)
+                : btn.setText(self.viewControllers![index].tabBarItem.title)
+                    .setColor(self.selectedColor)
+        }
+    }
+    
+    private func changeIndex(selected selectedIndex: Int) {
+        self.selectedIndex = selectedIndex
+        self.view.layoutIfNeeded()
+    }
+        
+    private func animateOnTap() {
+        UIView.animate(withDuration: self.animationDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+        
     private func setupTabbar() {
-        self.tabBar.isHidden = true
+        self.tabBar.subviews.filter { $0 as? TabBarView == nil }.forEach { $0.alpha = 0 }
         guard self.viewControllers?.isEmpty == false, !self.didSetupedTabbar else { return }
         self.didSetupedTabbar = true
         self.addButtons()
@@ -76,7 +82,7 @@ class TabBarController: UITabBarController {
     }
     
     private func addSubviews() {
-        self.tabbarView.add(to: self.view)
+        self.tabbarView.add(to: self.tabBar)
         self.itemsStackView.add(to: self.tabbarView)
     }
     
@@ -91,7 +97,7 @@ class TabBarController: UITabBarController {
     }
     
     private func addButtons() {
-        self.buttons = TabBarButton.batchCreate(using: self, padding: .zero)
+        self.buttons = TabBarButton.batchCreate(using: self, badgeIndexes: [1])
         self.buttons.forEach { btn in
             btn.insert(into: self.itemsStackView)
             btn.addTarget(self, action: #selector(self.buttonSelected(_:)), for: .touchUpInside)
