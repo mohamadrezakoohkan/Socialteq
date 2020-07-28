@@ -13,21 +13,25 @@ struct HTTPManager {
     static let environment: HTTPEnvironment = .production
     fileprivate let router: Router<Endpoint> = .init()
     
-    fileprivate func handleError(data: Data?, response: URLResponse?) -> Result<Data,Error> {
+    fileprivate func handleError(data: Data?, response: URLResponse?) throws -> Data {
         guard let httpResponse = response as? HTTPURLResponse,
             let responeData = data else {
-                return .failure(HTTPError.invalidResponseData)
+                throw HTTPError.invalidResponseData
         }
         
         switch httpResponse.statusCode {
         case 200...299:
-            return .success(responeData)
+            return responeData
+        case 403:
+            throw HTTPError.badRequest
+        case 404:
+            throw HTTPError.notFound
         case 501...599:
-            return .failure(HTTPError.badRequest)
+            throw HTTPError.serverError
         case 600:
-            return .failure(HTTPError.outdated)
+            throw HTTPError.outdated
         default:
-            return .failure(HTTPError.canceled)
+            throw HTTPError.canceled
         }
         
     }
@@ -41,9 +45,9 @@ extension HTTPManager: HomeProvider {
             switch result {
             case .success((let data, let response)):
                 do {
-                    let dataValue = try self.handleError(data: data, response: response).get()
+                    let value = try self.handleError(data: data, response: response)
                     let decoder = JSONDecoder()
-                    let home = try decoder.decode(Home.self, from: dataValue)
+                    let home = try decoder.decode(Home.self, from: value)
                     completion(.success(home))
                 }catch {
                     completion(.failure(error))
@@ -69,9 +73,9 @@ extension HTTPManager: CategoryProvider {
             switch result {
             case .success((let data, let response)):
                 do {
-                    let dataValue = try self.handleError(data: data, response: response).get()
+                    let value = try self.handleError(data: data, response: response)
                     let decoder = JSONDecoder()
-                    let category = try decoder.decode(Category.self, from: dataValue)
+                    let category = try decoder.decode(Category.self, from: value)
                     completion(.success(category))
                 }catch {
                     completion(.failure(error))

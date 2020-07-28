@@ -18,7 +18,10 @@ struct Registerable<Value> {
     private let id: String
     var value: Value
     let wrappedValue: Value
-    
+        
+    private var nib: UINib {
+        return UINib(nibName: self.id, bundle: .main)
+    }
     
     init(wrappedValue: Value) {
         self.id = String(describing: wrappedValue)
@@ -26,9 +29,14 @@ struct Registerable<Value> {
         self.wrappedValue = wrappedValue
     }
     
-    func register(in tableView: UITableView) {
-        let nib = UINib(nibName: self.id, bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: self.id)
+    func registerReusableView(in collectionView: UICollectionView) {
+        let kind: String = UICollectionView.elementKindSectionHeader
+        collectionView.register(self.nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: self.id)
     }
+
+    func registerCell(in collectionView: UICollectionView) {
+        collectionView.register(self.nib, forCellWithReuseIdentifier: self.id)
+    }
+    
 
 }

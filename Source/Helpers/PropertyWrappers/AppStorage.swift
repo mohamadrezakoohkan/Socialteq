@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Combine
 
 /// Introduced in iOS 14 and SwiftUI 2, wrapper around `UserDefaults`
 ///
@@ -22,6 +22,11 @@ struct AppStorage<Value> {
         self.key = "app.storage.\(key)"
         self.defaultValue = defaultValue
     }
+    
+    lazy var projectedValue: CurrentValueSubject<Value,Never> = {
+        return .init(self.wrappedValue)
+    }()
+
     
     var wrappedValue: Value {
         get {

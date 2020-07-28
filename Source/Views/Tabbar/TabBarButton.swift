@@ -14,6 +14,9 @@ final class TabBarButton: UIButton {
     private (set) var unselectedTintColor: UIColor = .clear
     private (set) var text: String = ""
     
+    private (set) lazy var badge: TabBarBadge = {
+        return.init(font: self.titleLabel?.font ?? .bold())
+    }()
     
     private var image: UIImage? {
         get { self.imageView?.image }
@@ -41,7 +44,7 @@ final class TabBarButton: UIButton {
         }
     }
 
-    init(text: String, font: UIFont, image: UIImage?, selectedColor: UIColor, unselectedColor: UIColor, tag: Int, paddingInset: CGFloat, selected: Bool) {
+    init(text: String, font: UIFont, image: UIImage?, selectedColor: UIColor, unselectedColor: UIColor, tag: Int, paddingInset: CGFloat, selected: Bool, createBadge: Bool) {
         
         super.init(frame: .zero)
         self.text = text
@@ -52,6 +55,7 @@ final class TabBarButton: UIButton {
         self.tag = tag
         self.titleLabel?.font = font
         selected ? self.select() : self.deselect()
+        if createBadge { self.addBadge() }
     }
     
     required init?(coder: NSCoder) {
@@ -84,7 +88,27 @@ final class TabBarButton: UIButton {
         stackView.addArrangedSubview(self)
     }
     
-    class func batchCreate(using tabbarController: TabBarController, padding: CGFloat) -> [TabBarButton] {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
+    private func addBadge() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.addSubview(self.badge)
+            self.badge.setNumber(2)
+            self.badge.translatesAutoresizingMaskIntoConstraints = false
+            self.badge.topAnchor.constraint(equalTo: self.imageView!.topAnchor).isActive = true
+            self.badge.trailingAnchor.constraint(equalTo: self.imageView!.trailingAnchor).isActive = true
+            self.badge.heightAnchor.constraint(equalToConstant: 3).isActive = true
+            self.badge.widthAnchor.constraint(equalToConstant: 3).isActive = true
+        })
+    }
+    
+    class func batchCreate(using tabbarController: TabBarController,
+                           badgeIndexes: Set<Int> = [],
+                           padding: CGFloat = .zero) -> [TabBarButton] {
+        
         guard let viewControllers = tabbarController.viewControllers else { return [] }
         return viewControllers.enumerated().map {
             return .init(text: $1.tabBarItem.title ?? "",
@@ -94,7 +118,8 @@ final class TabBarButton: UIButton {
                          unselectedColor: tabbarController.unselectedColor,
                          tag: $0,
                          paddingInset: padding,
-                         selected: tabbarController.startedIndex == $0)
+                         selected: tabbarController.startedIndex == $0,
+                         createBadge: badgeIndexes.contains($0))
         }
     }
 }
