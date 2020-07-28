@@ -36,18 +36,6 @@ final class HomeVC: BaseViewController, Storyboarded {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.service.getHome { (result) in
-            switch result {
-            case .success(let home):
-                print(home)
-            case .failure(let error):
-                print("@NET err", error.localizedDescription)
-            }
-        }
-    }
-    
     fileprivate func registerDependencies() {        self._reusableView.registerReusableView(in: self.collectionView)
     }
     

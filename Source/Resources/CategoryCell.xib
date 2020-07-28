@@ -47,7 +47,7 @@
                                                 <rect key="frame" x="71.5" y="0.0" width="71.5" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffx-yr-oin" customClass="BadgeLabel" customModule="Socialteq" customModuleProvider="target">
-                                                        <rect key="frame" x="48.5" y="0.0" width="23" height="14"/>
+                                                        <rect key="frame" x="48.5" y="0.0" width="23" height="12"/>
                                                         <color key="backgroundColor" name="appLightRed"/>
                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
                                                         <color key="textColor" name="appBlack"/>
