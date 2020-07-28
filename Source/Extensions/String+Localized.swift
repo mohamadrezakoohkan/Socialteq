@@ -11,6 +11,10 @@ import Foundation
 extension String {
     
     static let guest: String = "guest"
+    static let home: String = "home"
+    static let categories: String = "categories"
+    static let profile: String = "profile"
+    static let help: String = "help"
 
     var localized: String {
         return NSLocalizedString(self, comment: "")

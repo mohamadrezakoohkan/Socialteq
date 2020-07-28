@@ -29,4 +29,8 @@ extension UIColor {
     class var appWhite: UIColor {
         return UIColor(named: "appWhite")!
     }
+    
+    class var appRed: UIColor {
+        return UIColor(named: "appRed")!
+    }
 }

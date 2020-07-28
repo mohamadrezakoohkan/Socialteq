@@ -8,3 +8,7 @@
 
 
 "guest" = "Guest";
+"home" = "Home";
+"categories" = "Categories";
+"profile" = "Profile";
+"help" = "Help";
