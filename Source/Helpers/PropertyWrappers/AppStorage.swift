@@ -17,24 +17,30 @@ struct AppStorage<Value> {
     
     private let key: String
     private let defaultValue: Value
+    private var storage: UserDefaults {
+       return UserDefaults.standard
+    }
     
     init(key: String, defaultValue: Value) {
         self.key = "app.storage.\(key)"
         self.defaultValue = defaultValue
     }
     
-    lazy var projectedValue: CurrentValueSubject<Value,Never> = {
-        return .init(self.wrappedValue)
-    }()
-
-    
     var wrappedValue: Value {
-        get {
-            return (UserDefaults.standard.value(forKey: self.key) as? Value) ?? self.defaultValue
-        }
+        get { return self.storage.object(forKey: self.key) as? Value ?? self.defaultValue }
         set {
-             UserDefaults.standard.setValue(newValue, forKey: self.key)
+            if let optional = newValue as? AnyOptional,
+                optional.isNil {
+                self.storage.removeObject(forKey: self.key)
+            } else {
+                self.storage.set(newValue, forKey: self.key)
+            }
         }
     }
-    
+}
+
+extension AppStorage where Value: ExpressibleByNilLiteral {
+    init(key: String) {
+        self.init(key: key, defaultValue: nil)
+    }
 }

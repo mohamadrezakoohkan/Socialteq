@@ -64,3 +64,31 @@ extension Image: ImageUrlResolver {
     }
     
 }
+
+extension Image: Equatable {
+    static func == (lhs: Image, rhs: Image) -> Bool {
+        return lhs.originalUrl == rhs.originalUrl
+            && lhs.originalUrl2x == rhs.originalUrl2x
+            && lhs.originalUrl3x == rhs.originalUrl3x
+            && lhs.originalUrl4x == rhs.originalUrl4x
+            && lhs.originalUrlPDF == rhs.originalUrlPDF
+            && lhs.originalUrlSVG == rhs.originalUrlSVG
+    }
+}
+
+
+extension Image: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        let originalURL = (originalUrl ?? "")
+        let originalURL2x = (originalUrl2x ?? "")
+        let originalURL3x = (originalUrl3x ?? "")
+        let originalURL4x = (originalUrl4x ?? "")
+        let originalURLPDF = (originalUrlPDF ?? "")
+        let originalURLSVG = (originalUrlSVG ?? "")
+        hasher.combine(originalURL)
+        hasher.combine(originalURL2x  + originalURL3x  + originalURL4x)
+        hasher.combine(originalURLPDF  + originalURLSVG)
+    }
+}
+ 

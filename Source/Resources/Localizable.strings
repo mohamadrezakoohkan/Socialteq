@@ -6,9 +6,16 @@
   Copyright © 1399 AP Mohamadreza Koohkan. All rights reserved.
 */
 
-
+"greeting" = "Hello,";
 "guest" = "Guest";
 "home" = "Home";
 "categories" = "Categories";
 "profile" = "Profile";
 "help" = "Help";
+"emptyString" = "";
+"services" = "SERVICES";
+"promotion" = "PROMOTION";
+"sample.username" = "Mitchell Cooper";
+"request.address.message" = "Set Your Address";
+"event.alternative.title" = "Book Now!";
+"event.alternative.subTitle" = "You can book the desired service and get the best quality!";

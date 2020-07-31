@@ -11,7 +11,9 @@ import Foundation
 
 protocol SingleDescriptionSource {
     var description: String? { get }
-    var shortDescription: String? { get }
     var slogan: String? { get }
 }
 
+protocol SingleShortDescriptionSource {
+    var shortDescription: String? { get }
+}

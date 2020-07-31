@@ -8,9 +8,15 @@
 
 import UIKit
 
-final class PromotionCell: UICollectionViewCell, DequableCellProtocol, IdentifiableProtocol {
+final class PromotionCell: CollectionViewCell<PromotionCellViewModel>, DequableCellProtocol, IdentifiableProtocol {
 
-    @IBOutlet weak var image: LoadingImageView!
+    @IBOutlet private weak var image: LoadingImageView!
+    
+    override var viewModel: PromotionCellViewModel! {
+        didSet {
+
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

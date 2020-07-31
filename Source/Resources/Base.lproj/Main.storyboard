@@ -111,26 +111,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-gX-4Dx">
-                                <rect key="frame" x="0.0" y="186.5" width="414" height="675.5"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-gX-4Dx" customClass="HomeCollectionView" customModule="Socialteq" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="177.5" width="414" height="684.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a7F-zF-8cX">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OI5-Lt-eMw">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="g75-JC-38m" id="Nap-Jf-1Ce"/>
-                                    <outlet property="delegate" destination="g75-JC-38m" id="oQy-9v-77x"/>
-                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOY-Ub-JAh" customClass="RoundedView" customModule="Socialteq" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="414" height="136.5"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="127.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="rUg-6F-W1R">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="136.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rUg-6F-W1R">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="127.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4q-f2-4DX">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -202,7 +198,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dG-F1-Da5" userLabel="Separator">
-                                                <rect key="frame" x="0.0" y="69" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="66" width="414" height="1"/>
                                                 <color key="backgroundColor" name="appGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="j29-rM-UUC"/>
@@ -212,7 +208,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itT-dc-uEl">
-                                                <rect key="frame" x="0.0" y="89" width="414" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="83" width="414" height="27.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WLK-Ly-UhR">
                                                         <rect key="frame" x="24" y="0.0" width="366" height="27.5"/>
@@ -232,15 +228,18 @@
                                                                     <constraint firstItem="10E-LI-sBZ" firstAttribute="centerX" secondItem="pQr-hZ-zZq" secondAttribute="centerX" id="ZnQ-vq-djx"/>
                                                                 </constraints>
                                                             </view>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set Your Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwM-fV-Jvw" customClass="TextField" customModule="Socialteq" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set Your Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dwM-fV-Jvw" customClass="TextField" customModule="Socialteq" customModuleProvider="target">
                                                                 <rect key="frame" x="32.5" y="0.0" width="301" height="27.5"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="location"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                                         <color key="value" name="appSecondary"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="g75-JC-38m" id="kKr-KY-mwp"/>
+                                                                </connections>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHP-Zn-aVk">
                                                                 <rect key="frame" x="338.5" y="0.0" width="27.5" height="27.5"/>
@@ -273,7 +272,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WT7-LU-Q2Q" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="135.5" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="126.5" width="414" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ISw-zh-dpb"/>
@@ -331,7 +330,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="i2M-rl-zKd"/>
                     <connections>
+                        <outlet property="addressTextField" destination="dwM-fV-Jvw" id="19E-Vc-4Qo"/>
                         <outlet property="collectionView" destination="fqi-gX-4Dx" id="uHw-ke-Jb6"/>
+                        <outlet property="greetingsLabel" destination="G7l-Bd-PSi" id="U8I-eO-iGJ"/>
+                        <outlet property="usernameLabel" destination="l0A-zb-GU8" id="dt4-TP-za9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7i1-AC-6ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -357,6 +359,7 @@
         <scene sceneID="SNm-MP-H4G">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabBarController" id="WKL-Qi-dnE" customClass="MainTabBarController" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Zwy-2z-f0z"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AU1-CD-aXT" customClass="TabBar" customModule="Socialteq" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
