@@ -14,15 +14,14 @@ import Foundation
 @propertyWrapper
 struct Localized<Value: LocalizableProtocol> {
     
-    private let key: String
+    private let string: String
     
-    init(_ key: String) {
-        self.key = key
+    init(localizedString string: String) {
+        self.string = string
     }
-    
     var wrappedValue: Value? = nil {
         didSet {
-            self.wrappedValue?.set(localizationKey: key)
+            self.wrappedValue?.set(localizedString: self.string)
         }
     }
 }

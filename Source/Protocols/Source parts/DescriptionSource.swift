@@ -10,6 +10,9 @@ import Foundation
 
 protocol DescriptionSource {
     var descriptions: UniversalString? { get }
-    var shortDescriptions: UniversalString? { get }
     var slogans: UniversalString? { get }
+}
+
+protocol ShortDescriptionSource {
+    var shortDescriptions: UniversalString? { get }
 }

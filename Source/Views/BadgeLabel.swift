@@ -10,17 +10,34 @@ import UIKit
 
 final class BadgeLabel: UILabel {
     
-    private let cornerRadius: CGFloat = 10
-    private let margin = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
-    
+    private let margin = UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5)
+    private var cornerRadius: CGFloat {
+        return self.frame.size.height/2
+    }
+
     override func drawText(in rect: CGRect) {
-        rect.inset(by: self.margin)
-        super.drawText(in: rect)
+        super.drawText(in: rect.inset(by: self.margin))
+    }
+
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.layer.masksToBounds = true
+        self.setCornerRadius()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.layer.cornerRadius = self.cornerRadius
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         self.layer.masksToBounds = true
+        self.setCornerRadius()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.setCornerRadius()
+    }
+    
+    func setCornerRadius() {
+        self.layer.cornerRadius = self.cornerRadius
     }
 }

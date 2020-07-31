@@ -7,9 +7,8 @@
 //
 
 import Foundation
-
-typealias CategoryProviderResult = (Result<Category, Error>) -> Void
+import Combine
 
 protocol CategoryProvider {
-    func getCategory(category: Category,_ completion: @escaping CategoryProviderResult)
+    func getCategory(slug: String) -> AnyPublisher<Category, Error>
 }

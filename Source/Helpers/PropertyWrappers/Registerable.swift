@@ -16,7 +16,6 @@ import UIKit.UINib
 struct Registerable<Value> {
     
     private let id: String
-    var value: Value
     let wrappedValue: Value
         
     private var nib: UINib {
@@ -25,7 +24,6 @@ struct Registerable<Value> {
     
     init(wrappedValue: Value) {
         self.id = String(describing: wrappedValue)
-        self.value = wrappedValue
         self.wrappedValue = wrappedValue
     }
     

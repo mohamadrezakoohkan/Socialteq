@@ -7,25 +7,25 @@
 //
 
 import Foundation
+import Combine
 
-typealias HTTPRouterCompletion = (Result<(Data?, URLResponse?), Error>) -> ()
+typealias HTTPRouterRequestResult = AnyPublisher<URLSession.DataTaskPublisher.Output, URLSession.DataTaskPublisher.Failure>
+
 
 protocol HTTPRouter: class {
     associatedtype EndpointType: HTTPEndpoint
     var timeout: TimeInterval { get }
     var cachePolicy: URLRequest.CachePolicy { get }
-    func request(route: EndpointType, completion: @escaping HTTPRouterCompletion)
-    func cancel()
+    func request(route: EndpointType) -> HTTPRouterRequestResult
     func requestGenerator(fromRoute route: EndpointType) throws -> URLRequest
 }
 
 extension HTTPRouter {
     
-    func requestGenerator(fromRoute route: EndpointType) throws -> URLRequest {
+    func requestGenerator(fromRoute route: EndpointType) -> URLRequest {
         guard let url = URL(string: route.baseURL.rawValue + route.path) else {
-            throw HTTPError.invalidURL
+            fatalError(HTTPError.invalidURL.localizedDescription)
         }
-        
         var request = URLRequest(url: url, cachePolicy: self.cachePolicy, timeoutInterval: self.timeout)
         request.httpMethod = route.method.rawValue
         return request

@@ -9,24 +9,24 @@
 import UIKit
 
 protocol LocalizableProtocol {
-    func set(localizationKey: String)
+    func set(localizedString string: String)
 }
 
 extension UIButton: LocalizableProtocol {
-    func set(localizationKey key: String) {
-        self.setTitle(key.localized, for: .normal)
+    func set(localizedString string: String) {
+        self.setTitle(string, for: .normal)
     }
 }
 
 extension UILabel: LocalizableProtocol {
-    func set(localizationKey key: String) {
-        self.text = key.localized
+    func set(localizedString string: String) {
+        self.text = string
     }
 }
 
 extension UITextField: LocalizableProtocol {
-        func set(localizationKey key: String) {
-            self.placeholder = key.localized
+        func set(localizedString string: String) {
+            self.placeholder = string
     }
 }
 

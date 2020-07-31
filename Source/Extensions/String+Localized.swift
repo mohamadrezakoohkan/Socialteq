@@ -10,11 +10,19 @@ import Foundation
 
 extension String {
     
-    static let guest: String = "guest"
-    static let home: String = "home"
-    static let categories: String = "categories"
-    static let profile: String = "profile"
-    static let help: String = "help"
+    static var greeting: String { "greeting".localized }
+    static var guest: String { "guest".localized }
+    static var sampleUsername: String { "sample.username".localized }
+    static var home: String { "home".localized }
+    static var categories: String { "categories".localized }
+    static var profile: String { "profile".localized }
+    static var help: String { "help".localized }
+    static var emptyString: String { "emptyString".localized }
+    static var services: String { "services".localized }
+    static var promotion: String { "promotion".localized }
+    static var requestAddressMessage: String { "request.address.message".localized }
+    static var eventAlternativeTitle: String { "event.alternative.title".localized }
+    static var eventAlternativeSubTitle: String { "event.alternative.subTitle".localized }
 
     var localized: String {
         return NSLocalizedString(self, comment: "")
