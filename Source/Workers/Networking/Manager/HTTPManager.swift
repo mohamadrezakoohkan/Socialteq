@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import Combine
 
 struct HTTPManager {
     
     static let environment: HTTPEnvironment = .production
     fileprivate let router: Router<Endpoint> = .init()
+    
     
     fileprivate func handleError(data: Data?, response: URLResponse?) throws -> Data {
         guard let httpResponse = response as? HTTPURLResponse,
@@ -35,55 +37,30 @@ struct HTTPManager {
         }
         
     }
+    
+    fileprivate func handlePublishError(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+        try self.handleError(data: output.data, response: output.response)
+    }
 }
 
 extension HTTPManager: HomeProvider {
     
-    func getHome(_ completion: @escaping HomeProviderResult) {
-        
-        self.router.request(route: .home) { (result) in
-            switch result {
-            case .success((let data, let response)):
-                do {
-                    let value = try self.handleError(data: data, response: response)
-                    let decoder = JSONDecoder()
-                    let home = try decoder.decode(Home.self, from: value)
-                    completion(.success(home))
-                }catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getHome() -> AnyPublisher<Home?, Error> {
+        return self.router.request(route: .home)
+            .tryMap { try self.handlePublishError(output: $0) }
+            .decode(type: Home?.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
     
 }
 
 extension HTTPManager: CategoryProvider {
     
-    func getCategory(category: Category, _ completion: @escaping CategoryProviderResult) {
-        
-        guard let slug = category.slug else {
-            completion(.failure(HTTPError.invalidParameteres))
-            return
-        }
-        
-        self.router.request(route: .services(slug)) { (result) in
-            switch result {
-            case .success((let data, let response)):
-                do {
-                    let value = try self.handleError(data: data, response: response)
-                    let decoder = JSONDecoder()
-                    let category = try decoder.decode(Category.self, from: value)
-                    completion(.success(category))
-                }catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getCategory(slug: String) -> AnyPublisher<Category, Error> {
+        return self.router.request(route: .services(slug))
+            .tryMap { try self.handlePublishError(output: $0) }
+            .decode(type: Category.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
     
     

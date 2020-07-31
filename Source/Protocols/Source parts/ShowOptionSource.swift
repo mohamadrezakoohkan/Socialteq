@@ -11,5 +11,4 @@ import Foundation
 protocol ShowOptionSource {
     var isActive: Bool? { get }
     var sort: Int? { get }
-    var hasNewBadge: Bool? { get }
 }

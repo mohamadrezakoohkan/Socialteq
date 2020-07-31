@@ -8,7 +8,22 @@
 
 import Foundation
 
-struct Promotion: Codable, ImageStorageSource {
+typealias PromotionSource = ImageStorageSource
+
+struct Promotion: Codable, PromotionSource {
     
     let image: Image?
+}
+
+extension Promotion: Equatable {
+    static func == (lhs: Promotion, rhs: Promotion) -> Bool {
+        lhs.image == rhs.image
+    }
+}
+
+extension Promotion: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(image)
+    }
 }

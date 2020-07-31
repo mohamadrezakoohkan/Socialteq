@@ -8,27 +8,35 @@
 
 import Foundation
 
+protocol UserSource: User {
+    var name: String? { get set }
+    var address: String? { get set }
+    var avatar: String? { get set }
+}
+
 
 /// User represent actual end user that working with app
 ///
-class User {
+class User: UserSource {
     
     static let shared: User = User()
     private init() { }
     
-    @AppStorage(key: "user.name", defaultValue: String.guest.localized)
+    @AppStorage(key: "user.name")
     var name: String?
     
-    @AppStorage(key: "user.address", defaultValue: nil)
+    @AppStorage(key: "user.address")
     var address: String?
     
-    @AppStorage(key: "user.avatar", defaultValue: nil)
+    @AppStorage(key: "user.avatar")
     var avatar: String?
 }
 
 extension User: Equatable {
     static func == (lhs: User, rhs: User) -> Bool {
-        lhs.name == rhs.name && lhs.address == rhs.address && lhs.avatar == rhs.avatar
+        lhs.name == rhs.name
+            && lhs.address == rhs.address
+            && lhs.avatar == rhs.avatar
     }
     
 }

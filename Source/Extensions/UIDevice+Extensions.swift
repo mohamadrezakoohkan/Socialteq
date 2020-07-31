@@ -18,6 +18,15 @@ extension UIDevice {
         return self.userInterfaceIdiom == .phone
     }
     
+    
+    class var isIphone: Bool {
+        return current.isIphone
+    }
+    
+    class var isIpad: Bool {
+        return current.isIpad
+    }
+    
     class var isLandscape: Bool {
         let window = UIApplication.shared.windows.first
         let windowScene = window?.windowScene

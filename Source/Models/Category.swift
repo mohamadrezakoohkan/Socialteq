@@ -8,13 +8,16 @@
 
 import Foundation
 
+
+typealias CategorySource = TitleSource & SingleTitleSource & DescriptionSource & ShortDescriptionSource & SingleDescriptionSource & SingleShortDescriptionSource & ImageStorageSource & IdentificationSource & SlugSource & ShowOptionSource & DisplayTypeSource & CategoryPackageStorageSource & NewBadgeSource
+
 /// Also known as services in UI, in the backend object named category
 ///
-struct Category: Codable, TitleSource, SingleTitleSource, DescriptionSource, SingleDescriptionSource, ImageStorageSource, IdentificationSource, SlugSource, ShowOptionSource, DisplayTypeSource, CategoryPackageStorageSource {
+struct Category: Codable, CategorySource {
     
     let _id: String?
-    let slug: String?
     let id: String?
+    let slug: String?
     let titles: UniversalString?
     let subTitles: UniversalString?
     let title: String?
@@ -42,6 +45,7 @@ extension Category: Equatable {
             && lhs.slug == rhs.slug
             && lhs.title == rhs.title
             && lhs.subTitle == rhs.subTitle
+            && lhs.slogan == rhs.slogan
     }
 }
 
@@ -49,5 +53,6 @@ extension Category: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine((_id ?? "") + (id ?? "") + (slug ?? ""))
+        hasher.combine((title ?? "") + (subTitle ?? "") + (slogan ?? ""))
     }
 }

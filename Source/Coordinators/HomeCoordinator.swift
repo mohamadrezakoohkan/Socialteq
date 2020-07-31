@@ -31,4 +31,9 @@ final class HomeCoordinator: Coordinator, CategoryViewing {
         self.navigationController.pushViewController(vc, animated: true)
     }
     
+    func test() {
+        let child = MainCoordinator(navigationController: self.navigationController)
+        child.start()
+    }
+    
 }

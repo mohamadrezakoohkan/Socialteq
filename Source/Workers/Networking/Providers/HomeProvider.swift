@@ -7,9 +7,8 @@
 //
 
 import Foundation
-
-typealias HomeProviderResult = (Result<Home, Error>) -> Void
+import Combine
 
 protocol HomeProvider {
-    func getHome(_ completion: @escaping HomeProviderResult)
+    func getHome() -> AnyPublisher<Home?, Error>
 }

@@ -25,4 +25,25 @@ extension UIView {
         self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
+    func dynamicHeight(wdith widthValue: CGFloat? = nil) -> CGSize {
+        let width = widthValue == nil ? self.frame.width : widthValue!
+        let height = UIView.layoutFittingExpandedSize.height
+        return self.systemLayoutSizeFitting(
+            CGSize(width: width, height: height),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+    }
+    
+    func dynamicWidth(height heightValue: CGFloat? = nil) -> CGSize {
+        let width = UIView.layoutFittingExpandedSize.height
+        let height = heightValue == nil ? self.frame.height : heightValue!
+        return self.systemLayoutSizeFitting(
+            CGSize(width: width, height: height),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+    }
+    
 }

@@ -9,6 +9,54 @@
 import UIKit
 
 @IBDesignable
+final class MainTabBarController: TabBarController, Storyboarded {
+    
+    weak var home: HomeCoordinator?
+    weak var categories: CategoriesCoordinator?
+    weak var profile: ProfileCoordinator?
+    weak var help: HelpCoordinator?
+
+    override var itemsFont: UIFont {
+        return .semiBold(size: 14)
+    }
+    
+    override var startedIndex: Int {
+        return 0
+    }
+    
+    override var selectedColor: UIColor {
+        return .appHighlight
+    }
+    
+    override var unselectedColor: UIColor {
+       return .appSecondary
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.addViewControllers()
+        self.startCoordinators()
+    }
+    
+    private func addViewControllers() {
+        self.viewControllers = [
+            self.home!.navigationController,
+            self.categories!.navigationController,
+            self.profile!.navigationController,
+            self.help!.navigationController
+        ]
+    }
+    
+    private func startCoordinators() {
+        self.home!.start()
+        self.categories!.start()
+        self.profile!.start()
+        self.help!.start()
+    }
+}
+
+/*
+@IBDesignable
 final class MainTabBarController: TabBarController {
     
     /// we need a strong refrence here
@@ -62,3 +110,4 @@ final class MainTabBarController: TabBarController {
     }
 
 }
+*/

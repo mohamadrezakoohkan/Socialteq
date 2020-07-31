@@ -37,7 +37,7 @@ class LoadingImageView: UIImageView {
         let indicator = UIActivityIndicatorView()
         indicator.style = self.activityIndicatorSyle
         indicator.color = self.activityIndicatorColor
-        indicator.hidesWhenStopped = true
+        indicator.hidesWhenStopped = false
         return indicator
     }()
     
@@ -56,7 +56,11 @@ class LoadingImageView: UIImageView {
     }
     
     private func controlActivityIndicator() {
-         self.image == nil ? self.start() : self.stop()
+        DispatchQueue.main.async {
+            
+            self.image == nil ? self.start() : self.stop()
+        }
+        
     }
     
     private func start() {
@@ -66,7 +70,6 @@ class LoadingImageView: UIImageView {
     private func stop() {
         self.activityIndicator.stopAnimating()
     }
-    
     
     private func addActivityIndicator() {
         self.addSubview(self.activityIndicator)
