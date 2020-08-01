@@ -11,7 +11,6 @@ import Combine
 
 extension UIImageView: ImageProvider {
     
-    static var delay: TimeInterval = 0
 
     func getImage(url: URL) -> AnyPublisher<String, Error> {
         return URLSession.shared
@@ -35,17 +34,11 @@ extension UIImageView: ImageProvider {
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.image, on: self)
         }else{
-            UIImageView.delay += 0.3
-            let delay = UIImageView.delay
             return self.getImage(url: url)
                 .map { UIImage(contentsOfFile: $0) }
                 .replaceError(with: .error)
-                .sink(receiveValue: { value in
-           g         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                        UIImageView.delay -= 0.3
-                        self.image = value
-                    }
-                })
+                .assign(to: \.image, on: self)
+            
         }
     }
 }
