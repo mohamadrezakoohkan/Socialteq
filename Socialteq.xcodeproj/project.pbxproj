@@ -16,6 +16,10 @@
 		DD22277A24D430640034B6D2 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22277924D430640034B6D2 /* CategoryCellViewModel.swift */; };
 		DD22277C24D4306E0034B6D2 /* PromotionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22277B24D4306E0034B6D2 /* PromotionCellViewModel.swift */; };
 		DD22277E24D434560034B6D2 /* NewBadgeSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22277D24D434560034B6D2 /* NewBadgeSource.swift */; };
+		DD22278024D4550C0034B6D2 /* URLSession+DownloadTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22277F24D4550C0034B6D2 /* URLSession+DownloadTaskPublisher.swift */; };
+		DD22278224D460070034B6D2 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22278124D460070034B6D2 /* ImageProvider.swift */; };
+		DD22278424D482E50034B6D2 /* HTTPFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22278324D482E50034B6D2 /* HTTPFile.swift */; };
+		DD22278624D4A9C90034B6D2 /* UIImageView+ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22278524D4A9C90034B6D2 /* UIImageView+ImageProvider.swift */; };
 		DD96C9CB24CEF6BC00E6689E /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */; };
 		DD96C9CC24CEF6BC00E6689E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C824CEF6BB00E6689E /* TabBarController.swift */; };
 		DD96C9CD24CEF6BC00E6689E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C924CEF6BB00E6689E /* TabBarView.swift */; };
@@ -151,6 +155,10 @@
 		DD22277924D430640034B6D2 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		DD22277B24D4306E0034B6D2 /* PromotionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCellViewModel.swift; sourceTree = "<group>"; };
 		DD22277D24D434560034B6D2 /* NewBadgeSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBadgeSource.swift; sourceTree = "<group>"; };
+		DD22277F24D4550C0034B6D2 /* URLSession+DownloadTaskPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+DownloadTaskPublisher.swift"; sourceTree = "<group>"; };
+		DD22278124D460070034B6D2 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		DD22278324D482E50034B6D2 /* HTTPFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPFile.swift; sourceTree = "<group>"; };
+		DD22278524D4A9C90034B6D2 /* UIImageView+ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageProvider.swift"; sourceTree = "<group>"; };
 		DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		DD96C9C824CEF6BB00E6689E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD96C9C924CEF6BB00E6689E /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -480,6 +488,8 @@
 				DD0DC3A524D1D6700045CDEB /* Int+Constants.swift */,
 				DD22277524D3FCD90034B6D2 /* String+Operators.swift */,
 				DD22277724D3FDA00034B6D2 /* Combine+Extensions.swift */,
+				DD22277F24D4550C0034B6D2 /* URLSession+DownloadTaskPublisher.swift */,
+				DD22278524D4A9C90034B6D2 /* UIImageView+ImageProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -600,6 +610,7 @@
 				DDC5D93024CCB086007538F7 /* HTTPTask.swift */,
 				DDC5D93224CCB13D007538F7 /* HTTPError.swift */,
 				DDC5D93F24CCB9BE007538F7 /* HTTPEnvironment.swift */,
+				DD22278324D482E50034B6D2 /* HTTPFile.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -627,6 +638,7 @@
 			children = (
 				DDC5D94624CCBFBF007538F7 /* HomeProvider.swift */,
 				DDC5D94824CCBFCA007538F7 /* CategoryProvider.swift */,
+				DD22278124D460070034B6D2 /* ImageProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -780,6 +792,7 @@
 				DDC5D8EC24CC39CD007538F7 /* Image.swift in Sources */,
 				DDC5D90524CC50BB007538F7 /* ImageStorageSource.swift in Sources */,
 				DD96C9CB24CEF6BC00E6689E /* TabBarButton.swift in Sources */,
+				DD22278024D4550C0034B6D2 /* URLSession+DownloadTaskPublisher.swift in Sources */,
 				DDC5D8DE24CC22D5007538F7 /* LocalizableProtocol.swift in Sources */,
 				DD96CA1A24CF559300E6689E /* TabBarBadge.swift in Sources */,
 				DD22277224D33A5F0034B6D2 /* CurrentValue.swift in Sources */,
@@ -789,6 +802,7 @@
 				DDC5D90724CC52B0007538F7 /* Category.swift in Sources */,
 				DDC5D90F24CC54F1007538F7 /* DisplayType.swift in Sources */,
 				DDC5D8F724CC3FA3007538F7 /* DIContainerProtocol.swift in Sources */,
+				DD22278624D4A9C90034B6D2 /* UIImageView+ImageProvider.swift in Sources */,
 				DDC5D8D324CC1387007538F7 /* IdentifiableProtocol.swift in Sources */,
 				DDC5D90124CC4FF3007538F7 /* SingleTitleSource.swift in Sources */,
 				DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */,
@@ -797,6 +811,7 @@
 				DDC5D92A24CCA812007538F7 /* PromotionStorageSource.swift in Sources */,
 				DDB8347324D2F55A0027D60B /* HomeCollectionView.swift in Sources */,
 				DDC5D93124CCB086007538F7 /* HTTPTask.swift in Sources */,
+				DD22278224D460070034B6D2 /* ImageProvider.swift in Sources */,
 				DD96CA1624CF47DF00E6689E /* MainNavigationController.swift in Sources */,
 				DD96C9CD24CEF6BC00E6689E /* TabBarView.swift in Sources */,
 				DDB8347124D2ED910027D60B /* HomeViewModel.swift in Sources */,
@@ -843,6 +858,7 @@
 				DDC5D93B24CCB45F007538F7 /* Router.swift in Sources */,
 				DD22277424D3FB9F0034B6D2 /* AnyOptional.swift in Sources */,
 				DDC5D92424CC9FC8007538F7 /* CategoryPackageStorageSource.swift in Sources */,
+				DD22278424D482E50034B6D2 /* HTTPFile.swift in Sources */,
 				DDC5D92F24CCB03C007538F7 /* HTTPMethod.swift in Sources */,
 				DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */,
 				DD9C6C5F24D0A00E0066D6F2 /* BadgeLabel.swift in Sources */,

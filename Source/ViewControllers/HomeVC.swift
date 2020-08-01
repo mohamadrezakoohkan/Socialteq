@@ -26,7 +26,7 @@ final class HomeVC: BaseViewController, Storyboarded {
     @Registerable private var categoryCell = CategoryCell.self
     @Registerable private var promotionCell = PromotionCell.self
     
-    weak var coordinator: CategoryViewing?
+    weak var coordinator: HomeCoordinator?
     private var viewModel = HomeViewModel()
     private var dataSource: DataSource!
     
@@ -88,10 +88,12 @@ final class HomeVC: BaseViewController, Storyboarded {
             case let category as Category:
                 return self.categoryCell.deque(in: collectionView, at: indexPath) {
                     $0.viewModel = .init(category: category)
+                    $0.tag = indexPath.row
                 }
             case let promotion as Promotion:
                 return self.promotionCell.deque(in: collectionView, at: indexPath) {
                     $0.viewModel = .init(promotion: promotion)
+                    $0.tag = indexPath.row
                 }
             default:
                 return nil
@@ -137,7 +139,7 @@ final class HomeVC: BaseViewController, Storyboarded {
     }
     
     private func handle(error: Error) {
-        print("@ERROR:", error.localizedDescription)
+        debugPrint("@ERROR:", error.localizedDescription)
     }
 }
 

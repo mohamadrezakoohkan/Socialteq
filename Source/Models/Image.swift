@@ -41,18 +41,14 @@ struct Image: Codable, ImageSource  {
 extension Image: ImageUrlResolver {
     
     var imageURL: URL? {
-        
-        if let pdf = self.originalUrl {
-            return URL(string: pdf)
-            
-        }else if UIDevice.current.isIpad,
-            let ipadSize = self.originalUrl3x {
-            return URL(string: ipadSize)
-            
-        }else if UIDevice.current.isIphone,
+        if UIDevice.isIphone,
             let iphoneSize = self.originalUrl2x {
             return URL(string: iphoneSize)
             
+        }else if UIDevice.isIpad,
+            let ipadSize = self.originalUrl2x {
+            return URL(string: ipadSize)
+    
         }else if let originalURL = self.originalUrl {
             return URL(string: originalURL)
             

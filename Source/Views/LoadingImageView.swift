@@ -37,7 +37,7 @@ class LoadingImageView: UIImageView {
         let indicator = UIActivityIndicatorView()
         indicator.style = self.activityIndicatorSyle
         indicator.color = self.activityIndicatorColor
-        indicator.hidesWhenStopped = false
+        indicator.hidesWhenStopped = true
         return indicator
     }()
     

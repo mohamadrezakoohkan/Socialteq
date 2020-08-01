@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import Combine
 
-struct PromotionCellViewModel: ViewModelType, ImageUrlResolver {
+typealias PromotionCellViewModelSource = ImageUrlResolver
+
+struct PromotionCellViewModel: ViewModelType, PromotionCellViewModelSource  {
     
     struct Input { }
+    
     struct Output { }
     
-    private let urlString: String
     let imageURL: URL?
     
     init(promotion: Promotion) {
@@ -21,10 +24,9 @@ struct PromotionCellViewModel: ViewModelType, ImageUrlResolver {
     }
     
     init(urlString: String) {
-        self.urlString = urlString
         self.imageURL = URL(string: urlString)
     }
-    
+
     func transform(input: Input) -> Output { return Output() }
 
 }

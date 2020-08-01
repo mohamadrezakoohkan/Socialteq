@@ -39,10 +39,14 @@ extension UIImage {
     }
     
     class var dropDown: UIImage {
-          return UIImage(named: "dropDown")!
-      }
+        return UIImage(named: "dropDown")!
+    }
     
     class var pin: UIImage {
-          return UIImage(named: "pin")!
-      }
+        return UIImage(named: "pin")!
+    }
+    
+    class var error: UIImage {
+        return UIImage(named: "error")!
+    }
 }

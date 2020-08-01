@@ -104,17 +104,5 @@ class TabBarController: UITabBarController {
         }
         self.view.setNeedsLayout()
     }
-    
-    
-    
 }
 
-extension TabBarController: UITabBarControllerDelegate {
-    
-    override func tabBar(_ tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem]) {
-        print("customizing")
-    }
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print("S")
-    }
-}
