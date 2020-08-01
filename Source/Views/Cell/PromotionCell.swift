@@ -7,20 +7,17 @@
 //
 
 import UIKit
+import Combine
 
 final class PromotionCell: CollectionViewCell<PromotionCellViewModel>, DequableCellProtocol, IdentifiableProtocol {
 
-    @IBOutlet private weak var image: LoadingImageView!
-    
+    @IBOutlet private weak var imageView: LoadingImageView!
+
     override var viewModel: PromotionCellViewModel! {
         didSet {
-
+            self.imageView.set(imageURL: self.viewModel.imageURL)?
+                .store(in: &self.subscriptions)
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }
+
