@@ -43,6 +43,12 @@ final class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
                                 receiveIn: self.receiver)
     }
     
+    func download(url: URL) -> HTTPRouterDownloadResult {
+        self.session
+            .downloadTaskPublisher(for: url, cache: self.cachePolicy, timeout: 10)
+            .eraseToAnyPublisher()
+    }
+    
     func pureRequest<Subscriber: Scheduler, Receiver: Scheduler>(url: URLRequest, subscribeOn subscribtion: Subscriber, receiveIn receiver: Receiver) -> HTTPRouterRequestResult {
         return self.session
             .dataTaskPublisher(for: url)

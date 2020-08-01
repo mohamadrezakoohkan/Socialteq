@@ -29,6 +29,7 @@ final class HomeVC: BaseViewController, Storyboarded {
     weak var coordinator: CategoryViewing?
     private var viewModel = HomeViewModel()
     private var dataSource: DataSource!
+    private var didCellTapped = PassthroughSubject<AnyHashable?, Never>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,8 @@ final class HomeVC: BaseViewController, Storyboarded {
         let output = self.viewModel.transform(input: .init(
             addressTextDidEnd: self.addressTextField
                 .publisher(for: \.text)
+                .eraseToAnyPublisher(),
+            cellDidTapped: self.didCellTapped
                 .eraseToAnyPublisher()
             )
         )
@@ -60,9 +63,14 @@ final class HomeVC: BaseViewController, Storyboarded {
             .assign(to: \.text, on: self.addressTextField)
             .store(in: &self.subscriptions)
         
+        output.categoryTapped
+            .receive(on: DispatchQueue.main)
+            .compactMap { $0.category }
+            .sink(receiveValue: { [weak self] in self?.coordinator?.show(category: $0)})
+            .store(in: &self.subscriptions)
+        
         output.homeDataPublisher
             .receive(on: DispatchQueue.main)
-            .compactMap( { $0 })
             .sink(receiveCompletion: { [weak self] (completion) in
                 switch completion {
                 case .failure(let error):
@@ -70,8 +78,8 @@ final class HomeVC: BaseViewController, Storyboarded {
                 case .finished:
                     break
                 }
-                }, receiveValue: { [weak self] home in
-                    self?.applySnapshot(home: home)
+            }, receiveValue: { [weak self] in
+                    self?.applySnapshot(event: $0, categories: $1, promotions: $2)
             })
             .store(in: &self.subscriptions)
     }
@@ -81,17 +89,17 @@ final class HomeVC: BaseViewController, Storyboarded {
             (collectionView, indexPath, hashable) in
             guard let self = self else { return nil }
             switch hashable {
-            case let home as Home:
+            case let event as EventCellViewModel:
                 return self.eventCell.deque(in: collectionView, at: indexPath) {
-                    $0.viewModel = .init(home: home)
+                    $0.viewModel = event
                 }
-            case let category as Category:
+            case let category as CategoryCellViewModel:
                 return self.categoryCell.deque(in: collectionView, at: indexPath) {
-                    $0.viewModel = .init(category: category)
+                    $0.viewModel = category
                 }
-            case let promotion as Promotion:
+            case let promotion as PromotionCellViewModel:
                 return self.promotionCell.deque(in: collectionView, at: indexPath) {
-                    $0.viewModel = .init(promotion: promotion)
+                    $0.viewModel = promotion
                 }
             default:
                 return nil
@@ -109,25 +117,13 @@ final class HomeVC: BaseViewController, Storyboarded {
         }
     }
     
-    private func applySnapshot(home: Home) {
+    private func applySnapshot(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]) {
         var snapshot = Snapshot()
         snapshot.appendSections([.event, .services, .promotion])
-        self.insert(home: home, to: &snapshot)
-        self.insert(categories: home.categories, to: &snapshot)
-        self.insert(promotions: home.promotions, to: &snapshot)
-        self.dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
-    private func insert(home: Home, to snapshot: inout Snapshot) {
-        snapshot.appendItems([home], toSection: .event)
-    }
-
-    private func insert(categories: [Category], to snapshot: inout Snapshot) {
+        snapshot.appendItems([event], toSection: .event)
         snapshot.appendItems(categories, toSection: .services)
-    }
-    
-    private func insert(promotions: [Promotion], to snapshot: inout Snapshot) {
         snapshot.appendItems(promotions, toSection: .promotion)
+        self.dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     private func registerDependencies() {        self._reusableHeaderView.registerReusableView(in: self.collectionView)
@@ -137,7 +133,13 @@ final class HomeVC: BaseViewController, Storyboarded {
     }
     
     private func handle(error: Error) {
-        print("@ERROR:", error.localizedDescription)
+        debugPrint("@ERROR:", error.localizedDescription)
+    }
+}
+
+extension HomeVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.didCellTapped.send(self.dataSource.itemIdentifier(for: indexPath))
     }
 }
 

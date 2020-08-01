@@ -5,14 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Poppins-LightItalic.ttf">
             <string>Poppins-LightItalic</string>
-        </array>
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
         </array>
         <array key="Poppins-SemiBold.ttf">
             <string>Poppins-SemiBold</string>
@@ -31,20 +29,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqn-Dy-35i" customClass="RoundedView" customModule="Socialteq" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LcZ-e9-hH7">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LcZ-e9-hH7">
                                 <rect key="frame" x="16" y="16" width="143" height="179"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fop-yk-I5y">
-                                        <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fop-yk-I5y">
+                                        <rect key="frame" x="0.0" y="0.0" width="143" height="71.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JNK-gc-ULM" customClass="LoadingImageView" customModule="Socialteq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="71.5"/>
+                                                <color key="tintColor" name="appDarkGray"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="NPj-el-EmT"/>
+                                                    <constraint firstAttribute="width" secondItem="JNK-gc-ULM" secondAttribute="height" id="6O2-iZ-RvK"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TY-FK-FRM">
-                                                <rect key="frame" x="71.5" y="0.0" width="71.5" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="71.5" height="71.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GZn-Q2-xK2">
                                                         <rect key="frame" x="36.5" y="0.0" width="35" height="20"/>
@@ -74,27 +73,27 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QEH-Zb-TAY">
-                                        <rect key="frame" x="0.0" y="70" width="143" height="50"/>
+                                        <rect key="frame" x="0.0" y="79.5" width="143" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carwash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCq-xl-jtH">
-                                                <rect key="frame" x="0.0" y="0.0" width="143" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="143" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                 <color key="textColor" name="appBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Package" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AR0-59-Uao">
-                                                <rect key="frame" x="0.0" y="25" width="143" height="25"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="22.5" width="143" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                 <color key="textColor" name="appBlack"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="tNz-SR-7zJ"/>
+                                            <constraint firstAttribute="height" constant="45" id="tNz-SR-7zJ"/>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic | Eco | Pro | VIP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAb-3F-GPR">
-                                        <rect key="frame" x="0.0" y="140" width="143" height="39"/>
+                                        <rect key="frame" x="0.0" y="132.5" width="143" height="46.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-LightItalic" family="Poppins" pointSize="12"/>
                                         <color key="textColor" name="appSecondary"/>
                                         <nil key="highlightedColor"/>
@@ -130,8 +129,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="284" height="785"/>
             <connections>
-                <outlet property="image" destination="JNK-gc-ULM" id="2Vq-m6-Uc5"/>
-                <outlet property="newBadge" destination="Ffx-yr-oin" id="ByT-GL-Ltx"/>
+                <outlet property="badge" destination="Ffx-yr-oin" id="o93-mR-SjM"/>
+                <outlet property="imageView" destination="JNK-gc-ULM" id="A4T-Q2-SuB"/>
                 <outlet property="shortDescription" destination="VAb-3F-GPR" id="d62-4K-Tps"/>
                 <outlet property="subTitle" destination="AR0-59-Uao" id="PPP-LK-qbx"/>
                 <outlet property="title" destination="BCq-xl-jtH" id="CTa-hy-IJg"/>
@@ -142,6 +141,9 @@
     <resources>
         <namedColor name="appBlack">
             <color red="0.030999999493360519" green="0.078000001609325409" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appDarkGray">
+            <color red="0.81999999284744263" green="0.83099997043609619" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appRed">
             <color red="0.98799997568130493" green="0.23899999260902405" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

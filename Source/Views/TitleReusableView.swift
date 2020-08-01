@@ -12,7 +12,7 @@ final class TitleReusableView: UICollectionReusableView, DequableReusableViewPro
     
     @IBOutlet private weak var title: UILabel!
     
-    var titleValue: String = "" {
+    var titleValue: String = .emptyString {
         didSet {
             self.title.text = self.titleValue
         }

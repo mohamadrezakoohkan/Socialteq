@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import Combine
 
 class CollectionViewCell<T: ViewModelType>: UICollectionViewCell {
  
+    open var subscriptions: [AnyCancellable] = []
+
     open var viewModel: T! = nil
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.subscriptions = []
+    }
 }

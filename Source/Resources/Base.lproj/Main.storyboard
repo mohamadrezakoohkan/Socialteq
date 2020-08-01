@@ -121,6 +121,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="delegate" destination="g75-JC-38m" id="x15-dQ-0Nz"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOY-Ub-JAh" customClass="RoundedView" customModule="Socialteq" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="414" height="127.5"/>
@@ -347,13 +350,48 @@
                     <view key="view" contentMode="scaleToFill" id="DHy-Io-LLL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cS-os-vRm" customClass="NavigationBar" customModule="Socialteq" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Category" id="rtq-Ik-8XP"/>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-p0-JEI" customClass="CategoryCollectionView" customModule="Socialteq" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vut-YN-d3G">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="delegate" destination="g75-JC-38m" id="bPT-7W-ET2"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" name="appBackground"/>
+                        <constraints>
+                            <constraint firstItem="9cS-os-vRm" firstAttribute="leading" secondItem="pGi-5A-mY1" secondAttribute="leading" id="5kD-tT-haD"/>
+                            <constraint firstItem="9cS-os-vRm" firstAttribute="top" secondItem="pGi-5A-mY1" secondAttribute="top" id="92U-nc-ldO"/>
+                            <constraint firstItem="pGi-5A-mY1" firstAttribute="trailing" secondItem="ocy-p0-JEI" secondAttribute="trailing" id="Cbz-PK-Dtw"/>
+                            <constraint firstItem="ocy-p0-JEI" firstAttribute="leading" secondItem="DHy-Io-LLL" secondAttribute="leading" id="IAW-w7-fMn"/>
+                            <constraint firstItem="ocy-p0-JEI" firstAttribute="top" secondItem="9cS-os-vRm" secondAttribute="bottom" id="tdW-1C-BbE"/>
+                            <constraint firstAttribute="trailing" secondItem="9cS-os-vRm" secondAttribute="trailing" id="u2t-Wf-MJY"/>
+                            <constraint firstItem="pGi-5A-mY1" firstAttribute="bottom" secondItem="ocy-p0-JEI" secondAttribute="bottom" id="xqI-rR-08a"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pGi-5A-mY1"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ocy-p0-JEI" id="rIn-EK-kyW"/>
+                        <outlet property="navigationBar" destination="9cS-os-vRm" id="Nhu-Nk-uPJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSM-tL-23k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="-220"/>
+            <point key="canvasLocation" x="302.89855072463769" y="-220.3125"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="SNm-MP-H4G">

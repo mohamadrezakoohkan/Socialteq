@@ -10,6 +10,10 @@ import UIKit
 
 extension UIImage {
     
+    class var clear: UIImage {
+        return UIImage()
+    }
+    
     class var home: UIImage {
         return UIImage(named: "home")!
     }
@@ -39,10 +43,18 @@ extension UIImage {
     }
     
     class var dropDown: UIImage {
-          return UIImage(named: "dropDown")!
-      }
+        return UIImage(named: "dropDown")!
+    }
     
     class var pin: UIImage {
-          return UIImage(named: "pin")!
-      }
+        return UIImage(named: "pin")!
+    }
+    
+    class var error: UIImage {
+        return UIImage(named: "error")!
+    }
+    
+    class var arrowLeft: UIImage {
+        return UIImage(named: "arrowLeft")!
+    }
 }

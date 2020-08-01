@@ -27,6 +27,8 @@ final class HomeCoordinator: Coordinator, CategoryViewing {
     func show(category: Category) {
         let vc = CategoryVC.instantiate(in: .main)
         vc.coordinator = self
+        vc.viewModel = .init(category: category)
+        vc.title = category.title
         vc.hidesBottomBarWhenPushed = true
         self.navigationController.pushViewController(vc, animated: true)
     }

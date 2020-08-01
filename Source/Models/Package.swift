@@ -8,11 +8,11 @@
 
 import Foundation
 
-typealias CategoryPackageSource = TitleSource & SingleTitleSource & DescriptionSource & ShortDescriptionSource & SingleDescriptionSource & SingleShortDescriptionSource & SubCategorySource & ShowOptionSource & PriceSource & CoverImageStorageSource
+typealias PackageSource = TitleSource & SingleTitleSource & DescriptionSource & ShortDescriptionSource & SingleDescriptionSource & SingleShortDescriptionSource & SubCategorySource & ShowOptionSource & PriceSource & CoverImageStorageSource & ImageStorageSource
 
 /// Also known as packages in UI, in the backend object named service
 ///
-struct CategoryPackage: Codable, CategoryPackageSource {
+struct Package: Codable, PackageSource {
     
     let titles: UniversalString?
     let subTitles: UniversalString?
@@ -34,13 +34,14 @@ struct CategoryPackage: Codable, CategoryPackageSource {
     let listBasePrice: Double?
     let coverImageId: String?
     let coverImage: CoverImage?
+    let image: Image?
     
     
 }
 
-extension CategoryPackage: Equatable {
+extension Package: Equatable {
     
-    static func == (lhs: CategoryPackage, rhs: CategoryPackage) -> Bool {
+    static func == (lhs: Package, rhs: Package) -> Bool {
         lhs.titles == rhs.titles
             && lhs.subTitles == rhs.subTitles
             && lhs.title == rhs.title
@@ -48,13 +49,15 @@ extension CategoryPackage: Equatable {
             && lhs.slogan == rhs.slogan
             && lhs.categoryId == rhs.categoryId
             && lhs.shortDescription == rhs.shortDescription
+            && lhs.image == rhs.image
     }
 }
 
-extension CategoryPackage: Hashable {
+extension Package: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine((title ?? "") + (slogan ?? ""))
         hasher.combine((categoryId ?? "") + (shortDescription ?? ""))
+        hasher.combine(image)
     }
 }

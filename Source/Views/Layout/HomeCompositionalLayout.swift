@@ -51,7 +51,7 @@ final class HomeCompositionalLayout: CompositionalLayout {
     
     private static var serviceGroupSize: NSCollectionLayoutSize {
         return .init(widthDimension: .fractionalWidth(1),
-                     heightDimension: .absolute(190))
+                     heightDimension: .absolute(190 + horizontalSpace))
     }
     
     private static var promotionItemSize: NSCollectionLayoutSize {
@@ -97,8 +97,11 @@ final class HomeCompositionalLayout: CompositionalLayout {
     private static func serviceSectionLayout() -> NSCollectionLayoutSection {
         let item = itemProvider(size: serviceItemSize)
         let group = groupProvider(size: serviceGroupSize, item: item)
+        group.contentInsets.bottom = horizontalSpace
         let supplimentaryItem = headerProvider(size: supplementaryViewSize)
-        return sectionProvider(group: group, supplementaryItems: [supplimentaryItem])
+        return sectionProvider(group: group, supplementaryItems: [supplimentaryItem]) {
+            $0.contentInsets.bottom = verticalSectionSpace - horizontalSpace
+        }
     }
     
     private static func promotionSectionLayout() -> NSCollectionLayoutSection {

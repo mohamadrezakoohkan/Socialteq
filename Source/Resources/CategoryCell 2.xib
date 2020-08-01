@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-LightItalic.ttf">
+            <string>Poppins-LightItalic</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PackageCell" id="gTV-IL-0wX" customClass="PackageCell" customModule="Socialteq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqn-Dy-35i" customClass="RoundedView" customModule="Socialteq" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="211"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LcZ-e9-hH7">
+                                <rect key="frame" x="16" y="16" width="143" height="179"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fop-yk-I5y">
+                                        <rect key="frame" x="0.0" y="0.0" width="143" height="71.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JNK-gc-ULM" customClass="LoadingImageView" customModule="Socialteq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="71.5"/>
+                                                <color key="tintColor" name="appDarkGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="JNK-gc-ULM" secondAttribute="height" id="6O2-iZ-RvK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TY-FK-FRM">
+                                                <rect key="frame" x="71.5" y="0.0" width="71.5" height="71.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GZn-Q2-xK2">
+                                                        <rect key="frame" x="36.5" y="0.0" width="35" height="20"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="35" placeholderIntrinsicHeight="20" insetsLayoutMarginsFromSafeArea="NO" text="NEW" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffx-yr-oin" customClass="BadgeLabel" customModule="Socialteq" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="20"/>
+                                                                <color key="backgroundColor" name="appRed"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="c1D-ha-Y4D"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
+                                                                <color key="textColor" name="appWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="TBg-tX-qFW"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="GZn-Q2-xK2" secondAttribute="trailing" id="J3o-Ls-fbY"/>
+                                                    <constraint firstItem="GZn-Q2-xK2" firstAttribute="top" secondItem="2TY-FK-FRM" secondAttribute="top" id="baR-KE-Q0B"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QEH-Zb-TAY">
+                                        <rect key="frame" x="0.0" y="79.5" width="143" height="65"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carwash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCq-xl-jtH">
+                                                <rect key="frame" x="0.0" y="0.0" width="143" height="21.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                                <color key="textColor" name="appBlack"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple &amp; quick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AR0-59-Uao">
+                                                <rect key="frame" x="0.0" y="21.5" width="143" height="22"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
+                                                <color key="textColor" name="appBlack"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exterior wash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAb-3F-GPR">
+                                                <rect key="frame" x="0.0" y="43.5" width="143" height="21.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-LightItalic" family="Poppins" pointSize="12"/>
+                                                <color key="textColor" name="appSecondary"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="tNz-SR-7zJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29.00 QAR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-7G-VRe">
+                                        <rect key="frame" x="0.0" y="152.5" width="143" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                                        <color key="textColor" name="appBadge"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="appWhite"/>
+                        <constraints>
+                            <constraint firstItem="LcZ-e9-hH7" firstAttribute="top" secondItem="rqn-Dy-35i" secondAttribute="top" constant="16" id="Ck9-2L-hYj"/>
+                            <constraint firstAttribute="bottom" secondItem="LcZ-e9-hH7" secondAttribute="bottom" constant="16" id="VGC-Rf-qnR"/>
+                            <constraint firstAttribute="trailing" secondItem="LcZ-e9-hH7" secondAttribute="trailing" constant="16" id="oWa-5A-1Nr"/>
+                            <constraint firstItem="LcZ-e9-hH7" firstAttribute="leading" secondItem="rqn-Dy-35i" secondAttribute="leading" constant="16" id="upD-ZL-IUr"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeft" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRight" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="rqn-Dy-35i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2pp-hY-sCi"/>
+                <constraint firstItem="rqn-Dy-35i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4Bm-dG-oIT"/>
+                <constraint firstAttribute="bottom" secondItem="rqn-Dy-35i" secondAttribute="bottom" id="Wed-BK-7x5"/>
+                <constraint firstAttribute="trailing" secondItem="rqn-Dy-35i" secondAttribute="trailing" id="rhw-mW-lZJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="284" height="785"/>
+            <connections>
+                <outlet property="badge" destination="Ffx-yr-oin" id="Xt7-Lr-iy3"/>
+                <outlet property="imageView" destination="JNK-gc-ULM" id="A4T-Q2-SuB"/>
+                <outlet property="price" destination="MNm-7G-VRe" id="8c2-Od-ehb"/>
+                <outlet property="shortDescription" destination="VAb-3F-GPR" id="d62-4K-Tps"/>
+                <outlet property="subTitle" destination="AR0-59-Uao" id="PPP-LK-qbx"/>
+                <outlet property="title" destination="BCq-xl-jtH" id="CTa-hy-IJg"/>
+                <outlet property="view" destination="rqn-Dy-35i" id="fEe-WY-yKk"/>
+            </connections>
+            <point key="canvasLocation" x="51.449275362318843" y="148.32589285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="appBadge">
+            <color red="0.13300000131130219" green="0.7839999794960022" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appBlack">
+            <color red="0.030999999493360519" green="0.078000001609325409" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appDarkGray">
+            <color red="0.81999999284744263" green="0.83099997043609619" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appRed">
+            <color red="0.98799997568130493" green="0.23899999260902405" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appSecondary">
+            <color red="0.44699999690055847" green="0.47499999403953552" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

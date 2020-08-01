@@ -43,6 +43,7 @@ extension User: Equatable {
 
 extension User: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine((name ?? "") + (address ?? "") + (avatar ?? ""))
+        hasher.combine((name ?? .emptyString) + (address ?? .emptyString))
+        hasher.combine(avatar)
     }
 }

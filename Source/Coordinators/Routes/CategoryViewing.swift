@@ -12,3 +12,4 @@ protocol CategoryViewing: Coordinator {
     
     func show(category: Category)
 }
+

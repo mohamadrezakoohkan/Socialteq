@@ -41,23 +41,17 @@ struct Image: Codable, ImageSource  {
 extension Image: ImageUrlResolver {
     
     var imageURL: URL? {
-        
-        if let pdf = self.originalUrl {
-            return URL(string: pdf)
+        if let highQuality = self.originalUrl4x {
+            return URL(string: highQuality)
             
-        }else if UIDevice.current.isIpad,
-            let ipadSize = self.originalUrl3x {
-            return URL(string: ipadSize)
+        } else if let mediumQuality = self.originalUrl3x {
+            return URL(string: mediumQuality)
+    
+        }else if let normalQuality = self.originalUrl2x {
+            return URL(string: normalQuality)
             
-        }else if UIDevice.current.isIphone,
-            let iphoneSize = self.originalUrl2x {
-            return URL(string: iphoneSize)
-            
-        }else if let originalURL = self.originalUrl {
-            return URL(string: originalURL)
-            
-        }else if let originalURL4x = self.originalUrl4x {
-            return URL(string: originalURL4x)
+        }else if let lowQuality = self.originalUrl {
+            return URL(string: lowQuality)
         }
         
         return nil

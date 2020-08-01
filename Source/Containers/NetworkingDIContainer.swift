@@ -21,6 +21,8 @@ final class NetworkingDIContainer: DIContainerProtocol {
             return HTTPManager() as! T
         }else if T.self == HTTPManager.self {
             return HTTPManager() as! T
+        }else if T.self == ImageProvider.self {
+            return HTTPManager() as! T
         }else{
             fatalError("\(String(describing: Self.self)) could not resolve: \(String(describing: T.self))")
         }

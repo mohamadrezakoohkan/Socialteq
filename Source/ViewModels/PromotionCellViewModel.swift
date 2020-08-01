@@ -7,24 +7,42 @@
 //
 
 import Foundation
+import Combine
 
-struct PromotionCellViewModel: ViewModelType, ImageUrlResolver {
+typealias PromotionCellViewModelSource = ImageUrlResolver
+
+struct PromotionCellViewModel: ViewModelType, PromotionCellViewModelSource  {
     
     struct Input { }
+    
     struct Output { }
     
-    private let urlString: String
+    let promotion: Promotion?
     let imageURL: URL?
     
     init(promotion: Promotion) {
-        self.init(urlString: promotion.image?.originalUrl ?? "")
+        self.init(urlString: promotion.image?.originalUrl ?? "", promotion: promotion)
     }
     
-    init(urlString: String) {
-        self.urlString = urlString
+    init(urlString: String, promotion: Promotion?) {
         self.imageURL = URL(string: urlString)
+        self.promotion = promotion
     }
-    
+
     func transform(input: Input) -> Output { return Output() }
 
 }
+
+extension PromotionCellViewModel: Equatable {
+    static func == (lhs: PromotionCellViewModel, rhs: PromotionCellViewModel) -> Bool {
+        lhs.imageURL == rhs.imageURL
+    }
+}
+
+extension PromotionCellViewModel: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(imageURL)
+    }
+}
+
