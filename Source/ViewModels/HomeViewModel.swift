@@ -12,13 +12,15 @@ import UIKit
 
 protocol HomeViewModelInput {
     var addressTextDidEnd: AnyPublisher<String?, Never> { get }
+    var cellDidTapped: AnyPublisher<AnyHashable?, Never> { get }
 }
 
 protocol HomeViewModelOutput {
     var addressTextFieldSubscription: AnyCancellable { get }
+    var categoryTapped: AnyPublisher<CategoryCellViewModel, Never> { get }
     var usernamePublisher: AnyPublisher<String?, Never> { get }
     var userAddressPublisher: AnyPublisher<String?, Never> { get }
-    var homeDataPublisher: AnyPublisher<Home?, Error> { get }
+    var homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error> { get }
 
 }
 
@@ -27,22 +29,27 @@ final class HomeViewModel: ViewModelType {
     @Injected(container: NetworkingDIContainer.shared)
     private var service: HomeProvider
     
-    @CurrentValue
+    @Injected(container: DIContainer.shared)
     private var user: User
+    
+    @CurrentValue
+    private var userPublisher: (name: String?, address: String?)
     
     struct Input: HomeViewModelInput {
         let addressTextDidEnd: AnyPublisher<String?, Never>
+        let cellDidTapped: AnyPublisher<AnyHashable?, Never>
     }
     
     struct Output: HomeViewModelOutput {
         let addressTextFieldSubscription: AnyCancellable
+        let categoryTapped: AnyPublisher<CategoryCellViewModel, Never>
         let usernamePublisher: AnyPublisher<String?, Never>
         let userAddressPublisher: AnyPublisher<String?, Never>
-        let homeDataPublisher: AnyPublisher<Home?, Error>
+        let homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error>
     }
         
-    init(user: User = .shared) {
-        self.user = user
+    init() {
+        self.userPublisher = (name: self.user.name, address: self.user.address)
     }
     
     func transform(input: Input) -> Output {
@@ -54,14 +61,30 @@ final class HomeViewModel: ViewModelType {
                 .filter(\.isNotEmpty)
                 .optional()
                 .assign(to: \.address, on: self.user),
-            usernamePublisher: self.$user
+            categoryTapped: input
+                .cellDidTapped
+                .receive(on: DispatchQueue.main)
+                .compactMap({ $0 as? CategoryCellViewModel })
+                .eraseToAnyPublisher(),
+            usernamePublisher: self.$userPublisher
                 .compactMap { $0.name }
                 .eraseToAnyPublisher(),
-            userAddressPublisher: self.$user
+            userAddressPublisher: self.$userPublisher
                 .compactMap { $0.address }
                 .eraseToAnyPublisher(),
             homeDataPublisher: self.service.getHome()
-                .eraseToAnyPublisher()
+                .compactMap { $0 }
+                .map { home in
+                    let event: EventCellViewModel = .init(home: home)
+                    let categories: [CategoryCellViewModel] =  home.categories.map {
+                        .init(category: $0)
+                    }
+                    let promotions: [PromotionCellViewModel] = home.promotions.map {
+                        .init(promotion: $0)
+                    }
+                    return (event, categories, promotions)
+            }
+            .eraseToAnyPublisher()
         )
     }
 }

@@ -28,20 +28,36 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ym-26-lms">
                         <rect key="frame" x="0.0" y="0.0" width="392" height="181"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-8w-4uH">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-8w-4uH">
                                 <rect key="frame" x="0.0" y="0.0" width="392" height="181"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ecI-ec-Kj1">
+                                        <rect key="frame" x="0.0" y="0.0" width="392" height="51.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0iP-Bh-tSJ" customClass="LoadingImageView" customModule="Socialteq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="51.5"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcp-Au-TZ2">
+                                                <rect key="frame" x="131" y="0.0" width="130" height="51.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyI-QZ-aul">
+                                                <rect key="frame" x="262" y="0.0" width="130" height="51.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Now!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvE-lT-0zp">
-                                        <rect key="frame" x="0.0" y="0.0" width="392" height="25"/>
+                                        <rect key="frame" x="0.0" y="65.5" width="392" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="131-aJ-04w"/>
+                                            <constraint firstAttribute="height" constant="30" id="131-aJ-04w"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="24"/>
                                         <color key="textColor" name="appBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can book the desired service and get the best quality!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwX-BG-uPj">
-                                        <rect key="frame" x="0.0" y="26" width="392" height="155"/>
+                                        <rect key="frame" x="0.0" y="109.5" width="392" height="71.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="18"/>
                                         <color key="textColor" name="appSecondary"/>
                                         <nil key="highlightedColor"/>
@@ -68,6 +84,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="284" height="169"/>
             <connections>
+                <outlet property="imageStackView" destination="ecI-ec-Kj1" id="86e-lh-zkM"/>
+                <outlet property="imageView" destination="0iP-Bh-tSJ" id="ZXM-Zl-q3R"/>
                 <outlet property="subTitle" destination="HwX-BG-uPj" id="7A9-fd-xlu"/>
                 <outlet property="title" destination="mvE-lT-0zp" id="keA-kI-7e7"/>
             </connections>

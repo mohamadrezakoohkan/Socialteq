@@ -10,6 +10,10 @@ import UIKit
 
 extension UIImage {
     
+    class var clear: UIImage {
+        return UIImage()
+    }
+    
     class var home: UIImage {
         return UIImage(named: "home")!
     }
@@ -48,5 +52,9 @@ extension UIImage {
     
     class var error: UIImage {
         return UIImage(named: "error")!
+    }
+    
+    class var arrowLeft: UIImage {
+        return UIImage(named: "arrowLeft")!
     }
 }

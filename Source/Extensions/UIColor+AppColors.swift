@@ -50,4 +50,9 @@ extension UIColor {
     class var appLightRed: UIColor {
         return UIColor(named: "appLightRed")!
     }
+    
+    class var appLightBlue: UIColor {
+        return UIColor(named: "appLightBlue")!
+    }
+
 }
