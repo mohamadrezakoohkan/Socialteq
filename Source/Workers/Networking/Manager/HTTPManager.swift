@@ -58,7 +58,7 @@ extension HTTPManager: HomeProvider {
 }
 
 extension HTTPManager: CategoryProvider {
-    func getCategory(slug: String) -> AnyPublisher<Category, Error> {
+    func getCategory(slug: String) -> AnyPublisher<Category?, Error> {
         return self.request(route: .services(slug))
     }
 }

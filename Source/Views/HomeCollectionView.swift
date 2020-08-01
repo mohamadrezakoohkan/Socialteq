@@ -10,7 +10,6 @@ import UIKit
 
 final class HomeCollectionView: UICollectionView {
     
-    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: HomeCompositionalLayout.createLayout())
     }

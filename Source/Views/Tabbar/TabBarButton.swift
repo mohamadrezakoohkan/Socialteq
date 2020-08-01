@@ -12,7 +12,7 @@ final class TabBarButton: UIButton {
     
     private (set) var selectedTintColor: UIColor = .clear
     private (set) var unselectedTintColor: UIColor = .clear
-    private (set) var text: String = ""
+    private (set) var text: String = .emptyString
     
     private (set) lazy var badge: TabBarBadge = {
         return.init(font: self.titleLabel?.font ?? .bold())
@@ -25,7 +25,7 @@ final class TabBarButton: UIButton {
     
     private var title: String? {
         get { return self.titleLabel?.text }
-        set { self.setTitle("  " + (newValue ?? ""), for: .normal) }
+        set { self.setTitle(.space + .space + (newValue ?? .emptyString), for: .normal) }
     }
     
     private var color: UIColor {

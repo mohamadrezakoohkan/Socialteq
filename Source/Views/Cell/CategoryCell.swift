@@ -15,14 +15,15 @@ final class CategoryCell: CollectionViewCell<CategoryCellViewModel>, DequableCel
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var subTitle: UILabel!
     @IBOutlet private weak var shortDescription: UILabel!
-    @IBOutlet private weak var newBadge: BadgeLabel!
+    @IBOutlet private weak var badge: BadgeLabel!
             
     override var viewModel: CategoryCellViewModel! {
         didSet {
+            self.badge.isHidden = !self.viewModel.isNewBadgeVisible
             self.title.text = self.viewModel.title
+            self.badge.text = self.viewModel.badgeText
             self.subTitle.text = self.viewModel.subTitle
             self.shortDescription.text = self.viewModel.shortDescription
-            self.newBadge.isHidden = self.viewModel.hasNewBadge != true
             self.imageView.set(imageURL: self.viewModel.imageURL)?
                 .store(in: &self.subscriptions)
         }

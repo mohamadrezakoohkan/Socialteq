@@ -21,8 +21,8 @@ final class TabBar: UITabBar {
     }
     
     private func removeSeparator() {
-        self.shadowImage = UIImage()
-        self.backgroundImage = UIImage()
+        self.shadowImage = .clear
+        self.backgroundImage = .clear
     }
     
 }

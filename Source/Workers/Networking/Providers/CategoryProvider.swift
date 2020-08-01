@@ -10,5 +10,5 @@ import Foundation
 import Combine
 
 protocol CategoryProvider {
-    func getCategory(slug: String) -> AnyPublisher<Category, Error>
+    func getCategory(slug: String) -> AnyPublisher<Category?, Error>
 }
