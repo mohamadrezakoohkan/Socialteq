@@ -55,4 +55,7 @@ extension UIColor {
         return UIColor(named: "appLightBlue")!
     }
 
+    class var appDarkBlue: UIColor {
+        return UIColor(named: "appDarkBlue")!
+    }
 }

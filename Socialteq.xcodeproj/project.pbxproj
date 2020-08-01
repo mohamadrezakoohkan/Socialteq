@@ -22,6 +22,7 @@
 		DD22278624D4A9C90034B6D2 /* UIImageView+ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22278524D4A9C90034B6D2 /* UIImageView+ImageProvider.swift */; };
 		DD22278824D570500034B6D2 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22278724D570500034B6D2 /* NavigationBar.swift */; };
 		DD22278B24D571E20034B6D2 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22278A24D571E20034B6D2 /* BackBarButtonItem.swift */; };
+		DD8741FC24D5F7C3003D88DE /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD8741FA24D5F7C3003D88DE /* PackageCell.xib */; };
 		DD96C9CB24CEF6BC00E6689E /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */; };
 		DD96C9CC24CEF6BC00E6689E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C824CEF6BB00E6689E /* TabBarController.swift */; };
 		DD96C9CD24CEF6BC00E6689E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9C924CEF6BB00E6689E /* TabBarView.swift */; };
@@ -142,7 +143,6 @@
 		DDCBA73624D5D34A001AE36A /* CategoryCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCBA73524D5D34A001AE36A /* CategoryCompositionalLayout.swift */; };
 		DDCBA73824D5D5EF001AE36A /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCBA73724D5D5EF001AE36A /* CategoryViewModel.swift */; };
 		DDCBA73A24D5E745001AE36A /* PackageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCBA73924D5E745001AE36A /* PackageCellViewModel.swift */; };
-		DDCBA73C24D5EC37001AE36A /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCBA73B24D5EC37001AE36A /* PackageCell.xib */; };
 		DDCBA73E24D5ED1B001AE36A /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCBA73D24D5ED1B001AE36A /* PackageCell.swift */; };
 		DDCBA74024D5F02E001AE36A /* Number+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCBA73F24D5F02E001AE36A /* Number+Formatter.swift */; };
 		DDF1847A24D16B76000A2619 /* UIView+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF1847924D16B76000A2619 /* UIView+Publishers.swift */; };
@@ -174,6 +174,7 @@
 		DD22278524D4A9C90034B6D2 /* UIImageView+ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageProvider.swift"; sourceTree = "<group>"; };
 		DD22278724D570500034B6D2 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DD22278A24D571E20034B6D2 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
+		DD8741FA24D5F7C3003D88DE /* PackageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
 		DD96C9C724CEF6BB00E6689E /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		DD96C9C824CEF6BB00E6689E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD96C9C924CEF6BB00E6689E /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -298,7 +299,6 @@
 		DDCBA73524D5D34A001AE36A /* CategoryCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCompositionalLayout.swift; sourceTree = "<group>"; };
 		DDCBA73724D5D5EF001AE36A /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		DDCBA73924D5E745001AE36A /* PackageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCellViewModel.swift; sourceTree = "<group>"; };
-		DDCBA73B24D5EC37001AE36A /* PackageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
 		DDCBA73D24D5ED1B001AE36A /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
 		DDCBA73F24D5F02E001AE36A /* Number+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Formatter.swift"; sourceTree = "<group>"; };
 		DDF1847924D16B76000A2619 /* UIView+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Publishers.swift"; sourceTree = "<group>"; };
@@ -578,8 +578,8 @@
 			children = (
 				DDC5D8A424CC0CD9007538F7 /* Main.storyboard */,
 				DD9C6C4824D0695F0066D6F2 /* TitleReusableView.xib */,
+				DD8741FA24D5F7C3003D88DE /* PackageCell.xib */,
 				DDC4425524D1F1B6006233D0 /* EventCell.xib */,
-				DDCBA73B24D5EC37001AE36A /* PackageCell.xib */,
 				DD9C6C5424D090810066D6F2 /* CategoryCell.xib */,
 				DD9C6C5824D090910066D6F2 /* PromotionCell.xib */,
 				DDC5D8E124CC2434007538F7 /* Localizable.strings */,
@@ -793,9 +793,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD96C9F224CEFB5E00E6689E /* Poppins-Medium.ttf in Resources */,
+				DD8741FC24D5F7C3003D88DE /* PackageCell.xib in Resources */,
 				DD96C9F724CEFB5E00E6689E /* Poppins-Bold.ttf in Resources */,
 				DD96C9E624CEFB5E00E6689E /* Poppins-SemiBold.ttf in Resources */,
-				DDCBA73C24D5EC37001AE36A /* PackageCell.xib in Resources */,
 				DDC5D8AB24CC0CD9007538F7 /* LaunchScreen.storyboard in Resources */,
 				DD9C6C4A24D0695F0066D6F2 /* TitleReusableView.xib in Resources */,
 				DDC5D8E224CC2434007538F7 /* Localizable.strings in Resources */,

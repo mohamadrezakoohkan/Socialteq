@@ -46,7 +46,6 @@ enum Endpoint: HTTPEndpoint {
         return nil
     }
     
-    
     var path: String {
         switch self {
         case .goolgeIndex:
@@ -58,7 +57,7 @@ enum Endpoint: HTTPEndpoint {
         case .home:
             return Endpoint.customer.path + Endpoint.version2.path + "home/"
         case .categories:
-            return Endpoint.home.path  + "categories/"
+            return Endpoint.customer.path + Endpoint.version2.path + "categories/"
         case .services(let category):
             return Endpoint.categories.path + "\(category)/" + "services/"
         }

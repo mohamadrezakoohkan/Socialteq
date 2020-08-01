@@ -10,7 +10,7 @@ import UIKit
 
 final class EventCell: CollectionViewCell<EventCellViewModel>, DequableCellProtocol, IdentifiableProtocol {
 
-    @IBOutlet weak var imageStackView: UIStackView!
+    @IBOutlet private weak var imageStackView: UIStackView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var subTitle: UILabel!

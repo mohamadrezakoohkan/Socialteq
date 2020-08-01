@@ -12,20 +12,19 @@ extension Formatter {
     static let priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = .comma
-        formatter.numberStyle = .currency
-        formatter.currencyCode = .currency
+        formatter.numberStyle = .decimal
         return formatter
     }()
 }
 
 extension BinaryInteger {
     var price: String {
-        return Formatter.priceFormatter.string(for: self) ?? .emptyString
+        return (Formatter.priceFormatter.string(for: self) ?? .emptyString) + .space + .currency
     }
 }
 
 extension Double {
     var price: String {
-        return Formatter.priceFormatter.string(for: self) ?? .emptyString
+        return (Formatter.priceFormatter.string(for: self) ?? .emptyString) + .space + .currency
     }
 }

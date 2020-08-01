@@ -19,9 +19,9 @@ struct EventCellViewModel: ViewModelType, EventCellViewModelSource {
     let title: String?
     let subTitle: String?
     
-    private (set) lazy var isImageVisible: Bool = {
+   var isImageVisible: Bool {
         return self.imageURL != nil
-    }()
+    }
     
     init(home: Home) {
         self.init(title: home.title, subTitle: home.subTitle, imageURL: nil)

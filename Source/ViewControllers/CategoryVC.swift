@@ -30,6 +30,10 @@ final class CategoryVC: NavigationViewController, Storyboarded {
         super.viewDidLoad()
         self.registerDependencies()
         self.setupDataSource()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.bindViewModel()
     }
     
@@ -47,6 +51,9 @@ final class CategoryVC: NavigationViewController, Storyboarded {
                 guard let _ = self else { return }
                 print("Cell tapped ()")
             })
+            .store(in: &self.subscriptions)
+        
+        output.categoryDataSubscription
             .store(in: &self.subscriptions)
         
         output.categoryDataPublisher
@@ -72,6 +79,10 @@ final class CategoryVC: NavigationViewController, Storyboarded {
             case let event as EventCellViewModel:
                 return self.eventCell.deque(in: collectionView, at: indexPath) {
                     $0.viewModel = event
+                }
+            case let package as PackageCellViewModel:
+                return self.packageCell.deque(in: collectionView, at: indexPath) {
+                    $0.viewModel = package
                 }
             default:
                 return nil

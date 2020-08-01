@@ -46,7 +46,7 @@ final class CategoryCompositionalLayout: CompositionalLayout {
     
     private static var serviceGroupSize: NSCollectionLayoutSize {
         return .init(widthDimension: .fractionalWidth(1),
-                     heightDimension: .absolute(190 + horizontalSpace))
+                     heightDimension: .absolute(196 + horizontalSpace))
     }
     
     static func createLayout() -> CategoryCompositionalLayout {

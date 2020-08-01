@@ -24,9 +24,9 @@ struct CategoryCellViewModel: ViewModelType, CategoryCellViewModelSource {
     let badgeText: String
     let imageURL: URL?
     
-    private (set) lazy var isNewBadgeVisible: Bool = {
+    var isNewBadgeVisible: Bool {
         return self.hasNewBadge == true
-    }()
+    }
 
     init(category: Category) {
         self.init(title: category.title, subTitle: category.subTitle, shortDescription: category.shortDescription, hasNewBadge: category.hasNewBadge, imageURL: category.image?.imageURL, category: category)

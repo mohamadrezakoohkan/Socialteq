@@ -18,14 +18,20 @@ final class PackageCell: CollectionViewCell<PackageCellViewModel>, DequableCellP
     @IBOutlet private weak var shortDescription: UILabel!
     @IBOutlet private weak var price: UILabel!
     @IBOutlet private weak var badge: BadgeLabel!
+    
+    private var shadowRect: CGRect {
+        let start: CGFloat = 20
+        let width: CGFloat = self.bounds.width - start*3
+        return CGRect(x: start, y: .zero, width: width, height: self.bounds.height)
+    }
             
     override var viewModel: PackageCellViewModel! {
         didSet {
-            self.clipsToBounds = !self.viewModel.special
-            self.view.backgroundColor = self.viewModel.special ? .appHighlight : .appLightBlue
-            self.title.backgroundColor = self.viewModel.special ? .appWhite : .appBlack
-            self.subTitle.backgroundColor = self.viewModel.special ? .appWhite : .appBlack
-            self.shortDescription.backgroundColor = self.viewModel.special ? .appWhite : .appBlack
+            self.view.clipsToBounds = !self.viewModel.special
+            self.view.layer.masksToBounds = !self.viewModel.special
+            self.view.backgroundColor = self.viewModel.special ? .appDarkBlue : .appLightBlue
+            self.title.textColor = self.viewModel.special ? .appWhite : .appBlack
+            self.subTitle.textColor = self.viewModel.special ? .appWhite : .appBlack
             self.badge.isHidden = !self.viewModel.isDiscountBadgeVisible
             self.title.text = self.viewModel.title
             self.badge.text = self.viewModel.discountText
@@ -35,5 +41,19 @@ final class PackageCell: CollectionViewCell<PackageCellViewModel>, DequableCellP
             self.imageView.set(imageURL: self.viewModel.imageURL)?
                 .store(in: &self.subscriptions)
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setShadow()
+    }
+    
+    func setShadow() {
+        self.view.layer.masksToBounds = false
+        self.view.layer.shadowColor = UIColor.appHighlight.cgColor
+        self.view.layer.shadowOpacity = 0.3
+        self.view.layer.shadowRadius = 20
+        self.view.layer.shadowOffset = .init(width: 0, height: 5)
+        self.view.layer.shadowPath = UIBezierPath(rect: self.shadowRect).cgPath
     }
 }

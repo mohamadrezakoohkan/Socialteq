@@ -27,21 +27,21 @@ struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
     let isSpecial: Bool?
     let imageURL: URL?
     
-    private (set) lazy var isDiscountBadgeVisible: Bool = {
+    var isDiscountBadgeVisible: Bool {
         return self.hasDiscount == true
-    }()
+    }
     
-    private (set) lazy var discountText: String = {
+    var discountText: String {
         return String(self.discountPercentage ?? 0) + .space + .percentage
-    }()
+    }
     
-    private (set) lazy var priceText: String = {
+    var priceText: String {
         return self.basePrice?.price ?? .free
-    }()
+    }
     
-    private (set) lazy var special: Bool = {
+    var special: Bool {
         return self.isSpecial == true
-    }()
+    }
     
     init(package: Package) {
         self.init(title: package.title, subTitle: package.subTitle, shortDescription: package.shortDescription, hasDiscount: package.hasDiscount, basePrice: package.basePrice, discountPercentage: package.discountPercentage, isSpecial: package.isSpecial, imageURL: package.image?.imageURL, package: package)
