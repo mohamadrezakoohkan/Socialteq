@@ -4,6 +4,7 @@ This app is for `Socialteq` coding challenge
 You can work with app using [online iOS simulator **Appetize.io**](https://appetize.io/app/t6kqvqubv07ha13dv5npg98wew?device=iphone11promax&scale=75&orientation=portrait&osVersion=13.3)
 
 ## Project overview
+- Supported OS: **iOS, iPadOS and macOS**
 - Orientations: **Landscape and Portrait**
 - Dark mode support: **YEAY!**
 - Architecture pattern: **MVVM**
