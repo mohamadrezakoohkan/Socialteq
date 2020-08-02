@@ -16,12 +16,11 @@ on:
       
 env:
   PROJECT: ${{ github.event.repository.name }}.xcodeproj
-  DEVELOPMENT_SCHEME: Development
-  PRODUCTION_SCHEME: Production
+  SCHEME: Development
 
 jobs:
-         
-  xcodebuild_iOS_build_and_test_production:
+
+  xcodebuild_iOS_build_and_test_development:
     name: Xcodebuild iOS Unit Tests
     runs-on: ${{ matrix.os }}
     strategy:
@@ -45,63 +44,11 @@ jobs:
       - name: Clean xcodeproject
         run: |
           xcodebuild clean
-      - name: Build xcodeproject for production
-        run: |
-          xcodebuild build \
-            -project $PROJECT \
-            -scheme $PRODUCTION_SCHEME \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            ONLY_ACTIVE_ARCH=NO \
-            CODE_SIGNING_ALLOWED=NO
-      - name: Test xcodeproject for production
-        run: |
-          xcodebuild test \
-            -project $PROJECT \
-            -scheme $PRODUCTION_SCHEME \
-            -destination "$DESTINATION" \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            ONLY_ACTIVE_ARCH=NO \
-            CODE_SIGNING_ALLOWED=NO
-        env:
-            DESTINATION: ${{ matrix.destination }}
-
-         
-  xcodebuild_iOS_build_and_test_development:
-    name: Xcodebuild iOS Unit Tests
-    runs-on: ${{ matrix.os }}
-    strategy:
-        matrix:
-          os: [macOS-latest]
-          destination: ['platform=iOS Simulator,OS=13.5,name=iPhone 11 Pro Max']
-    if:
-      contains('
-        refs/heads/development
-        refs/heads/feature/ci-cd
-      ', github.ref)
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Check xcodebuild version
-        run: |
-          xcodebuild -version
-          type -a xcodebuild
-      - name: Check xcode-select version
-        run: |
-          xcode-select -version
-          type -a xcode-select
-      - name: Check availabble devices
-        run: |
-          instruments -s devices
-      - name: Clean xcodeproject
-        run: |
-          xcodebuild clean
       - name: Build xcodeproject for development
         run: |
           xcodebuild build \
             -project $PROJECT \
-            -scheme $DEVELOPMENT_SCHEME \
+            -scheme $SCHEME \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             ONLY_ACTIVE_ARCH=NO \
@@ -110,7 +57,7 @@ jobs:
         run: |
           xcodebuild test \
             -project $PROJECT \
-            -scheme $DEVELOPMENT_SCHEME \
+            -scheme $SCHEME \
             -destination "$DESTINATION" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
@@ -119,4 +66,5 @@ jobs:
         env:
           DESTINATION: ${{ matrix.destination }}
           
+
 
