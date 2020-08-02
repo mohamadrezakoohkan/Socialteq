@@ -1,14 +1,35 @@
 
-## Coding Challenge
+# Introduction
+This app is for `Socialteq` coding challenge  
+You can work with app using [online iOS simulator **Appetize.io**](https://appetize.io/app/t6kqvqubv07ha13dv5npg98wew?device=iphone11promax&scale=75&orientation=portrait&osVersion=13.3)
 
-### Git flow
+## Project overview
+- Architecture pattern: **MVVM**
+- Control application flow: **Coordinator**
+- Observation: **KVO**
+- Observation framework: **Combine**
+- Networking manager: **URLSession** 
+- Unit testing framework: **XCTest** 
 
-- master
-  - development
-    - feature
-      - xcodeproject
-      
-### Architecture
+## Git flow
+- master (Production release)
+  - development (Staging release)
+    - feature/anyFeature
+    - test/anyTest
 
-- MVVM -> Combine
-- Coordinator -> Soroush khanlou
+## Project limitations
+Mentioned limitations:  
+- Swift
+- Use of any third-party library is prohibited
+- Should be done in one week
+
+## Project requirements
+Mentioned requirements:  
+- **VPN** If you live in **IRAN** becuase backend located on Google cloud
+- Unit testing for network layer
+- Pixel prefect design based on [**Figma Designs**](https://www.figma.com/file/szEuU1bVNZpZWwaUGJRGFY/Assessment?node-id=1%3A250)
+
+## Installation requirements
+- iOS 13.0
+- Xcode 11.5
+- macOS Catalina at least
