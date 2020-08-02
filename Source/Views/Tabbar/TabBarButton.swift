@@ -55,7 +55,7 @@ final class TabBarButton: UIButton {
         self.tag = tag
         self.titleLabel?.font = font
         selected ? self.select() : self.deselect()
-        if createBadge { self.addBadge() }
+//        if createBadge { self.addBadge() }
     }
     
     required init?(coder: NSCoder) {
