@@ -75,6 +75,8 @@
 		DDB8347A24D2FB8F0027D60B /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8347924D2FB8F0027D60B /* ViewModelType.swift */; };
 		DDB8347E24D2FCE10027D60B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8347D24D2FCE10027D60B /* CollectionViewCell.swift */; };
 		DDB8A6F224D71C790023141E /* HTTPManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8A6F024D71BFE0023141E /* HTTPManagerTests.swift */; };
+		DDB8A6FA24D72EA50023141E /* MockDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB29B24D69B580016E648 /* MockDomain.swift */; };
+		DDB8A6FB24D72EAD0023141E /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB2A024D6E94F0016E648 /* MockURLSession.swift */; };
 		DDC4425624D1F1B6006233D0 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4425424D1F1B6006233D0 /* EventCell.swift */; };
 		DDC4425724D1F1B6006233D0 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC4425524D1F1B6006233D0 /* EventCell.xib */; };
 		DDC4425A24D2107C006233D0 /* HomeCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4425924D2107C006233D0 /* HomeCompositionalLayout.swift */; };
@@ -150,9 +152,7 @@
 		DDCFB29724D69A040016E648 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB28E24D699C30016E648 /* RouterTests.swift */; };
 		DDCFB29824D69A070016E648 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB29024D699DE0016E648 /* EndpointTests.swift */; };
 		DDCFB29A24D69ADF0016E648 /* HTTPDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB29924D69ADF0016E648 /* HTTPDomain.swift */; };
-		DDCFB29C24D69B580016E648 /* MockDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB29B24D69B580016E648 /* MockDomain.swift */; };
 		DDCFB29F24D6E7A60016E648 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB29D24D6E7860016E648 /* MockURLProtocol.swift */; };
-		DDCFB2A124D6E94F0016E648 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB2A024D6E94F0016E648 /* MockURLSession.swift */; };
 		DDCFB2A424D6EEE40016E648 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB2A224D6EDAB0016E648 /* MockRouter.swift */; };
 		DDCFB2A924D6F4AB0016E648 /* APIResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB2A824D6F4AB0016E648 /* APIResponseData.swift */; };
 		DDCFB2AB24D702260016E648 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB2AA24D702260016E648 /* TestError.swift */; };
@@ -240,6 +240,7 @@
 		DDB8347924D2FB8F0027D60B /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		DDB8347D24D2FCE10027D60B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB8A6F024D71BFE0023141E /* HTTPManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManagerTests.swift; sourceTree = "<group>"; };
+		DDB8A6F924D727D50023141E /* test.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = test.yml; sourceTree = "<group>"; };
 		DDC4425424D1F1B6006233D0 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		DDC4425524D1F1B6006233D0 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		DDC4425924D2107C006233D0 /* HomeCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -419,6 +420,23 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		DDB8A6F324D726560023141E /* Workflows */ = {
+			isa = PBXGroup;
+			children = (
+				DDB8A6F824D727D50023141E /* workflows */,
+			);
+			name = Workflows;
+			sourceTree = "<group>";
+		};
+		DDB8A6F824D727D50023141E /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				DDB8A6F924D727D50023141E /* test.yml */,
+			);
+			name = workflows;
+			path = .github/workflows;
+			sourceTree = "<group>";
+		};
 		DDC4425824D2106E006233D0 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +453,7 @@
 				DDC5D89D24CC0CD9007538F7 /* Source */,
 				DDC5D8B424CC0CD9007538F7 /* Tests */,
 				DD87420124D67465003D88DE /* Configuration */,
+				DDB8A6F324D726560023141E /* Workflows */,
 				DDC5D89C24CC0CD9007538F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -905,7 +924,6 @@
 				DDC5D93E24CCB984007538F7 /* HTTPManager.swift in Sources */,
 				DD22277024D30A0A0034B6D2 /* MainCoordinator.swift in Sources */,
 				DDC5D92824CCA7FB007538F7 /* CategoryStorageSource.swift in Sources */,
-				DDCFB29C24D69B580016E648 /* MockDomain.swift in Sources */,
 				DDCBA73A24D5E745001AE36A /* PackageCellViewModel.swift in Sources */,
 				DDC5D90D24CC54D3007538F7 /* ShowOptionSource.swift in Sources */,
 				DDC5D8A324CC0CD9007538F7 /* ViewController.swift in Sources */,
@@ -1000,7 +1018,6 @@
 				DD9C6C5524D090810066D6F2 /* CategoryCell.swift in Sources */,
 				DDC5D8E824CC34E0007538F7 /* Domain.swift in Sources */,
 				DD9C6C5024D087650066D6F2 /* BaseViewController.swift in Sources */,
-				DDCFB2A124D6E94F0016E648 /* MockURLSession.swift in Sources */,
 				DD96CA0624CF43AC00E6689E /* CategoriesCoordinator.swift in Sources */,
 				DDC5D94024CCB9BE007538F7 /* HTTPEnvironment.swift in Sources */,
 				DDCBA73424D5D330001AE36A /* CategoryCollectionView.swift in Sources */,
@@ -1021,12 +1038,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDCFB2A924D6F4AB0016E648 /* APIResponseData.swift in Sources */,
+				DDB8A6FA24D72EA50023141E /* MockDomain.swift in Sources */,
 				DDCFB2A424D6EEE40016E648 /* MockRouter.swift in Sources */,
 				DDCFB29524D699FF0016E648 /* MockEndpoint.swift in Sources */,
 				DDCFB29F24D6E7A60016E648 /* MockURLProtocol.swift in Sources */,
 				DDCFB2AB24D702260016E648 /* TestError.swift in Sources */,
 				DDCFB29724D69A040016E648 /* RouterTests.swift in Sources */,
 				DDB8A6F224D71C790023141E /* HTTPManagerTests.swift in Sources */,
+				DDB8A6FB24D72EAD0023141E /* MockURLSession.swift in Sources */,
 				DDCFB29824D69A070016E648 /* EndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1182,8 +1201,9 @@
 			baseConfigurationReference = DD87420324D674AE003D88DE /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BPYLDK5ZR2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1191,6 +1211,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.Socialteq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1201,8 +1222,9 @@
 			baseConfigurationReference = DD87420224D674A2003D88DE /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BPYLDK5ZR2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1210,6 +1232,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.Socialteq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1221,8 +1244,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BPYLDK5ZR2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1232,6 +1257,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.SocialteqTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Socialteq.app/Socialteq";
@@ -1244,8 +1271,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BPYLDK5ZR2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1255,6 +1284,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.SocialteqTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Socialteq.app/Socialteq";
