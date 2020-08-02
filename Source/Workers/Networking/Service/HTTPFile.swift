@@ -24,14 +24,19 @@ struct HTTPFile {
 
     }
     init(url: URL, fileManager: FileManager = .default) {
-        let cacheDir = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!.path
+        var cacheDir = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let name = url.pathComponents.last ?? UUID().uuidString
+        cacheDir.appendPathComponent(name)
         self.url = url
         self.manager = fileManager
-        self.path = cacheDir + url.pathComponents.last!
+        self.path = cacheDir.path
     }
     
     func write(from cache: String) throws {
-        guard self.exist == false else { return }
+        if self.exist {
+           try self.remove()
+        }
+//        guard self.exist == false else { return }
         try manager.moveItem(atPath: cache, toPath: self.path)
     }
     
