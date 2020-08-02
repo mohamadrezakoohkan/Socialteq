@@ -53,12 +53,12 @@ jobs:
           xcodebuild test -project $PROJECT -scheme $DEVELOPMENT_SCHEME -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env:
           DESTINATION: ${{ matrix.destination }}
-        - name: Build xcodeproject for production
-          run: |
-            xcodebuild build -project $PROJECT -scheme $PRODUCTION_SCHEME CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-        - name: Test xcodeproject for production
-          run: |
-            xcodebuild test -project $PROJECT -scheme $PRODUCTION_SCHEME -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      - name: Build xcodeproject for production
+        run: |
+          xcodebuild build -project $PROJECT -scheme $PRODUCTION_SCHEME       CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      - name: Test xcodeproject for production
+        run: |
+          xcodebuild test -project $PROJECT -scheme $PRODUCTION_SCHEME -destination       "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO       ONLY_ACTIVE_ARCH=NO
         env:
-          DESTINATION: ${{ matrix.destination }}
+            DESTINATION: ${{ matrix.destination }}
           
