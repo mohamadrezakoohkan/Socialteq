@@ -8,13 +8,22 @@
 
 import Foundation
 
-enum Domain: String {
+@frozen enum Domain {
     
-    case google = "https://google.com/"
-    case appspot = "https://api-dot-rafiji-staging.appspot.com/"
+    case google
+    case appspot
+    
+    var value: String {
+        switch self {
+        case .google:
+            return "https://google.com/"
+        case .appspot:
+            return Configuration.shared.baseURL
+        }
+    }
     
     var isSecure: Bool {
-        return self.rawValue.contains("https")
+        return self.value.contains("https")
     }
     
 }

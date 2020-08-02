@@ -32,6 +32,7 @@ final class PackageCell: CollectionViewCell<PackageCellViewModel>, DequableCellP
             self.view.backgroundColor = self.viewModel.special ? .appDarkBlue : .appLightBlue
             self.title.textColor = self.viewModel.special ? .appWhite : .appBlack
             self.subTitle.textColor = self.viewModel.special ? .appWhite : .appBlack
+            self.shortDescription.textColor = self.viewModel.special ? .appWhite : .appSecondary
             self.badge.isHidden = !self.viewModel.isDiscountBadgeVisible
             self.title.text = self.viewModel.title
             self.badge.text = self.viewModel.discountText

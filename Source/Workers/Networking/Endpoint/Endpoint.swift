@@ -65,6 +65,6 @@ enum Endpoint: HTTPEndpoint {
 
     
     func url(domain: Domain) -> URL? {
-        return URL(string: domain.rawValue + self.path)
+        return URL(string: domain.value + self.path)
     }
 }
