@@ -1,0 +1,70 @@
+name: Unit Tests
+
+on:
+  push:
+    branches:
+      - master
+      - development
+      - feature/ci-cd
+  pull_request:
+    branches:
+      - '*'
+  release:
+    branches:
+      - master
+      - development
+      
+env:
+  PROJECT: ${{ github.event.repository.name }}.xcodeproj
+  SCHEME: Development
+
+jobs:
+
+  xcodebuild_iOS_build_and_test_development:
+    name: Xcodebuild iOS Unit Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [macOS-latest]
+          destination: ['platform=iOS Simulator,OS=13.6,name=iPhone 11 Pro Max']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check xcodebuild version
+        run: |
+          xcodebuild -version
+          type -a xcodebuild
+      - name: Check xcode-select version
+        run: |
+          xcode-select -version
+          type -a xcode-select
+      - name: Check availabble devices
+        run: |
+          instruments -s devices
+      - name: Clean xcodeproject
+        run: |
+          xcodebuild clean
+      - name: Build xcodeproject for development
+        run: |
+          xcodebuild build \
+            -project $PROJECT \
+            -scheme $SCHEME \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Test xcodeproject for development
+        run: |
+          xcodebuild test \
+            -project $PROJECT \
+            -scheme $SCHEME \
+            -destination "$DESTINATION" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO
+        env:
+          DESTINATION: ${{ matrix.destination }}
+          
+
+

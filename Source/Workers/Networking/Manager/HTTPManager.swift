@@ -13,7 +13,11 @@ import UIKit.UIImage
 struct HTTPManager {
     
     static let environment: HTTPEnvironment = .production
-    fileprivate let router: Router<Endpoint> = .init()
+    fileprivate let router: Router<Endpoint>
+    
+    init(router: Router<Endpoint> = .init()) {
+        self.router = router
+    }
     
     
     fileprivate func handleError(data: Data?, response: URLResponse?) throws -> Data {
@@ -43,7 +47,7 @@ struct HTTPManager {
         try self.handleError(data: output.data, response: output.response)
     }
     
-    fileprivate func request<D: Decodable>(route: Endpoint) -> AnyPublisher<D, Error> {
+    func request<D: Decodable>(route: Endpoint) -> AnyPublisher<D, Error> {
         self.router.request(route: route)
             .tryMap { try self.handlePublishError(output: $0) }
             .decode(type: D.self, decoder: JSONDecoder())

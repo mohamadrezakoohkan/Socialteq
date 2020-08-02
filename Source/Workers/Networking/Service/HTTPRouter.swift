@@ -26,10 +26,7 @@ protocol HTTPRouter: class {
 extension HTTPRouter {
     
     func requestGenerator(fromRoute route: EndpointType) -> URLRequest {
-        guard let url = URL(string: route.baseURL.value + route.path) else {
-            fatalError(HTTPError.invalidURL.localizedDescription)
-        }
-        var request = URLRequest(url: url, cachePolicy: self.cachePolicy, timeoutInterval: self.timeout)
+        var request = URLRequest(url: route.url, cachePolicy: self.cachePolicy, timeoutInterval: self.timeout)
         request.httpMethod = route.method.rawValue
         return request
     }
