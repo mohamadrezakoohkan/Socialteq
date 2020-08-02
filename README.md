@@ -7,7 +7,7 @@ You can work with app using [online iOS simulator **Appetize.io**](https://appet
 - Supported platforms: **iOS, iPadOS and macOS**
 - Orientations: **Landscape and Portrait**
 - Dark mode support: **YEAY!**
-- Architecture pattern: **MVVM**
+- Architecture pattern: **MVVM** (Kickstarter approach)
 - Control application flow: **Coordinator**
 - Observation: **KVO**
 - Observation framework: **Combine**
