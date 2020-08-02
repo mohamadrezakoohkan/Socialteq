@@ -241,6 +241,7 @@
 		DDB8347D24D2FCE10027D60B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB8A6F024D71BFE0023141E /* HTTPManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManagerTests.swift; sourceTree = "<group>"; };
 		DDB8A6F924D727D50023141E /* test.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = test.yml; sourceTree = "<group>"; };
+		DDB8A6FC24D73CC30023141E /* Socialteq.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Socialteq.entitlements; sourceTree = "<group>"; };
 		DDC4425424D1F1B6006233D0 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		DDC4425524D1F1B6006233D0 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		DDC4425924D2107C006233D0 /* HomeCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -450,6 +451,7 @@
 		DDC5D89224CC0CD9007538F7 = {
 			isa = PBXGroup;
 			children = (
+				DDB8A6FC24D73CC30023141E /* Socialteq.entitlements */,
 				DDC5D89D24CC0CD9007538F7 /* Source */,
 				DDC5D8B424CC0CD9007538F7 /* Tests */,
 				DD87420124D67465003D88DE /* Configuration */,
@@ -1201,9 +1203,10 @@
 			baseConfigurationReference = DD87420324D674AE003D88DE /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
+				CODE_SIGN_ENTITLEMENTS = Socialteq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPYLDK5ZR2;
 				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1212,6 +1215,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.Socialteq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1222,9 +1226,10 @@
 			baseConfigurationReference = DD87420224D674A2003D88DE /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
+				CODE_SIGN_ENTITLEMENTS = Socialteq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPYLDK5ZR2;
 				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1233,6 +1238,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.Socialteq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1247,7 +1253,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPYLDK5ZR2;
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1274,7 +1280,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPYLDK5ZR2;
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
