@@ -8,7 +8,7 @@
 
 import Foundation
 
-@frozen enum Domain {
+@frozen enum Domain: HTTPDomain {
     
     case google
     case appspot

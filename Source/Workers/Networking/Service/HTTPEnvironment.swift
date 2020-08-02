@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// Enviroment type already handled in configurations but for mocking urlsession we can define our enviroment to keep project isolate
+///
 enum HTTPEnvironment {
     case production
+    case development
 }

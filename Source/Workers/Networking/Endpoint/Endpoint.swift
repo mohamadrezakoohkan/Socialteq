@@ -22,10 +22,7 @@ enum Endpoint: HTTPEndpoint {
         case .goolgeIndex:
             return .google
         default:
-            switch HTTPManager.environment {
-            case .production:
-                return .appspot
-            }
+            return .appspot
         }
     }
     
@@ -62,9 +59,12 @@ enum Endpoint: HTTPEndpoint {
             return Endpoint.categories.path + "\(category)/" + "services/"
         }
     }
-
     
-    func url(domain: Domain) -> URL? {
-        return URL(string: domain.value + self.path)
+    var urlString: String {
+        return self.baseURL.value + self.path
+    }
+
+    var url: URL {
+        return URL(string: self.urlString)!
     }
 }

@@ -9,10 +9,9 @@
 import Foundation
 import Combine
 
-final class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
+class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
     
-    unowned let session: URLSession
-    
+    let session: URLSession
     let timeout: TimeInterval
     let cachePolicy: URLRequest.CachePolicy
     let qos: DispatchQoS
