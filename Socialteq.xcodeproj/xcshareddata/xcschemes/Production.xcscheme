@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Socialteq.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DDC5D8B024CC0CD9007538F7"
+               BuildableName = "SocialteqTests.xctest"
+               BlueprintName = "SocialteqTests"
+               ReferencedContainer = "container:Socialteq.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
