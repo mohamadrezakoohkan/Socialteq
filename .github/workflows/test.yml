@@ -59,6 +59,7 @@ jobs:
           xcodebuild test \
             -project $PROJECT \
             -scheme $DEVELOPMENT_SCHEME \
+            -destination "$DESTINATION" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             ONLY_ACTIVE_ARCH=NO \
@@ -79,6 +80,7 @@ jobs:
           xcodebuild test \
             -project $PROJECT \
             -scheme $PRODUCTION_SCHEME \
+            -destination "$DESTINATION" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             ONLY_ACTIVE_ARCH=NO \
