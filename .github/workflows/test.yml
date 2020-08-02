@@ -47,18 +47,42 @@ jobs:
           xcodebuild clean
       - name: Build xcodeproject for development
         run: |
-          xcodebuild build -project $PROJECT -scheme $DEVELOPMENT_SCHEME CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild build \
+            -project $PROJECT \
+            -scheme $DEVELOPMENT_SCHEME \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO
       - name: Test xcodeproject for development
         run: |
-          xcodebuild test -project $PROJECT -scheme $DEVELOPMENT_SCHEME -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild test \
+            -project $PROJECT \
+            -scheme $DEVELOPMENT_SCHEME \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO
         env:
           DESTINATION: ${{ matrix.destination }}
       - name: Build xcodeproject for production
         run: |
-          xcodebuild build -project $PROJECT -scheme $PRODUCTION_SCHEME       CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild build \
+            -project $PROJECT \
+            -scheme $PRODUCTION_SCHEME \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO
       - name: Test xcodeproject for production
         run: |
-          xcodebuild test -project $PROJECT -scheme $PRODUCTION_SCHEME -destination       "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO       ONLY_ACTIVE_ARCH=NO
+          xcodebuild test \
+            -project $PROJECT \
+            -scheme $PRODUCTION_SCHEME \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO
         env:
             DESTINATION: ${{ matrix.destination }}
           
