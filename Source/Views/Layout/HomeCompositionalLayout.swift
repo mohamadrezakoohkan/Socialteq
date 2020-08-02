@@ -99,8 +99,9 @@ final class HomeCompositionalLayout: CompositionalLayout {
         let group = groupProvider(size: serviceGroupSize, item: item)
         group.contentInsets.bottom = horizontalSpace
         let supplimentaryItem = headerProvider(size: supplementaryViewSize)
+        let bottomSpace: CGFloat = UIDevice.isLandscape ? .zero : UIDevice.isIpad ? .zero : horizontalSpace
         return sectionProvider(group: group, supplementaryItems: [supplimentaryItem]) {
-            $0.contentInsets.bottom = verticalSectionSpace - horizontalSpace
+            $0.contentInsets.bottom = verticalSectionSpace - bottomSpace
         }
     }
     
