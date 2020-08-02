@@ -1,0 +1,16 @@
+//
+//  Production.xcconfig
+//  Socialteq
+//
+//  Created by Mohammad reza Koohkan on 5/12/1399 AP.
+//  Copyright © 1399 AP Mohamadreza Koohkan. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = Socialteq
+APP_BUNDLE_ID = codes.mohamadreza.Socialteq
+APP_ICON = AppIcon
+BASE_URL_API = https:/$()/api-dot-rafiji-staging.appspot.com/
+
