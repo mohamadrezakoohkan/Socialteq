@@ -240,7 +240,7 @@
 		DDB8347924D2FB8F0027D60B /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		DDB8347D24D2FCE10027D60B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB8A6F024D71BFE0023141E /* HTTPManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManagerTests.swift; sourceTree = "<group>"; };
-		DDB8A6F624D726A70023141E /* test.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = test.yml; sourceTree = "<group>"; };
+		DDB8A6F924D727D50023141E /* test.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = test.yml; sourceTree = "<group>"; };
 		DDC4425424D1F1B6006233D0 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		DDC4425524D1F1B6006233D0 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		DDC4425924D2107C006233D0 /* HomeCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -423,18 +423,18 @@
 		DDB8A6F324D726560023141E /* Workflows */ = {
 			isa = PBXGroup;
 			children = (
-				DDB8A6F424D726A70023141E /* workflows */,
+				DDB8A6F824D727D50023141E /* workflows */,
 			);
 			name = Workflows;
 			sourceTree = "<group>";
 		};
-		DDB8A6F424D726A70023141E /* workflows */ = {
+		DDB8A6F824D727D50023141E /* workflows */ = {
 			isa = PBXGroup;
 			children = (
-				DDB8A6F624D726A70023141E /* test.yml */,
+				DDB8A6F924D727D50023141E /* test.yml */,
 			);
 			name = workflows;
-			path = ../.github/workflows;
+			path = .github/workflows;
 			sourceTree = "<group>";
 		};
 		DDC4425824D2106E006233D0 /* Layout */ = {
