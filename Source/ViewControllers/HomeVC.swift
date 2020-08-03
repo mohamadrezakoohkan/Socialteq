@@ -30,7 +30,7 @@ final class HomeVC: BaseViewController, Storyboarded {
     private var viewModel = HomeViewModel()
     private var dataSource: DataSource!
     private var didCellTapped = PassthroughSubject<AnyHashable?, Never>()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerDependencies()

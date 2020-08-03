@@ -23,19 +23,15 @@ final class CategoryVC: NavigationViewController, Storyboarded {
     weak var coordinator: HomeCoordinator?
     private var didCellTapped = PassthroughSubject<AnyHashable?, Never>()
     private var dataSource: DataSource!
-
     var viewModel: CategoryViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerDependencies()
         self.setupDataSource()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         self.bindViewModel()
     }
+    
     
     func bindViewModel() {
         let output = self.viewModel.transform(input: .init(
