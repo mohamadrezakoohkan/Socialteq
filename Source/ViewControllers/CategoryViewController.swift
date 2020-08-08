@@ -21,9 +21,12 @@ final class CategoryViewController: NavigationViewController, Storyboarded {
     @Registerable private var packageCell = PackageCell.self
 
     weak var coordinator: HomeCoordinator?
+    var viewModel: CategoryViewModel!
+    
     private var didCellTapped = PassthroughSubject<AnyHashable?, Never>()
     private var dataSource: DataSource!
-    var viewModel: CategoryViewModel!
+    private var packages: [PackageCellViewModel] = []
+    private var event: EventCellViewModel? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,66 +37,87 @@ final class CategoryViewController: NavigationViewController, Storyboarded {
     
     
     func bindViewModel() {
-        let output = self.viewModel.transform(input: .init(
-            cellDidTapped: self.didCellTapped
-                .eraseToAnyPublisher()
-            )
+        let output = self.viewModel.transform(input: self.createInput())
+        self.store(subscription: output.packageTappedSubscription)
+        self.subscribe(event: output.eventPublisher)
+        self.subscribe(packages: output.packagePublisher)
+    }
+    
+    private func createInput() -> CategoryViewModel.Input {
+        .init(
+            cellDidTapped: self.publishCellTapped()
         )
-        
-        output.packageTapped
-            .receive(on: DispatchQueue.main)
-            .compactMap { $0.category }
-            .sink(receiveValue: { [weak self] _ in
-                guard let _ = self else { return }
-                print("Cell tapped ()")
-            })
+    }
+    
+    private func subscribe(event publisher: AnyPublisher<EventCellViewModel, Never>) {
+        publisher.receive(on: DispatchQueue.main)
+            .map { $0 as EventCellViewModel? }
+            .weakAssign(to: \.event, on: self) { [weak self] in self?.applySnapshot() }
             .store(in: &self.subscriptions)
-        
-        output.categoryDataSubscription
-            .store(in: &self.subscriptions)
-        
-        output.categoryDataPublisher
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] (completion) in
-                switch completion {
-                case .failure(let error):
-                    self?.handle(error: error)
-                case .finished:
-                    break
-                }
-                }, receiveValue: { [weak self] in
-                    self?.applySnapshot(packages: $0.packages, event: $0.event)
-            })
+    }
+    
+    private func subscribe(packages publisher: AnyPublisher<[PackageCellViewModel], Never>) {
+        publisher.receive(on: DispatchQueue.main)
+            .weakAssign(to: \.packages, on: self) { [weak self] in self?.applySnapshot() }
             .store(in: &self.subscriptions)
     }
 
+    
+    private func publishCellTapped() -> AnyPublisher<AnyHashable?, Never> {
+        self.didCellTapped
+            .compactMap { $0 }
+            .eraseToAnyPublisher()
+    }
+    
     private func setupDataSource() {
         self.dataSource = DataSource(collectionView: self.collectionView) { [weak self]
             (collectionView, indexPath, hashable) in
             guard let self = self else { return nil }
             switch hashable {
             case let event as EventCellViewModel:
-                return self.eventCell.deque(in: collectionView, at: indexPath) {
-                    $0.viewModel = event
-                }
+               return self.dequeEventCell(at: indexPath, event: event)
             case let package as PackageCellViewModel:
-                return self.packageCell.deque(in: collectionView, at: indexPath) {
-                    $0.viewModel = package
-                }
+                return self.dequePackageCell(at: indexPath, package: package)
             default:
                 return nil
             }
         }
     }
     
-    private func applySnapshot(packages: [PackageCellViewModel], event: EventCellViewModel) {
+    private func applySnapshot() {
         var snapshot = Snapshot()
-        snapshot.appendSections([.event, .services])
-        snapshot.appendItems([event], toSection: .event)
-        snapshot.appendItems(packages, toSection: .services)
+        self.appendSections(to: &snapshot)
+        self.appendEvent(to: &snapshot)
+        self.appendPackages(to: &snapshot)
         self.dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    private func appendSections(to snapshot: inout Snapshot) {
+        let isHeaderVisible: Bool = self.event.hasValue
+        snapshot.appendSections(isHeaderVisible ? [.event, .services] : [.services])
+    }
+    
+    private func appendEvent(to snapshot: inout Snapshot) {
+        let isHeaderVisible: Bool = self.event.hasValue
+        snapshot.appendItems(isHeaderVisible ? [self.event] : [], toSection: .event)
+    }
+    
+    private func appendPackages(to snapshot: inout Snapshot) {
+        snapshot.appendItems(self.packages, toSection: .services)
+    }
+    
+    private func dequeEventCell(at index: IndexPath, event: EventCellViewModel) -> EventCell {
+        return self.eventCell.deque(in: self.collectionView, at: index) {
+            $0.viewModel = event
+        }
+    }
+    
+    private func dequePackageCell(at index: IndexPath, package: PackageCellViewModel) -> PackageCell {
+        return self.packageCell.deque(in: self.collectionView, at: index) {
+            $0.viewModel = package
+        }
+    }
+
     private func registerDependencies() {
         self._eventCell.registerCell(in: self.collectionView)
         self._packageCell.registerCell(in: self.collectionView)
@@ -119,9 +143,9 @@ extension CategoryViewController {
         static var resolve: (_ section: Int) -> (Section) = { (section) in
             switch section {
             case .firstIndex:
-                return event
+                return .event
             default:
-                return services
+                return .services
             }
         }
     }

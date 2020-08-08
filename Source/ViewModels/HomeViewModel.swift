@@ -20,19 +20,9 @@ protocol HomeViewModelOutput {
     var userNamePublisher: AnyPublisher<String?, Never> { get }
     var userAddressPublisher: AnyPublisher<String?, Never> { get }
     var homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error> { get }
-    
 }
 
 final class HomeViewModel: ViewModelType {
-    
-    @Injected(container: NetworkingDIContainer.shared)
-    private var service: HomeProvider
-    
-    @Injected(container: DIContainer.shared)
-    private var user: User
-    
-    @CurrentValue
-    private var userPublisher: (name: String?, address: String?)
     
     struct Input: HomeViewModelInput {
         let addressTextDidEnd: AnyPublisher<String?, Never>
@@ -46,6 +36,15 @@ final class HomeViewModel: ViewModelType {
         let userAddressPublisher: AnyPublisher<String?, Never>
         let homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error>
     }
+    
+    @Injected(container: NetworkingDIContainer.shared)
+    private var service: HomeProvider
+    
+    @Injected(container: DIContainer.shared)
+    private var user: User
+    
+    @CurrentValue
+    private var userPublisher: (name: String?, address: String?)
     
     init() {
         self.userPublisher = (name: self.user.name, address: self.user.address)

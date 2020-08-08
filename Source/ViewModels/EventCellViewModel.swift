@@ -6,23 +6,17 @@
 //  Copyright © 1399 AP Mohamadreza Koohkan. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Combine
 
-protocol EventCellViewModelInput {
-    
-}
-
-protocol EventCellViewModelOutput {
-    
-}
+protocol EventCellViewModelInput { }
+protocol EventCellViewModelOutput { }
 
 typealias EventCellViewModelSource = SingleTitleSource & ImageUrlResolver
 
 struct EventCellViewModel: ViewModelType, EventCellViewModelSource {
     
     struct Input: EventCellViewModelInput {}
-    
     struct Output: EventCellViewModelOutput {}
     
     @CurrentValue
@@ -55,7 +49,6 @@ struct EventCellViewModel: ViewModelType, EventCellViewModelSource {
     
     func transform(input: Input) -> Output {
         return Output()
-        
     }
         
 }

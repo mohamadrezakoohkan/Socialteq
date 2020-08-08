@@ -94,10 +94,6 @@ final class HomeViewController: BaseViewController, Storyboarded {
             })
             .store(in: &self.subscriptions)
     }
-    
-    private func store(subscription: AnyCancellable) {
-        subscription.store(in: &self.subscriptions)
-    }
 
     private func setupDataSource() {
         self.dataSource = DataSource(collectionView: self.collectionView) { [weak self]
