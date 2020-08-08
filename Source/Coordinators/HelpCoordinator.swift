@@ -18,7 +18,7 @@ final class HelpCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = HelpVC.instantiate(in: .main)
+        let vc = HelpViewController.instantiate(in: .main)
         vc.coordinator = self
         self.navigationController.pushViewController(vc, animated: false)
     }

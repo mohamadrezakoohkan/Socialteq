@@ -1,5 +1,5 @@
 //
-//  CategoryVC.swift
+//  CategoryViewController.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/7/1399 AP.
@@ -9,11 +9,11 @@
 import UIKit
 import Combine
 
-fileprivate typealias DataSource = UICollectionViewDiffableDataSource<CategoryVC.Section, AnyHashable>
-fileprivate typealias Snapshot = NSDiffableDataSourceSnapshot<CategoryVC.Section, AnyHashable>
+fileprivate typealias DataSource = UICollectionViewDiffableDataSource<CategoryViewController.Section, AnyHashable>
+fileprivate typealias Snapshot = NSDiffableDataSourceSnapshot<CategoryViewController.Section, AnyHashable>
 
 
-final class CategoryVC: NavigationViewController, Storyboarded {
+final class CategoryViewController: NavigationViewController, Storyboarded {
     
     @IBOutlet private weak var collectionView: CategoryCollectionView!
     
@@ -105,13 +105,13 @@ final class CategoryVC: NavigationViewController, Storyboarded {
     
 }
 
-extension CategoryVC: UICollectionViewDelegate {
+extension CategoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.didCellTapped.send(self.dataSource.itemIdentifier(for: indexPath))
     }
 }
 
-extension CategoryVC {
+extension CategoryViewController {
     enum Section: CaseIterable {
         case event
         case services
