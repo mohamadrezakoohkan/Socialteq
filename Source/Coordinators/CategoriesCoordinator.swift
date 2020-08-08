@@ -18,7 +18,7 @@ final class CategoriesCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = CategoriesVC.instantiate(in: .main)
+        let vc = CategoriesViewController.instantiate(in: .main)
         vc.coordinator = self
         self.navigationController.pushViewController(vc, animated: false)
     }
