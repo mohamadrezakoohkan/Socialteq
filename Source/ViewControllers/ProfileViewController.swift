@@ -1,5 +1,5 @@
 //
-//  CategoriesVC.swift
+//  ProfileViewController.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/6/1399 AP.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class CategoriesVC: BaseViewController, Storyboarded {
+final class ProfileViewController: BaseViewController, Storyboarded {
     
-    weak var coordinator: CategoriesCoordinator?
+    weak var coordinator: ProfileCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

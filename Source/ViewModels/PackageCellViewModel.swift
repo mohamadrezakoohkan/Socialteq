@@ -14,7 +14,6 @@ typealias PackageCellViewModelSource = ImageUrlResolver
 struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
     
     struct Input { }
-
     struct Output { }
     
     let package: Package?
