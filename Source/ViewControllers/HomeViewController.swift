@@ -21,10 +21,14 @@ final class HomeViewController: BaseViewController, Storyboarded {
     @IBOutlet private var usernameLabel: UILabel!
     @IBOutlet private var collectionView: HomeCollectionView!
     
-    @Registerable private var reusableHeaderView = TitleReusableView.self
-    @Registerable private var eventCell = EventCell.self
-    @Registerable private var categoryCell = CategoryCell.self
-    @Registerable private var promotionCell = PromotionCell.self
+    @Registerable
+    private var reusableHeaderView = TitleReusableView.self
+    @Registerable
+    private var eventCell = EventCell.self
+    @Registerable
+    private var categoryCell = CategoryCell.self
+    @Registerable
+    private var promotionCell = PromotionCell.self
     
     weak var coordinator: HomeCoordinator?
     private var viewModel = HomeViewModel()
