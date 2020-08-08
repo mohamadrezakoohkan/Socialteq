@@ -7,29 +7,21 @@
 //
 
 import Foundation
-import Combine
-
-protocol EventCellViewModelInput { }
-protocol EventCellViewModelOutput { }
 
 typealias EventCellViewModelSource = SingleTitleSource & ImageUrlResolver
 
 struct EventCellViewModel: ViewModelType, EventCellViewModelSource {
     
-    struct Input: EventCellViewModelInput {}
-    struct Output: EventCellViewModelOutput {}
+    struct Input { }
+    struct Output { }
     
-    @CurrentValue
-    private (set) var imageURL: URL?
+    let imageURL: URL?
+    let title: String?
+    let subTitle: String?
     
-    @CurrentValue
-    private (set) var title: String?
-    
-    @CurrentValue
-    private (set) var subTitle: String?
-    
-    @CurrentValue
-    private (set) var isImageVisible: Bool = false
+   var isImageVisible: Bool {
+        return self.imageURL != nil
+    }
     
     init(home: Home) {
         self.init(title: home.title, subTitle: home.subTitle, imageURL: nil)
@@ -41,23 +33,19 @@ struct EventCellViewModel: ViewModelType, EventCellViewModelSource {
     }
     
     init(title: String?, subTitle: String?, imageURL: URL?) {
-        self.isImageVisible = imageURL != nil
         self.title = title
         self.subTitle = subTitle
         self.imageURL = imageURL
     }
     
-    func transform(input: Input) -> Output {
-        return Output()
-    }
-        
+    func transform(input: Input) -> Output { return Output() }
+
 }
 
 extension EventCellViewModel: Equatable {
     static func == (lhs: EventCellViewModel, rhs: EventCellViewModel) -> Bool {
         return lhs.title == rhs.title
             && lhs.subTitle == rhs.subTitle
-            && lhs.imageURL == rhs.imageURL
     }
 }
 
@@ -65,6 +53,5 @@ extension EventCellViewModel: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine((title ??  "") + (subTitle ?? ""))
-        hasher.combine(imageURL)
     }
 }

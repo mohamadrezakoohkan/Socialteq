@@ -8,15 +8,16 @@
 
 import Foundation
 import Combine
+import UIKit
 
 protocol CategoryViewModelInput {
     var cellDidTapped: AnyPublisher<AnyHashable?, Never> { get }
 }
 
 protocol CategoryViewModelOutput {
-    var packageTappedSubscription: AnyCancellable { get }
-    var eventPublisher: AnyPublisher<EventCellViewModel, Never> { get }
-    var packagePublisher: AnyPublisher<[PackageCellViewModel], Never> { get }
+    var packageTapped: AnyPublisher<CategoryCellViewModel, Never> { get }
+    var categoryDataSubscription: AnyCancellable { get }
+    var categoryDataPublisher: AnyPublisher<(event: EventCellViewModel, packages: [PackageCellViewModel]), Never> { get }
 }
 
 final class CategoryViewModel: ViewModelType {
@@ -26,58 +27,55 @@ final class CategoryViewModel: ViewModelType {
     }
     
     struct Output: CategoryViewModelOutput {
-        let packageTappedSubscription: AnyCancellable
-        let eventPublisher: AnyPublisher<EventCellViewModel, Never>
-        let packagePublisher: AnyPublisher<[PackageCellViewModel], Never>
+        let packageTapped: AnyPublisher<CategoryCellViewModel, Never>
+        var categoryDataSubscription: AnyCancellable
+        let categoryDataPublisher:  AnyPublisher<(event: EventCellViewModel, packages: [PackageCellViewModel]), Never>
     }
     
     @Injected(container: NetworkingDIContainer.shared)
     private var service: CategoryProvider
-    
-    @CurrentValue
-    private var category: Category
+    private let category: Category
+    private let publisher: CurrentValueSubject<(event: EventCellViewModel, packages: [PackageCellViewModel]), Never>
+
         
     init(category: Category) {
         self.category = category
+        self.publisher = .init((EventCellViewModel(category: category), []))
     }
     
+    
     func transform(input: Input) -> Output {
+        let slug = self.category.slug ?? ""
+        
         return Output(
-            packageTappedSubscription: self.subscribe(packageTapped: input.cellDidTapped),
-            eventPublisher: self.publishEvent(),
-            packagePublisher: self.publishPackage()
+            packageTapped: input
+                .cellDidTapped
+                .receive(on: DispatchQueue.main)
+                .compactMap({ $0 as? CategoryCellViewModel })
+                .eraseToAnyPublisher(),
+            categoryDataSubscription: self.service.getCategory(slug: slug)
+                .map { $0?.data }
+                .compactMap { ($0) }
+                .map { packages in
+                    let event = EventCellViewModel(category: self.category)
+                    let packs = packages.map { PackageCellViewModel(package: $0) }
+                    return (event: event, packages: packs)
+            }
+            .eraseToAnyPublisher()
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .failure(let error):
+                    debugPrint("@ERROR", error.localizedDescription)
+                case .finished:
+                    break
+                }
+            }, receiveValue: { (value) in
+                self.publisher.send(value)
+            }),
+            categoryDataPublisher: self.publisher
+                .eraseToAnyPublisher()
         )
     }
     
-    private func subscribe(packageTapped publisher: AnyPublisher<AnyHashable?, Never>) -> AnyCancellable {
-        publisher.receive(on: DispatchQueue.main)
-            .compactMap({ $0 as? CategoryCellViewModel })
-            .eraseToAnyPublisher()
-            .sink(receiveValue: { viewModel in
-                // do something
-            })
-    }
-    
-    private func publishEvent() -> AnyPublisher<EventCellViewModel, Never> {
-        self.$category
-            .map { self.createViewModels(from: $0) }
-            .eraseToAnyPublisher()
-    }
-    
-    private func publishPackage() -> AnyPublisher<[PackageCellViewModel], Never> {
-        self.service.getCategory(slug: self.category.slug ?? "")
-            .compactMap { $0?.data }
-            .map { self.createViewModels(from: $0) }
-            .replaceError(with: [])
-            .eraseToAnyPublisher()
-    }
-    
-    private func createViewModels(from category: Category) -> EventCellViewModel {
-        return .init(category: category)
-    }
-
-    private func createViewModels(from packages: [Package]) -> [PackageCellViewModel] {
-        return packages.map { .init(package: $0) }
-    }
 }
 

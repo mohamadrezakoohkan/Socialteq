@@ -15,13 +15,6 @@ protocol AnyOptional {
 }
 
 extension Optional: AnyOptional {
-    
-    var isNil: Bool {
-       return self == nil
-    }
-    
-    var hasValue: Bool {
-        return self != nil
-    }
+    var isNil: Bool { self == nil }
 }
 
