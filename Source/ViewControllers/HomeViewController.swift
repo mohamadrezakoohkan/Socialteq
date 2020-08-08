@@ -1,5 +1,5 @@
 //
-//  HomeVC.swift
+//  HomeViewController.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/6/1399 AP.
@@ -9,10 +9,10 @@
 import UIKit
 import Combine
 
-fileprivate typealias DataSource = UICollectionViewDiffableDataSource<HomeVC.Section, AnyHashable>
-fileprivate typealias Snapshot = NSDiffableDataSourceSnapshot<HomeVC.Section, AnyHashable>
+fileprivate typealias DataSource = UICollectionViewDiffableDataSource<HomeViewController.Section, AnyHashable>
+fileprivate typealias Snapshot = NSDiffableDataSourceSnapshot<HomeViewController.Section, AnyHashable>
 
-final class HomeVC: BaseViewController, Storyboarded {
+final class HomeViewController: BaseViewController, Storyboarded {
     
     @Localized(localizedString: .greeting)
     @IBOutlet private var greetingsLabel: UILabel!
@@ -21,12 +21,16 @@ final class HomeVC: BaseViewController, Storyboarded {
     @IBOutlet private var usernameLabel: UILabel!
     @IBOutlet private var collectionView: HomeCollectionView!
     
-    @Registerable private var reusableHeaderView = TitleReusableView.self
-    @Registerable private var eventCell = EventCell.self
-    @Registerable private var categoryCell = CategoryCell.self
-    @Registerable private var promotionCell = PromotionCell.self
+    @Registerable
+    private var reusableHeaderView = TitleReusableView.self
+    @Registerable
+    private var eventCell = EventCell.self
+    @Registerable
+    private var categoryCell = CategoryCell.self
+    @Registerable
+    private var promotionCell = PromotionCell.self
     
-    weak var coordinator: CategoryViewing?
+    weak var coordinator: HomeCoordinator?
     private var viewModel = HomeViewModel()
     private var dataSource: DataSource!
     private var didCellTapped = PassthroughSubject<AnyHashable?, Never>()
@@ -40,46 +44,50 @@ final class HomeVC: BaseViewController, Storyboarded {
     }
     
     func bindViewModel() {
-        let output = self.viewModel.transform(input: .init(
-            addressTextDidEnd: self.addressTextField
-                .publisher(for: \.text)
-                .eraseToAnyPublisher(),
-            cellDidTapped: self.didCellTapped
-                .eraseToAnyPublisher()
-            )
+        let output = self.viewModel.transform(input: self.createInput())
+        self.subscribe(name: output.userNamePublisher)
+        self.subscribe(address: output.userAddressPublisher)
+        self.subscribe(home: output.homeDataPublisher)
+        self.store(subscription: output.categoryTappedSubscription)
+        self.store(subscription: output.addressTextFieldSubscription)
+    }
+    
+    private func createInput() -> HomeViewModel.Input {
+        .init(
+            addressTextDidEnd: self.publishAddress(),
+            cellDidTapped: self.publishCellTapped()
         )
-        
-        output.addressTextFieldSubscription
-            .store(in: &self.subscriptions)
-        
-        output.usernamePublisher
-            .receive(on: DispatchQueue.main)
+    }
+    
+    private func publishAddress() -> AnyPublisher<String?, Never> {
+        self.addressTextField
+            .publisher(for: \.text)
+            .eraseToAnyPublisher()
+    }
+    
+    private func publishCellTapped() -> AnyPublisher<(AnyHashable?, CategoryViewing?), Never> {
+        self.didCellTapped
+            .map { [weak self] in return ($0, self?.coordinator) }
+            .eraseToAnyPublisher()
+    }
+    
+    private func subscribe(name publisher: AnyPublisher<String?, Never>) {
+        publisher.receive(on: DispatchQueue.main)
             .replaceNilOrEmpty(with: .sampleUsername)
             .assign(to: \.text, on: self.usernameLabel)
             .store(in: &self.subscriptions)
-        
-        output.userAddressPublisher
-            .receive(on: DispatchQueue.main)
+    }
+    
+    private func subscribe(address publisher: AnyPublisher<String?, Never>) {
+        publisher.receive(on: DispatchQueue.main)
             .assign(to: \.text, on: self.addressTextField)
             .store(in: &self.subscriptions)
-        
-        output.categoryTapped
-            .receive(on: DispatchQueue.main)
-            .compactMap { $0.category }
-            .sink(receiveValue: { [weak self] in self?.coordinator?.show(category: $0)})
-            .store(in: &self.subscriptions)
-        
-        output.homeDataPublisher
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] (completion) in
-                switch completion {
-                case .failure(let error):
-                    self?.handle(error: error)
-                case .finished:
-                    break
-                }
-            }, receiveValue: { [weak self] in
-                    self?.applySnapshot(event: $0, categories: $1, promotions: $2)
+    }
+    
+    private func subscribe(home publisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Never>) {
+        publisher.receive(on: DispatchQueue.main)
+            .sink( receiveValue: { [weak self] in
+                self?.applySnapshot(event: $0, categories: $1, promotions: $2)
             })
             .store(in: &self.subscriptions)
     }
@@ -119,11 +127,27 @@ final class HomeVC: BaseViewController, Storyboarded {
     
     private func applySnapshot(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]) {
         var snapshot = Snapshot()
-        snapshot.appendSections([.event, .services, .promotion])
-        snapshot.appendItems([event], toSection: .event)
-        snapshot.appendItems(categories, toSection: .services)
-        snapshot.appendItems(promotions, toSection: .promotion)
+        self.appendSections(to: &snapshot)
+        self.append(event: event, to: &snapshot)
+        self.append(categories: categories, to: &snapshot)
+        self.append(promotions: promotions, to: &snapshot)
         self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func appendSections(to snapshot: inout Snapshot) {
+        snapshot.appendSections([.event, .services, .promotion])
+    }
+    
+    private func append(event: EventCellViewModel,to snapshot: inout Snapshot) {
+        snapshot.appendItems([event], toSection: .event)
+    }
+    
+    private func append(categories: [CategoryCellViewModel],to snapshot: inout Snapshot) {
+        snapshot.appendItems(categories, toSection: .services)
+    }
+    
+    private func append(promotions: [PromotionCellViewModel],to snapshot: inout Snapshot) {
+        snapshot.appendItems(promotions, toSection: .promotion)
     }
     
     private func registerDependencies() {        self._reusableHeaderView.registerReusableView(in: self.collectionView)
@@ -131,19 +155,15 @@ final class HomeVC: BaseViewController, Storyboarded {
         self._categoryCell.registerCell(in: self.collectionView)
         self._promotionCell.registerCell(in: self.collectionView)
     }
-    
-    private func handle(error: Error) {
-        debugPrint("@ERROR:", error.localizedDescription)
-    }
 }
 
-extension HomeVC: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.didCellTapped.send(self.dataSource.itemIdentifier(for: indexPath))
     }
 }
 
-extension HomeVC {
+extension HomeViewController {
     enum Section: CaseIterable {
         case event
         case services
