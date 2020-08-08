@@ -19,7 +19,7 @@ protocol HomeViewModelOutput {
     var categoryTappedSubscription: AnyCancellable { get }
     var userNamePublisher: AnyPublisher<String?, Never> { get }
     var userAddressPublisher: AnyPublisher<String?, Never> { get }
-    var homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error> { get }
+    var homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Never> { get }
 }
 
 final class HomeViewModel: ViewModelType {
@@ -34,7 +34,7 @@ final class HomeViewModel: ViewModelType {
         let categoryTappedSubscription: AnyCancellable
         let userNamePublisher: AnyPublisher<String?, Never>
         let userAddressPublisher: AnyPublisher<String?, Never>
-        let homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error>
+        let homeDataPublisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Never>
     }
     
     @Injected(container: NetworkingDIContainer.shared)
@@ -93,9 +93,10 @@ final class HomeViewModel: ViewModelType {
             .eraseToAnyPublisher()
     }
     
-    private func publishHome() -> AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error> {
+    private func publishHome() -> AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Never> {
         self.service.getHome()
             .compactMap { $0 }
+            .replaceError(with: Home(title: .eventAlternativeTitle, subTitle: .eventAlternativeSubTitle, categories: [], promotions: []))
             .map {
                 return (
                     self.createViewModels(from: $0),

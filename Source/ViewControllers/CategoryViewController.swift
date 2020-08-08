@@ -123,10 +123,6 @@ final class CategoryViewController: NavigationViewController, Storyboarded {
         self._packageCell.registerCell(in: self.collectionView)
     }
     
-    private func handle(error: Error) {
-        debugPrint("@ERROR:", error.localizedDescription)
-    }
-    
 }
 
 extension CategoryViewController: UICollectionViewDelegate {

@@ -84,17 +84,10 @@ final class HomeViewController: BaseViewController, Storyboarded {
             .store(in: &self.subscriptions)
     }
     
-    private func subscribe(home publisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error>) {
+    private func subscribe(home publisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Never>) {
         publisher.receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] (completion) in
-                switch completion {
-                case .failure(let error):
-                    self?.handle(error: error)
-                case .finished:
-                    break
-                }
-                }, receiveValue: { [weak self] in
-                    self?.applySnapshot(event: $0, categories: $1, promotions: $2)
+            .sink( receiveValue: { [weak self] in
+                self?.applySnapshot(event: $0, categories: $1, promotions: $2)
             })
             .store(in: &self.subscriptions)
     }
@@ -134,21 +127,33 @@ final class HomeViewController: BaseViewController, Storyboarded {
     
     private func applySnapshot(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]) {
         var snapshot = Snapshot()
-        snapshot.appendSections([.event, .services, .promotion])
-        snapshot.appendItems([event], toSection: .event)
-        snapshot.appendItems(categories, toSection: .services)
-        snapshot.appendItems(promotions, toSection: .promotion)
+        self.appendSections(to: &snapshot)
+        self.append(event: event, to: &snapshot)
+        self.append(categories: categories, to: &snapshot)
+        self.append(promotions: promotions, to: &snapshot)
         self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func appendSections(to snapshot: inout Snapshot) {
+        snapshot.appendSections([.event, .services, .promotion])
+    }
+    
+    private func append(event: EventCellViewModel,to snapshot: inout Snapshot) {
+        snapshot.appendItems([event], toSection: .event)
+    }
+    
+    private func append(categories: [CategoryCellViewModel],to snapshot: inout Snapshot) {
+        snapshot.appendItems(categories, toSection: .services)
+    }
+    
+    private func append(promotions: [PromotionCellViewModel],to snapshot: inout Snapshot) {
+        snapshot.appendItems(promotions, toSection: .promotion)
     }
     
     private func registerDependencies() {        self._reusableHeaderView.registerReusableView(in: self.collectionView)
         self._eventCell.registerCell(in: self.collectionView)
         self._categoryCell.registerCell(in: self.collectionView)
         self._promotionCell.registerCell(in: self.collectionView)
-    }
-    
-    private func handle(error: Error) {
-        debugPrint("@ERROR:", error.localizedDescription)
     }
 }
 
