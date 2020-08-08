@@ -97,16 +97,27 @@ final class HomeViewModel: ViewModelType {
     private func publishHome() -> AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Error> {
         self.service.getHome()
             .compactMap { $0 }
-            .map { home in
-                let event = EventCellViewModel(home: home)
-                let categories = home.categories.map {
-                    CategoryCellViewModel(category: $0)
-                }
-                let promotions = home.promotions.map {
-                    PromotionCellViewModel(promotion: $0)
-                }
-                return (event, categories, promotions)
+            .map {
+                return (
+                    self.createViewModels(from: $0),
+                    self.createViewModels(from: $0.categories),
+                    self.createViewModels(from: $0.promotions)
+                )
         }
         .eraseToAnyPublisher()
     }
+    
+    private func createViewModels(from home: Home) -> EventCellViewModel {
+        return .init(home: home)
+    }
+    
+    private func createViewModels(from promotions: [Promotion]) -> [PromotionCellViewModel] {
+        return promotions.map { .init(promotion: $0) }
+    }
+    
+    private func createViewModels(from categories: [Category]) -> [CategoryCellViewModel] {
+        return categories.map { .init(category: $0) }
+    }
+    
+
 }
