@@ -1,5 +1,5 @@
 //
-//  CategoriesViewController.swift
+//  HelpVC.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/6/1399 AP.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class CategoriesViewController: BaseViewController, Storyboarded {
+final class HelpVC: BaseViewController, Storyboarded {
     
-    weak var coordinator: CategoriesCoordinator?
+    weak var coordinator: HelpCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,13 +19,13 @@ final class HomeCoordinator: Coordinator, CategoryViewing {
     }
     
     func start() {
-        let vc = HomeViewController.instantiate(in: .main)
+        let vc = HomeVC.instantiate(in: .main)
         vc.coordinator = self
         self.navigationController.pushViewController(vc, animated: false)
     }
     
     func show(category: Category) {
-        let vc = CategoryViewController.instantiate(in: .main)
+        let vc = CategoryVC.instantiate(in: .main)
         vc.coordinator = self
         vc.viewModel = .init(category: category)
         vc.title = category.title

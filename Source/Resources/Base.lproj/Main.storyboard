@@ -22,7 +22,7 @@
         <!--Categories-->
         <scene sceneID="v6U-d6-HZe">
             <objects>
-                <viewController storyboardIdentifier="CategoriesViewController" id="yd3-Jp-j8L" customClass="CategoriesViewController" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesVC" id="yd3-Jp-j8L" customClass="CategoriesVC" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I18-RV-2MY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,7 @@
         <!--Profile-->
         <scene sceneID="YX6-Mw-ua9">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="QRy-bw-T0n" customClass="ProfileViewController" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="QRy-bw-T0n" customClass="ProfileVC" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kO0-0V-Bs4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,7 @@
         <!--Help-->
         <scene sceneID="pUK-t9-yej">
             <objects>
-                <viewController storyboardIdentifier="HelpViewController" id="Scd-er-fs9" customClass="HelpViewController" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpVC" id="Scd-er-fs9" customClass="HelpVC" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pUI-dc-pbJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +106,7 @@
         <!--Home-->
         <scene sceneID="Y15-O0-i6u">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="g75-JC-38m" customClass="HomeViewController" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="g75-JC-38m" customClass="HomeVC" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EQF-ZK-hf2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="-362.31884057971018" y="-220.3125"/>
         </scene>
-        <!--Category View Controller-->
+        <!--CategoryVC-->
         <scene sceneID="Wcx-YQ-qMw">
             <objects>
-                <viewController storyboardIdentifier="CategoryViewController" id="Nz4-of-A0J" customClass="CategoryViewController" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryVC" id="Nz4-of-A0J" customClass="CategoryVC" customModule="Socialteq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DHy-Io-LLL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

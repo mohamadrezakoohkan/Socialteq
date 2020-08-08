@@ -1,5 +1,5 @@
 //
-//  HelpViewController.swift
+//  ProfileVC.swift
 //  Socialteq
 //
 //  Created by Mohammad reza Koohkan on 5/6/1399 AP.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class HelpViewController: BaseViewController, Storyboarded {
+final class ProfileVC: BaseViewController, Storyboarded {
     
-    weak var coordinator: HelpCoordinator?
+    weak var coordinator: ProfileCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

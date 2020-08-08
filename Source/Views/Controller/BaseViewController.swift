@@ -22,9 +22,6 @@ class BaseViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    final func store(subscription: AnyCancellable) {
-        subscription.store(in: &self.subscriptions)
-    }
 }
 
 extension BaseViewController: UITextFieldDelegate {

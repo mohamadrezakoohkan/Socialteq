@@ -39,20 +39,20 @@
 		DD96C9F924CEFDED00E6689E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9F824CEFDED00E6689E /* MainTabBarController.swift */; };
 		DD96C9FC24CF423500E6689E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9FB24CF423500E6689E /* Coordinator.swift */; };
 		DD96C9FE24CF424A00E6689E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96C9FD24CF424A00E6689E /* Storyboarded.swift */; };
-		DD96CA0224CF42E900E6689E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0124CF42E900E6689E /* HomeViewController.swift */; };
+		DD96CA0224CF42E900E6689E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0124CF42E900E6689E /* HomeVC.swift */; };
 		DD96CA0424CF432100E6689E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0324CF432100E6689E /* HomeCoordinator.swift */; };
 		DD96CA0624CF43AC00E6689E /* CategoriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0524CF43AC00E6689E /* CategoriesCoordinator.swift */; };
 		DD96CA0824CF43B500E6689E /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0724CF43B500E6689E /* ProfileCoordinator.swift */; };
 		DD96CA0A24CF43BE00E6689E /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0924CF43BE00E6689E /* HelpCoordinator.swift */; };
-		DD96CA0C24CF43EA00E6689E /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0B24CF43EA00E6689E /* CategoriesViewController.swift */; };
-		DD96CA0E24CF440A00E6689E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0D24CF440A00E6689E /* ProfileViewController.swift */; };
-		DD96CA1024CF441B00E6689E /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0F24CF441B00E6689E /* HelpViewController.swift */; };
+		DD96CA0C24CF43EA00E6689E /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0B24CF43EA00E6689E /* CategoriesVC.swift */; };
+		DD96CA0E24CF440A00E6689E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0D24CF440A00E6689E /* ProfileVC.swift */; };
+		DD96CA1024CF441B00E6689E /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA0F24CF441B00E6689E /* HelpVC.swift */; };
 		DD96CA1424CF455E00E6689E /* UIStoryboard+AppBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1324CF455E00E6689E /* UIStoryboard+AppBoards.swift */; };
 		DD96CA1624CF47DF00E6689E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1524CF47DF00E6689E /* MainNavigationController.swift */; };
 		DD96CA1824CF4B8400E6689E /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1724CF4B8400E6689E /* UIImage+AppImages.swift */; };
 		DD96CA1A24CF559300E6689E /* TabBarBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1924CF559300E6689E /* TabBarBadge.swift */; };
 		DD96CA1C24CF594600E6689E /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1B24CF594600E6689E /* UIView+Constraint.swift */; };
-		DD96CA1E24CF754D00E6689E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1D24CF754D00E6689E /* CategoryViewController.swift */; };
+		DD96CA1E24CF754D00E6689E /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA1D24CF754D00E6689E /* CategoryVC.swift */; };
 		DD96CA2124CF758200E6689E /* CategoryViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96CA2024CF758200E6689E /* CategoryViewing.swift */; };
 		DD9C6C3A24CFE27D0066D6F2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C6C3924CFE27D0066D6F2 /* TabBar.swift */; };
 		DD9C6C4024D029360066D6F2 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C6C3F24D029360066D6F2 /* RoundedView.swift */; };
@@ -204,20 +204,20 @@
 		DD96C9F824CEFDED00E6689E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Source/ViewControllers/MainTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		DD96C9FB24CF423500E6689E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DD96C9FD24CF424A00E6689E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
-		DD96CA0124CF42E900E6689E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Source/ViewControllers/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		DD96CA0124CF42E900E6689E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = Source/ViewControllers/HomeVC.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA0324CF432100E6689E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeCoordinator.swift; path = Source/Coordinators/HomeCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA0524CF43AC00E6689E /* CategoriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoriesCoordinator.swift; path = Source/Coordinators/CategoriesCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA0724CF43B500E6689E /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileCoordinator.swift; path = Source/Coordinators/ProfileCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA0924CF43BE00E6689E /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpCoordinator.swift; path = Source/Coordinators/HelpCoordinator.swift; sourceTree = SOURCE_ROOT; };
-		DD96CA0B24CF43EA00E6689E /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoriesViewController.swift; path = Source/ViewControllers/CategoriesViewController.swift; sourceTree = SOURCE_ROOT; };
-		DD96CA0D24CF440A00E6689E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Source/ViewControllers/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
-		DD96CA0F24CF441B00E6689E /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = Source/ViewControllers/HelpViewController.swift; sourceTree = SOURCE_ROOT; };
+		DD96CA0B24CF43EA00E6689E /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoriesVC.swift; path = Source/ViewControllers/CategoriesVC.swift; sourceTree = SOURCE_ROOT; };
+		DD96CA0D24CF440A00E6689E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = Source/ViewControllers/ProfileVC.swift; sourceTree = SOURCE_ROOT; };
+		DD96CA0F24CF441B00E6689E /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpVC.swift; path = Source/ViewControllers/HelpVC.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA1324CF455E00E6689E /* UIStoryboard+AppBoards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+AppBoards.swift"; sourceTree = "<group>"; };
 		DD96CA1524CF47DF00E6689E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = Source/ViewControllers/MainNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA1724CF4B8400E6689E /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
 		DD96CA1924CF559300E6689E /* TabBarBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBadge.swift; sourceTree = "<group>"; };
 		DD96CA1B24CF594600E6689E /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
-		DD96CA1D24CF754D00E6689E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = Source/ViewControllers/CategoryViewController.swift; sourceTree = SOURCE_ROOT; };
+		DD96CA1D24CF754D00E6689E /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryVC.swift; path = Source/ViewControllers/CategoryVC.swift; sourceTree = SOURCE_ROOT; };
 		DD96CA2024CF758200E6689E /* CategoryViewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewing.swift; sourceTree = "<group>"; };
 		DD9C6C3924CFE27D0066D6F2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DD9C6C3F24D029360066D6F2 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -512,11 +512,11 @@
 			children = (
 				DD96C9F824CEFDED00E6689E /* MainTabBarController.swift */,
 				DD96CA1524CF47DF00E6689E /* MainNavigationController.swift */,
-				DD96CA0124CF42E900E6689E /* HomeViewController.swift */,
-				DD96CA1D24CF754D00E6689E /* CategoryViewController.swift */,
-				DD96CA0B24CF43EA00E6689E /* CategoriesViewController.swift */,
-				DD96CA0D24CF440A00E6689E /* ProfileViewController.swift */,
-				DD96CA0F24CF441B00E6689E /* HelpViewController.swift */,
+				DD96CA0124CF42E900E6689E /* HomeVC.swift */,
+				DD96CA1D24CF754D00E6689E /* CategoryVC.swift */,
+				DD96CA0B24CF43EA00E6689E /* CategoriesVC.swift */,
+				DD96CA0D24CF440A00E6689E /* ProfileVC.swift */,
+				DD96CA0F24CF441B00E6689E /* HelpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -911,7 +911,7 @@
 				DDCBA73624D5D34A001AE36A /* CategoryCompositionalLayout.swift in Sources */,
 				DDC5D92024CC9F0B007538F7 /* CoverImageStorageSource.swift in Sources */,
 				DDC5D90B24CC53EB007538F7 /* ImageSource.swift in Sources */,
-				DD96CA0E24CF440A00E6689E /* ProfileViewController.swift in Sources */,
+				DD96CA0E24CF440A00E6689E /* ProfileVC.swift in Sources */,
 				DD22277824D3FDA00034B6D2 /* Combine+Extensions.swift in Sources */,
 				DD87420524D674C5003D88DE /* Configuration.swift in Sources */,
 				DD9C6C5C24D090CD0066D6F2 /* DequableCellProtocol.swift in Sources */,
@@ -960,7 +960,7 @@
 				DD96CA1624CF47DF00E6689E /* MainNavigationController.swift in Sources */,
 				DD96C9CD24CEF6BC00E6689E /* TabBarView.swift in Sources */,
 				DDB8347124D2ED910027D60B /* HomeViewModel.swift in Sources */,
-				DD96CA1024CF441B00E6689E /* HelpViewController.swift in Sources */,
+				DD96CA1024CF441B00E6689E /* HelpVC.swift in Sources */,
 				DD96C9CC24CEF6BC00E6689E /* TabBarController.swift in Sources */,
 				DDCBA73824D5D5EF001AE36A /* CategoryViewModel.swift in Sources */,
 				DDC5D8FF24CC4FAA007538F7 /* DescriptionSource.swift in Sources */,
@@ -968,7 +968,7 @@
 				DDB8346F24D2B4F30027D60B /* CompositionalLayout.swift in Sources */,
 				DD22277C24D4306E0034B6D2 /* PromotionCellViewModel.swift in Sources */,
 				DD0DC3A624D1D6700045CDEB /* Int+Constants.swift in Sources */,
-				DD96CA0C24CF43EA00E6689E /* CategoriesViewController.swift in Sources */,
+				DD96CA0C24CF43EA00E6689E /* CategoriesVC.swift in Sources */,
 				DDC4425624D1F1B6006233D0 /* EventCell.swift in Sources */,
 				DDC5D8F524CC3F77007538F7 /* UniversalString.swift in Sources */,
 				DD9C6C4E24D077550066D6F2 /* DequableReusableViewProtocol.swift in Sources */,
@@ -1014,7 +1014,7 @@
 				DDC5D94B24CE082D007538F7 /* NetworkingDIContainer.swift in Sources */,
 				DD9C6C5F24D0A00E0066D6F2 /* BadgeLabel.swift in Sources */,
 				DDC5D90924CC52C4007538F7 /* Promotion.swift in Sources */,
-				DD96CA0224CF42E900E6689E /* HomeViewController.swift in Sources */,
+				DD96CA0224CF42E900E6689E /* HomeVC.swift in Sources */,
 				DD9C6C4424D060130066D6F2 /* TextField.swift in Sources */,
 				DDC5D91124CC55A5007538F7 /* IdentificationSource.swift in Sources */,
 				DD9C6C5524D090810066D6F2 /* CategoryCell.swift in Sources */,
@@ -1024,7 +1024,7 @@
 				DDC5D94024CCB9BE007538F7 /* HTTPEnvironment.swift in Sources */,
 				DDCBA73424D5D330001AE36A /* CategoryCollectionView.swift in Sources */,
 				DDC5D8FB24CC424B007538F7 /* URL+ExpressibleByStringLiteral.swift in Sources */,
-				DD96CA1E24CF754D00E6689E /* CategoryViewController.swift in Sources */,
+				DD96CA1E24CF754D00E6689E /* CategoryVC.swift in Sources */,
 				DDC5D93924CCB277007538F7 /* HTTPRouter.swift in Sources */,
 				DD9C6C5224D08C4E0066D6F2 /* LoadingImageView.swift in Sources */,
 				DDC5D8CB24CC120F007538F7 /* Injected.swift in Sources */,
@@ -1206,15 +1206,12 @@
 				CODE_SIGN_ENTITLEMENTS = Socialteq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BPYLDK5ZR2;
 				INFOPLIST_FILE = Source/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.Socialteq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1232,15 +1229,12 @@
 				CODE_SIGN_ENTITLEMENTS = Socialteq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BPYLDK5ZR2;
 				INFOPLIST_FILE = Source/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = codes.mohamadreza.Socialteq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
