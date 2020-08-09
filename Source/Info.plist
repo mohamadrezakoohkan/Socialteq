@@ -4,6 +4,8 @@
 <dict>
 	<key>APIBaseURL</key>
 	<string>$(BASE_URL_API)</string>
+	<key>GitHub Repository</key>
+	<string>$(GITHUB_REPOSITORY)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

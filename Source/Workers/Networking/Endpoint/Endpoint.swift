@@ -22,7 +22,7 @@ enum Endpoint: HTTPEndpoint {
         case .goolgeIndex:
             return .google
         default:
-            return .appspot
+            return .github
         }
     }
     
@@ -52,11 +52,11 @@ enum Endpoint: HTTPEndpoint {
         case .version2:
             return "v2/"
         case .home:
-            return Endpoint.customer.path + Endpoint.version2.path + "home/"
+            return Endpoint.customer.path + Endpoint.version2.path + "home/home"
         case .categories:
             return Endpoint.customer.path + Endpoint.version2.path + "categories/"
         case .services(let category):
-            return Endpoint.categories.path + "\(category)/" + "services/"
+            return Endpoint.categories.path + "\(category)/" + "services/" +  "\(category)/"
         }
     }
     

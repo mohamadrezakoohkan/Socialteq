@@ -12,6 +12,7 @@ import Foundation
     
     case google
     case appspot
+    case github
     
     var value: String {
         switch self {
@@ -19,6 +20,8 @@ import Foundation
             return "https://google.com/"
         case .appspot:
             return Configuration.shared.baseURL
+        case .github:
+            return Configuration.shared.githubRepository
         }
     }
     
