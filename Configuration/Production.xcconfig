@@ -13,4 +13,5 @@ APP_NAME = Socialteq
 APP_BUNDLE_ID = codes.mohamadreza.Socialteq
 APP_ICON = AppIcon
 BASE_URL_API = https:/$()/api-dot-rafiji-staging.appspot.com/
+GITHUB_REPOSITORY = https:/$()/raw.githubusercontent.com/mohamadrezakoohkan/Socialteq/master/Cloud/
 
