@@ -29,7 +29,7 @@ Mentioned limitations:
 ## Project requirements
 Mentioned requirements:  
 - **VPN** If you live in **IRAN** becuase backend located on Google cloud
->> This one is not needed anymore because APIs located in current repository in Cloud folder
+> This one is not needed anymore because APIs located in current repository in **Cloud** folder
 - Unit testing for network layer
 - Pixel prefect design based on [**Figma Designs**](https://www.figma.com/file/szEuU1bVNZpZWwaUGJRGFY/Assessment?node-id=1%3A250)
 
