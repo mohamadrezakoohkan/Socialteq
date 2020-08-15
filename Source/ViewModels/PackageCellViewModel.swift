@@ -31,7 +31,7 @@ struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
     }
     
     var discountText: String {
-        return String(self.discountPercentage ?? 0) + .space + .percentage
+        return String(Int(self.discountPercentage ?? 0)) + .space + .percentage
     }
     
     var priceText: String {
@@ -43,10 +43,29 @@ struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
     }
     
     init(package: Package) {
-        self.init(title: package.title, subTitle: package.subTitle, shortDescription: package.shortDescription, hasDiscount: package.hasDiscount, basePrice: package.basePrice, discountPercentage: package.discountPercentage, isSpecial: package.isSpecial, imageURL: package.image?.imageURL, package: package)
+        self.init(
+            title: package.title,
+            subTitle: package.subTitle,
+            shortDescription: package.shortDescription,
+            hasDiscount: package.hasDiscount,
+            basePrice: package.basePrice,
+            discountPercentage: package.discountPercentage,
+            isSpecial: package.isSpecial,
+            imageURL: package.image?.imageURL,
+            package: package)
     }
     
-    init(title: String?, subTitle: String?, shortDescription: String?, hasDiscount: Bool?, basePrice: Double?, discountPercentage: Double?, isSpecial: Bool?, imageURL: URL?, badgeText: String = .new, package: Package? = nil) {
+    init(title: String?,
+         subTitle: String?,
+         shortDescription: String?,
+         hasDiscount: Bool?,
+         basePrice: Double?,
+         discountPercentage: Double?,
+         isSpecial: Bool?,
+         imageURL: URL?,
+         badgeText: String = .new,
+         package: Package? = nil) {
+
         self.package = package
         self.title = title
         self.subTitle = subTitle

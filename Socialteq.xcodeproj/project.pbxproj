@@ -809,6 +809,8 @@
 			dependencies = (
 			);
 			name = Socialteq;
+			packageProductDependencies = (
+			);
 			productName = Socialteq;
 			productReference = DDC5D89B24CC0CD9007538F7 /* Socialteq.app */;
 			productType = "com.apple.product-type.application";
@@ -860,6 +862,8 @@
 				Base,
 			);
 			mainGroup = DDC5D89224CC0CD9007538F7;
+			packageReferences = (
+			);
 			productRefGroup = DDC5D89C24CC0CD9007538F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

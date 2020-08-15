@@ -16,6 +16,11 @@ final class HomeCollectionView: UICollectionView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.setLayout()
+    }
+
+    func setLayout() {
         self.collectionViewLayout = HomeCompositionalLayout.createLayout()
     }
+
 }
