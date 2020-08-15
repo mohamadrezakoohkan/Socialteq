@@ -28,4 +28,9 @@ final class CategoryCell: CollectionViewCell<CategoryCellViewModel>, DequableCel
                 .store(in: &self.subscriptions)
         }
     }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+}
+
 }

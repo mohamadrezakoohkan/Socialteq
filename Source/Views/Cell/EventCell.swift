@@ -24,4 +24,9 @@ final class EventCell: CollectionViewCell<EventCellViewModel>, DequableCellProto
                 .store(in: &self.subscriptions)
         }
     }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
 }

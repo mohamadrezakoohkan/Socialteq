@@ -111,7 +111,7 @@ final class CategoryViewController: NavigationViewController, Storyboarded {
             $0.viewModel = event
         }
     }
-    
+
     private func dequePackageCell(at index: IndexPath, package: PackageCellViewModel) -> PackageCell {
         return self.packageCell.deque(in: self.collectionView, at: index) {
             $0.viewModel = package

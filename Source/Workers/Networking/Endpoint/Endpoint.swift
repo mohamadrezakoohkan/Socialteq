@@ -56,7 +56,7 @@ enum Endpoint: HTTPEndpoint {
         case .categories:
             return Endpoint.customer.path + Endpoint.version2.path + "categories/"
         case .services(let category):
-            return Endpoint.categories.path + "\(category)/" + "services/" +  "\(category)/"
+            return Endpoint.categories.path + "\(category)/" + "services/" +  "\(category)"
         }
     }
     

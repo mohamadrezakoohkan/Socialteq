@@ -159,7 +159,12 @@ final class HomeViewController: BaseViewController, Storyboarded {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.didCellTapped.send(self.dataSource.itemIdentifier(for: indexPath))
+        self.selectItem(at: indexPath)
+    }
+
+    func selectItem(at indexPath: IndexPath) {
+        let item = self.dataSource.itemIdentifier(for: indexPath)
+        self.didCellTapped.send(item)
     }
 }
 

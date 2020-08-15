@@ -19,5 +19,7 @@ final class PromotionCell: CollectionViewCell<PromotionCellViewModel>, DequableC
                 .store(in: &self.subscriptions)
         }
     }
+
+
 }
 
