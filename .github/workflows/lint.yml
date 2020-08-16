@@ -33,13 +33,21 @@ jobs:
         run: |
           xcode-select -version
           type -a xcode-select
-      - name: Check swiftlint version
-        run: |
-          swiftlint version
-          type -a swiftlint
+
       - name: Check brew version
         run: |
           brew -v
           type -a brew
-
+      - name: Check swiftlint version
+        run: |
+          swiftlint version
+          type -a swiftlint
+      - name: Update swiftlint
+        run: |
+          brew install swiftlint
+          swiftlint version
+          type -a swiftlint
+      - name: Lint swift files
+        run: |
+          swiftlint
 
