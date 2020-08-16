@@ -12,10 +12,10 @@ import Combine
 typealias CategoryCellViewModelSource = SingleTitleSource & SingleShortDescriptionSource & NewBadgeSource & ImageUrlResolver
 
 struct CategoryCellViewModel: ViewModelType, CategoryCellViewModelSource {
-    
+
     struct Input { }
     struct Output { }
-    
+
     let category: Category?
     let title: String?
     let subTitle: String?
@@ -23,16 +23,28 @@ struct CategoryCellViewModel: ViewModelType, CategoryCellViewModelSource {
     let hasNewBadge: Bool?
     let badgeText: String
     let imageURL: URL?
-    
+
     var isNewBadgeVisible: Bool {
         return self.hasNewBadge == true
     }
 
     init(category: Category) {
-        self.init(title: category.title, subTitle: category.subTitle, shortDescription: category.shortDescription, hasNewBadge: category.hasNewBadge, imageURL: category.image?.imageURL, category: category)
+        self.init(
+            title: category.title,
+            subTitle: category.subTitle,
+            shortDescription: category.shortDescription,
+            hasNewBadge: category.hasNewBadge,
+            imageURL: category.image?.imageURL,
+            category: category)
     }
-    
-    init(title: String?, subTitle: String?, shortDescription: String?, hasNewBadge: Bool?, imageURL: URL?, badgeText: String = .new, category: Category? = nil) {
+
+    init(title: String?,
+         subTitle: String?,
+         shortDescription: String?,
+         hasNewBadge: Bool?,
+         imageURL: URL?,
+         badgeText: String = .new,
+         category: Category? = nil) {
         self.title = title
         self.subTitle = subTitle
         self.shortDescription = shortDescription
@@ -42,8 +54,9 @@ struct CategoryCellViewModel: ViewModelType, CategoryCellViewModelSource {
         self.badgeText = badgeText
     }
 
-    func transform(input: Input) -> Output { return Output() }
-
+    func transform(input: Input) -> Output {
+        return Output()
+    }
 }
 
 extension CategoryCellViewModel: Equatable {
@@ -57,7 +70,7 @@ extension CategoryCellViewModel: Equatable {
 }
 
 extension CategoryCellViewModel: Hashable {
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine((title ??  "") + (subTitle ?? ""))
         hasher.combine(shortDescription)

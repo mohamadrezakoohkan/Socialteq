@@ -9,11 +9,11 @@
 import Foundation
 
 extension String {
-    
+
     var isEmpty: Bool {
         return self == .emptyString
     }
-    
+
     var isNotEmpty: Bool {
         return self != .emptyString
     }

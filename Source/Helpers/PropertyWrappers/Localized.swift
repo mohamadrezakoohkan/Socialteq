@@ -13,9 +13,9 @@ import Foundation
 ///
 @propertyWrapper
 struct Localized<Value: LocalizableProtocol> {
-    
+
     private let string: String
-    
+
     init(localizedString string: String) {
         self.string = string
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 class TextField: UITextField {
-    
+
     @IBInspectable
     var placeholderColor: UIColor = UIColor.appGray {
         didSet {
@@ -19,10 +19,10 @@ class TextField: UITextField {
             self.attributedPlaceholder = string
         }
     }
-    
+
     override var placeholder: String? {
         didSet {
-            
+
         }
     }
 }

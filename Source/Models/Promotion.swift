@@ -11,7 +11,6 @@ import Foundation
 typealias PromotionSource = ImageStorageSource
 
 struct Promotion: Codable, PromotionSource {
-    
     let image: Image?
 }
 
@@ -22,7 +21,6 @@ extension Promotion: Equatable {
 }
 
 extension Promotion: Hashable {
-    
     func hash(into hasher: inout Hasher) {
         hasher.combine(image)
     }

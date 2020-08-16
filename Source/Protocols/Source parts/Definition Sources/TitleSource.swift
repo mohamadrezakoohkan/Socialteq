@@ -8,7 +8,14 @@
 
 import Foundation
 
+typealias TitleSources = TitleSource & SingleTitleSource
+
 protocol TitleSource {
     var titles: UniversalString? { get }
     var subTitles: UniversalString? { get }
+}
+
+protocol SingleTitleSource {
+    var title: String? { get }
+    var subTitle: String? { get }
 }

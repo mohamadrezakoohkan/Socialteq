@@ -9,7 +9,7 @@
 import UIKit
 
 final class ProfileViewController: BaseViewController, Storyboarded {
-    
+
     weak var coordinator: ProfileCoordinator?
 
     override func viewDidLoad() {

@@ -9,18 +9,18 @@
 import UIKit
 import Combine
 
-fileprivate typealias DataSource = UICollectionViewDiffableDataSource<HomeViewController.Section, AnyHashable>
-fileprivate typealias Snapshot = NSDiffableDataSourceSnapshot<HomeViewController.Section, AnyHashable>
+private typealias DataSource = UICollectionViewDiffableDataSource<HomeViewController.Section, AnyHashable>
+private typealias Snapshot = NSDiffableDataSourceSnapshot<HomeViewController.Section, AnyHashable>
 
 final class HomeViewController: BaseViewController, Storyboarded {
-    
+
     @Localized(localizedString: .greeting)
     @IBOutlet private var greetingsLabel: UILabel!
     @Localized(localizedString: .requestAddressMessage)
     @IBOutlet private var addressTextField: TextField!
     @IBOutlet private var usernameLabel: UILabel!
     @IBOutlet private var collectionView: HomeCollectionView!
-    
+
     @Registerable
     private var reusableHeaderView = TitleReusableView.self
     @Registerable
@@ -29,12 +29,12 @@ final class HomeViewController: BaseViewController, Storyboarded {
     private var categoryCell = CategoryCell.self
     @Registerable
     private var promotionCell = PromotionCell.self
-    
+
     weak var coordinator: HomeCoordinator?
     private var viewModel = HomeViewModel()
     private var dataSource: DataSource!
     private var didCellTapped = PassthroughSubject<AnyHashable?, Never>()
-  
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerDependencies()
@@ -42,7 +42,7 @@ final class HomeViewController: BaseViewController, Storyboarded {
         self.setupSectionHeader()
         self.bindViewModel()
     }
-    
+
     func bindViewModel() {
         let output = self.viewModel.transform(input: self.createInput())
         self.subscribe(name: output.userNamePublisher)
@@ -51,39 +51,39 @@ final class HomeViewController: BaseViewController, Storyboarded {
         self.store(subscription: output.categoryTappedSubscription)
         self.store(subscription: output.addressTextFieldSubscription)
     }
-    
+
     private func createInput() -> HomeViewModel.Input {
         .init(
             addressTextDidEnd: self.publishAddress(),
             cellDidTapped: self.publishCellTapped()
         )
     }
-    
+
     private func publishAddress() -> AnyPublisher<String?, Never> {
         self.addressTextField
             .publisher(for: \.text)
             .eraseToAnyPublisher()
     }
-    
+
     private func publishCellTapped() -> AnyPublisher<(AnyHashable?, CategoryViewing?), Never> {
         self.didCellTapped
             .map { [weak self] in return ($0, self?.coordinator) }
             .eraseToAnyPublisher()
     }
-    
+
     private func subscribe(name publisher: AnyPublisher<String?, Never>) {
         publisher.receive(on: DispatchQueue.main)
             .replaceNilOrEmpty(with: .sampleUsername)
             .assign(to: \.text, on: self.usernameLabel)
             .store(in: &self.subscriptions)
     }
-    
+
     private func subscribe(address publisher: AnyPublisher<String?, Never>) {
         publisher.receive(on: DispatchQueue.main)
             .assign(to: \.text, on: self.addressTextField)
             .store(in: &self.subscriptions)
     }
-    
+
     private func subscribe(home publisher: AnyPublisher<(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]), Never>) {
         publisher.receive(on: DispatchQueue.main)
             .sink( receiveValue: { [weak self] in
@@ -93,8 +93,7 @@ final class HomeViewController: BaseViewController, Storyboarded {
     }
 
     private func setupDataSource() {
-        self.dataSource = DataSource(collectionView: self.collectionView) { [weak self]
-            (collectionView, indexPath, hashable) in
+        self.dataSource = DataSource(collectionView: self.collectionView) { [weak self] (collectionView, indexPath, hashable) in
             guard let self = self else { return nil }
             switch hashable {
             case let event as EventCellViewModel:
@@ -114,17 +113,16 @@ final class HomeViewController: BaseViewController, Storyboarded {
             }
         }
     }
-    
+
     private func setupSectionHeader() {
-        self.dataSource.supplementaryViewProvider = { [weak self]
-            (collectionView, kind, indexPath) in
+        self.dataSource.supplementaryViewProvider = { [weak self] (collectionView, kind, indexPath) in
             guard let self = self else { return nil }
             return self.reusableHeaderView.deque(in: collectionView, at: indexPath, of: kind) {
                 $0.titleValue = Section.resolve(indexPath.section).title
             }
         }
     }
-    
+
     private func applySnapshot(event: EventCellViewModel, categories: [CategoryCellViewModel], promotions: [PromotionCellViewModel]) {
         var snapshot = Snapshot()
         self.appendSections(to: &snapshot)
@@ -133,23 +131,23 @@ final class HomeViewController: BaseViewController, Storyboarded {
         self.append(promotions: promotions, to: &snapshot)
         self.dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
+
     private func appendSections(to snapshot: inout Snapshot) {
         snapshot.appendSections([.event, .services, .promotion])
     }
-    
+
     private func append(event: EventCellViewModel,to snapshot: inout Snapshot) {
         snapshot.appendItems([event], toSection: .event)
     }
-    
+
     private func append(categories: [CategoryCellViewModel],to snapshot: inout Snapshot) {
         snapshot.appendItems(categories, toSection: .services)
     }
-    
+
     private func append(promotions: [PromotionCellViewModel],to snapshot: inout Snapshot) {
         snapshot.appendItems(promotions, toSection: .promotion)
     }
-    
+
     private func registerDependencies() {        self._reusableHeaderView.registerReusableView(in: self.collectionView)
         self._eventCell.registerCell(in: self.collectionView)
         self._categoryCell.registerCell(in: self.collectionView)
@@ -173,7 +171,7 @@ extension HomeViewController {
         case event
         case services
         case promotion
-        
+
         var title: String {
             switch self {
             case .event:
@@ -184,7 +182,7 @@ extension HomeViewController {
                 return .promotion
             }
         }
-        
+
         static var resolve: (_ section: Int) -> (Section) = { (section) in
             switch section {
             case .secondIndex:

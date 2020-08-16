@@ -8,13 +8,11 @@
 
 import Foundation
 
-
-typealias CategorySource = TitleSource & SingleTitleSource & DescriptionSource & ShortDescriptionSource & SingleDescriptionSource & SingleShortDescriptionSource & ImageStorageSource & IdentificationSource & SlugSource & ShowOptionSource & DisplayTypeSource & PackageStorageSource & NewBadgeSource
+typealias CategorySource = DefinitionSource & IdentificationSources & ShowSources & ImageStorageSource & PackageStorageSource
 
 /// Also known as services in UI, in the backend object named category
 ///
 struct Category: Codable, CategorySource {
-    
     let _id: String?
     let id: String?
     let slug: String?
@@ -34,11 +32,10 @@ struct Category: Codable, CategorySource {
     let hasNewBadge: Bool?
     let displayType: DisplayType?
     let data: [Package]?
-    
+
 }
 
 extension Category: Equatable {
-    
     static func == (lhs: Category, rhs: Category) -> Bool {
         lhs._id == rhs._id
             && lhs.id == rhs.id
@@ -51,7 +48,6 @@ extension Category: Equatable {
 }
 
 extension Category: Hashable {
-    
     func hash(into hasher: inout Hasher) {
         hasher.combine((_id ?? "") + (id ?? "") + (slug ?? ""))
         hasher.combine((title ?? "") + (subTitle ?? "") + (slogan ?? ""))

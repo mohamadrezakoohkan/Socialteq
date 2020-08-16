@@ -20,6 +20,4 @@ final class PromotionCell: CollectionViewCell<PromotionCellViewModel>, DequableC
         }
     }
 
-
 }
-

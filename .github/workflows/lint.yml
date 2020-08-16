@@ -1,0 +1,45 @@
+name: Code Review
+
+on:
+  push:
+    branches:
+      - master
+      - development
+      - feature/swiftlint
+  pull_request:
+    branches:
+      - '*'
+  release:
+    branches:
+      - master
+      - development
+
+jobs:
+
+  code_review_swiftlint:
+    name: Code review Swiftlint
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [macOS-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check xcodebuild version
+        run: |
+          xcodebuild -version
+          type -a xcodebuild
+      - name: Check xcode-select version
+        run: |
+          xcode-select -version
+          type -a xcode-select
+      - name: Check swiftlint version
+        run: |
+          swiftlint version
+          type -a swiftlint
+      - name: Check brew version
+        run: |
+          brew -v
+          type -a brew
+
+

@@ -10,13 +10,13 @@ import Foundation
 
 @propertyWrapper
 struct Injected<Value> {
-    
+
     var value: Value
-    
+
     init(container: DIContainerProtocol) {
         self.value = container.resolve()
     }
-    
+
     var wrappedValue: Value {
         return self.value
     }

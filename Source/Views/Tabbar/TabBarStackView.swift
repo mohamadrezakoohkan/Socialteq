@@ -9,7 +9,7 @@
 import UIKit.UIStackView
 
 final class TabBarStackView: UIStackView {
-    
+
     private let leadingPadding: CGFloat = 15
     private let trailingPadding: CGFloat = -15
     private let height: CGFloat = 50
@@ -17,13 +17,13 @@ final class TabBarStackView: UIStackView {
     func add(to view: TabBarView) {
         view.addSubview(self)
     }
-    
+
     func setup() {
         self.alignment = .center
         self.distribution = .fillProportionally
         self.axis = .horizontal
     }
-    
+
     func autolayout(to view: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: self.leadingPadding).isActive = true

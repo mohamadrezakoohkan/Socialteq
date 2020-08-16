@@ -9,7 +9,5 @@
 import Foundation
 
 protocol CategoryViewing: Coordinator {
-    
     func show(category: Category)
 }
-

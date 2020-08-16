@@ -18,7 +18,7 @@ extension Publisher where Output == String? {
 }
 
 extension Publisher where Output == String {
-    
+
     func optional() -> AnyPublisher<Output?, Failure> {
         self.map { ($0 as String?) }
             .eraseToAnyPublisher()
@@ -30,7 +30,7 @@ extension Publisher where Failure == Never {
     func weakAssign<Root: AnyObject>(to keyPath: ReferenceWritableKeyPath<Root, Output>,
                                      on root: Root,
                                      completion: (() -> Void)? = nil) -> AnyCancellable {
-        
+
         self.sink { [weak root] in
             root?[keyPath: keyPath] = $0
             completion?()

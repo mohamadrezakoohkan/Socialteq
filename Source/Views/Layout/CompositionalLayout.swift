@@ -9,57 +9,56 @@
 import UIKit
 
 class CompositionalLayout: UICollectionViewCompositionalLayout {
-    
+
     class var sectionInset: NSDirectionalEdgeInsets {
         return .zero
     }
-    
+
     class var groupInset: NSDirectionalEdgeInsets {
         return .zero
     }
-    
+
     class var itemInset: NSDirectionalEdgeInsets {
-       return .zero
+        return .zero
     }
-    
+
     class var headerInset: NSDirectionalEdgeInsets {
         return .zero
     }
-    
-    class func sectionProvider(group: NSCollectionLayoutGroup, supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = [], modificationBlock block: ((NSCollectionLayoutSection) -> ())? = nil) -> NSCollectionLayoutSection {
-        
+
+    static func sectionProvider(group: NSCollectionLayoutGroup,
+                                supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] = [],
+                                modificationBlock block: ((NSCollectionLayoutSection) -> Void)? = nil) -> NSCollectionLayoutSection {
         let section: NSCollectionLayoutSection = .init(group: group)
         section.boundarySupplementaryItems = supplementaryItems
         section.contentInsets = sectionInset
         block?(section)
         return section
     }
-    
-    class func groupProvider(size: NSCollectionLayoutSize, item: NSCollectionLayoutItem, modificationBlock block: ((NSCollectionLayoutGroup) -> ())? = nil) -> NSCollectionLayoutGroup {
-        
+
+    static func groupProvider(size: NSCollectionLayoutSize,
+                              item: NSCollectionLayoutItem,
+                              modificationBlock block: ((NSCollectionLayoutGroup) -> Void)? = nil) -> NSCollectionLayoutGroup {
         let group: NSCollectionLayoutGroup = .horizontal(layoutSize: size, subitems: [item])
         group.contentInsets = groupInset
         block?(group)
         return group
     }
-    
-    class func itemProvider(size: NSCollectionLayoutSize, modificationBlock block: ((NSCollectionLayoutItem) -> ())? = nil) -> NSCollectionLayoutItem {
-        
+
+    static func itemProvider(size: NSCollectionLayoutSize,
+                             modificationBlock block: ((NSCollectionLayoutItem) -> Void)? = nil) -> NSCollectionLayoutItem {
         let item: NSCollectionLayoutItem = .init(layoutSize: size)
         item.contentInsets = itemInset
         block?(item)
         return item
     }
-    
-    class func headerProvider(size: NSCollectionLayoutSize, alignment: NSRectAlignment = .topLeading, modificationBlock block: ((NSCollectionLayoutBoundarySupplementaryItem) -> ())? = nil) -> NSCollectionLayoutBoundarySupplementaryItem{
-        
+
+    static func headerProvider(size: NSCollectionLayoutSize,
+                               alignment: NSRectAlignment = .topLeading,
+                               modificationBlock block: ((NSCollectionLayoutBoundarySupplementaryItem) -> Void)? = nil) -> NSCollectionLayoutBoundarySupplementaryItem {
         let supplementaryView = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: size, elementKind: UICollectionView.elementKindSectionHeader, alignment: alignment)
         supplementaryView.contentInsets = self.headerInset
         block?(supplementaryView)
         return supplementaryView
     }
-    
 }
-
-
-

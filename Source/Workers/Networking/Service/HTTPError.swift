@@ -9,7 +9,7 @@
 import Foundation
 
 enum HTTPError: String, Error {
-    
+
     case canceled = "Network request canceled."
     case outdated = "The url you requested is outdated."
     case badRequest = "Bad request"
@@ -20,7 +20,7 @@ enum HTTPError: String, Error {
     case invalidParameteres = "Given parameter is invalid"
     case invalidResponseData = "Received response is nil"
     case invalidDecodable = "Received response is diffrent from give decodable object"
-    
+
     var localizedDescription: String {
         return self.rawValue
     }

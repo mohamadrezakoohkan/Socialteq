@@ -9,18 +9,16 @@
 import UIKit
 
 final class CategoriesCoordinator: Coordinator {
-    
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
-        let vc = CategoriesViewController.instantiate(in: .main)
-        vc.coordinator = self
-        self.navigationController.pushViewController(vc, animated: false)
+        let viewController = CategoriesViewController.instantiate(in: .main)
+        viewController.coordinator = self
+        self.navigationController.pushViewController(viewController, animated: false)
     }
-    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    
+
     /// If you count from zero :D
     ///
     ///     var firstIndex: Int = 0
@@ -17,7 +17,7 @@ extension Int {
     static var firstIndex: Int {
         return 0
     }
-    
+
     /// If you count from zero :D
     ///
     ///     var secondIndex: Int = 1
@@ -25,7 +25,7 @@ extension Int {
     static var secondIndex: Int {
         return 1
     }
-    
+
     /// If you count from zero :D
     ///
     ///     var thirdIndex: Int = 2
@@ -33,5 +33,5 @@ extension Int {
     static var thirdIndex: Int {
         return 2
     }
-    
+
 }

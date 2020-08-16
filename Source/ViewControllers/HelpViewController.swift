@@ -9,7 +9,7 @@
 import UIKit
 
 final class HelpViewController: BaseViewController, Storyboarded {
-    
+
     weak var coordinator: HelpCoordinator?
 
     override func viewDidLoad() {

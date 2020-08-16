@@ -18,13 +18,13 @@ final class PackageCell: CollectionViewCell<PackageCellViewModel>, DequableCellP
     @IBOutlet private weak var shortDescription: UILabel!
     @IBOutlet private weak var price: UILabel!
     @IBOutlet private weak var badge: BadgeLabel!
-    
+
     private var shadowRect: CGRect {
         let start: CGFloat = 20
         let width: CGFloat = self.bounds.width - start*3
         return CGRect(x: start, y: .zero, width: width, height: self.bounds.height)
     }
-            
+
     override var viewModel: PackageCellViewModel! {
         didSet {
             self.view.clipsToBounds = !self.viewModel.special
@@ -43,12 +43,12 @@ final class PackageCell: CollectionViewCell<PackageCellViewModel>, DequableCellP
                 .store(in: &self.subscriptions)
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setShadow()
     }
-    
+
     func setShadow() {
         self.view.layer.masksToBounds = false
         self.view.layer.shadowColor = UIColor.appHighlight.cgColor

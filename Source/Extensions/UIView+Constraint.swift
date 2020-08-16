@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    
+
     func constraintFill(view: UIView, edgesPadding: CGFloat = .zero) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.widthAnchor.constraint(equalTo: view.widthAnchor,
@@ -19,13 +19,13 @@ extension UIView {
         self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-    
+
     func constraintCenter(in view: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-    
+
     func dynamicHeight(wdith widthValue: CGFloat? = nil) -> CGSize {
         let width = widthValue == nil ? self.frame.width : widthValue!
         let height = UIView.layoutFittingExpandedSize.height
@@ -35,7 +35,7 @@ extension UIView {
             verticalFittingPriority: .fittingSizeLevel
         )
     }
-    
+
     func dynamicWidth(height heightValue: CGFloat? = nil) -> CGSize {
         let width = UIView.layoutFittingExpandedSize.height
         let height = heightValue == nil ? self.frame.height : heightValue!
@@ -45,5 +45,5 @@ extension UIView {
             verticalFittingPriority: .fittingSizeLevel
         )
     }
-    
+
 }

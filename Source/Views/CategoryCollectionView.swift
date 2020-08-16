@@ -9,11 +9,11 @@
 import UIKit
 
 final class CategoryCollectionView: UICollectionView {
-    
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: CategoryCompositionalLayout.createLayout())
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.collectionViewLayout = CategoryCompositionalLayout.createLayout()

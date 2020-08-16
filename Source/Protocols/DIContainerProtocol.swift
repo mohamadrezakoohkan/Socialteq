@@ -9,7 +9,6 @@
 import Foundation
 
 protocol DIContainerProtocol {
-    
+
     func resolve<T>() -> T
 }
-
