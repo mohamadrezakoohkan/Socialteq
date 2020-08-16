@@ -49,5 +49,9 @@ jobs:
           type -a swiftlint
       - name: Lint swift files
         run: |
-          swiftlint
+          swiftlint --reporter html > swiftlint-report.html
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Report
+          path: swiftlint-report.html
 
