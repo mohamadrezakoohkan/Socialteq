@@ -50,6 +50,7 @@ jobs:
       - name: Lint swift files
         run: |
           swiftlint --reporter html > swiftlint-report.html
+          swiftlint --strict --reporter github-actions-logging
       - uses: actions/upload-artifact@v2
         with:
           name: Report
