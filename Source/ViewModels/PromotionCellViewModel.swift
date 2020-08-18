@@ -11,19 +11,19 @@ import Combine
 
 typealias PromotionCellViewModelSource = ImageUrlResolver
 
-struct PromotionCellViewModel: ViewModelType, PromotionCellViewModelSource  {
-    
+struct PromotionCellViewModel: ViewModelType, PromotionCellViewModelSource {
+
     struct Input { }
-    
+
     struct Output { }
-    
+
     let promotion: Promotion?
     let imageURL: URL?
-    
+
     init(promotion: Promotion) {
         self.init(urlString: promotion.image?.originalUrl ?? "", promotion: promotion)
     }
-    
+
     init(urlString: String, promotion: Promotion?) {
         self.imageURL = URL(string: urlString)
         self.promotion = promotion
@@ -40,9 +40,8 @@ extension PromotionCellViewModel: Equatable {
 }
 
 extension PromotionCellViewModel: Hashable {
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(imageURL)
     }
 }
-

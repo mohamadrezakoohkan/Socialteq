@@ -9,15 +9,14 @@
 import UIKit
 
 final class MainCoordinator: Coordinator {
-    
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.navigationController.navigationBar.isHidden = true
     }
-    
+
     func start() {
         let tabbarController = MainTabBarController.instantiate(in: .main)
         tabbarController.home = self.coordinator(title: .home, image: .home)
@@ -26,7 +25,7 @@ final class MainCoordinator: Coordinator {
         tabbarController.help = self.coordinator(title: .help, image: .helpCircle)
         self.navigationController.pushViewController(tabbarController, animated: false)
     }
-    
+
     private func coordinator<CoordinatorType: Coordinator>(title: String, image: UIImage) -> CoordinatorType {
         let navigation = MainNavigationController(title: title.localized, image: image)
         let coordinator = CoordinatorType(navigationController: navigation)

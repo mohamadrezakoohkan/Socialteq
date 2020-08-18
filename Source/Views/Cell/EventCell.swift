@@ -14,7 +14,7 @@ final class EventCell: CollectionViewCell<EventCellViewModel>, DequableCellProto
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var subTitle: UILabel!
-    
+
     override var viewModel: EventCellViewModel! {
         didSet {
             self.imageStackView.isHidden = !self.viewModel.isImageVisible

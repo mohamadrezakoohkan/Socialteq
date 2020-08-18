@@ -1,0 +1,58 @@
+name: Code Review
+
+on:
+  push:
+    branches:
+      - master
+      - development
+      - feature/swiftlint
+  pull_request:
+    branches:
+      - '*'
+  release:
+    branches:
+      - master
+      - development
+
+jobs:
+
+  code_review_swiftlint:
+    name: Code review Swiftlint
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [macOS-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check xcodebuild version
+        run: |
+          xcodebuild -version
+          type -a xcodebuild
+      - name: Check xcode-select version
+        run: |
+          xcode-select -version
+          type -a xcode-select
+
+      - name: Check brew version
+        run: |
+          brew -v
+          type -a brew
+      - name: Check swiftlint version
+        run: |
+          swiftlint version
+          type -a swiftlint
+      - name: Update swiftlint
+        run: |
+          brew install swiftlint
+          swiftlint version
+          type -a swiftlint
+      - name: Lint swift files
+        run: |
+          swiftlint --reporter html > swiftlint-report.html
+          swiftlint --strict --reporter github-actions-logging
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Report
+          path: swiftlint-report.html
+

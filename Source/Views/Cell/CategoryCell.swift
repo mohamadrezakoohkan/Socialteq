@@ -16,7 +16,7 @@ final class CategoryCell: CollectionViewCell<CategoryCellViewModel>, DequableCel
     @IBOutlet private weak var subTitle: UILabel!
     @IBOutlet private weak var shortDescription: UILabel!
     @IBOutlet private weak var badge: BadgeLabel!
-            
+
     override var viewModel: CategoryCellViewModel! {
         didSet {
             self.badge.isHidden = !self.viewModel.isNewBadgeVisible

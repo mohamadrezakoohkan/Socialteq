@@ -9,14 +9,12 @@
 import Foundation
 
 typealias HomeSource = SingleTitleSource & CategoryStorageSource &  PromotionStorageSource
-    
+
 struct Home: Codable, HomeSource {
-    
     let title: String?
     let subTitle: String?
     let categories: [Category]
     let promotions: [Promotion]
-    
 }
 
 extension Home: Equatable {
@@ -26,7 +24,6 @@ extension Home: Equatable {
             && lhs.categories == rhs.categories
             && lhs.promotions == rhs.promotions
     }
-    
 }
 
 extension Home: Hashable {

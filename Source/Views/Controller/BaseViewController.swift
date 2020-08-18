@@ -10,28 +10,28 @@ import UIKit
 import Combine
 
 class BaseViewController: UIViewController {
-    
+
     lazy var subscriptions: [AnyCancellable] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
     }
-    
+
     final func store(subscription: AnyCancellable) {
         subscription.store(in: &self.subscriptions)
     }
 }
 
 extension BaseViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
+
 }

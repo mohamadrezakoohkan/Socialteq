@@ -11,11 +11,11 @@ import Combine
 
 typealias PackageCellViewModelSource = ImageUrlResolver
 
-struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
-    
+struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource {
+
     struct Input { }
     struct Output { }
-    
+
     let package: Package?
     let title: String?
     let subTitle: String?
@@ -25,23 +25,23 @@ struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
     let discountPercentage: Double?
     let isSpecial: Bool?
     let imageURL: URL?
-    
+
     var isDiscountBadgeVisible: Bool {
         return self.hasDiscount == true
     }
-    
+
     var discountText: String {
         return String(Int(self.discountPercentage ?? 0)) + .space + .percentage
     }
-    
+
     var priceText: String {
         return self.basePrice?.price ?? .free
     }
-    
+
     var special: Bool {
         return self.isSpecial == true
     }
-    
+
     init(package: Package) {
         self.init(
             title: package.title,
@@ -54,7 +54,7 @@ struct PackageCellViewModel: ViewModelType, PackageCellViewModelSource  {
             imageURL: package.image?.imageURL,
             package: package)
     }
-    
+
     init(title: String?,
          subTitle: String?,
          shortDescription: String?,
@@ -88,9 +88,8 @@ extension PackageCellViewModel: Equatable {
 }
 
 extension PackageCellViewModel: Hashable {
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(imageURL)
     }
 }
-

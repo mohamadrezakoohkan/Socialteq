@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
-    
+
     let session: URLSession
     let timeout: TimeInterval
     let cachePolicy: URLRequest.CachePolicy
@@ -20,14 +20,14 @@ class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
     var subscriper: DispatchQueue {
         return DispatchQueue(label: self.threadLabel, qos: self.qos, attributes: .concurrent)
     }
-    
+
     init(session: URLSession = URLSession.shared,
          cachePolicy: URLRequest.CachePolicy = .returnCacheDataElseLoad,
          threadLabel: String = "com.socialteq.view.httpcalls",
          subscribeOnQos qos: DispatchQoS = .background,
          receiveOn receiver: DispatchQueue = .main,
          timeout: TimeInterval = 30) {
-        
+
         self.session = session
         self.cachePolicy = cachePolicy
         self.timeout = timeout
@@ -35,25 +35,28 @@ class Router<EndpointType: HTTPEndpoint>: HTTPRouter {
         self.qos = qos
         self.receiver = receiver
     }
-    
+
     func request(route: EndpointType) -> HTTPRouterRequestResult {
         return self.pureRequest(url: self.requestGenerator(fromRoute: route),
                                 subscribeOn: self.subscriper,
                                 receiveIn: self.receiver)
     }
-    
+
     func download(url: URL) -> HTTPRouterDownloadResult {
         self.session
             .downloadTaskPublisher(for: url, cache: self.cachePolicy, timeout: 10)
             .eraseToAnyPublisher()
     }
-    
-    func pureRequest<Subscriber: Scheduler, Receiver: Scheduler>(url: URLRequest, subscribeOn subscribtion: Subscriber, receiveIn receiver: Receiver) -> HTTPRouterRequestResult {
+
+    func pureRequest<Subscriber: Scheduler, Receiver: Scheduler>(
+        url: URLRequest,
+        subscribeOn subscribtion: Subscriber,
+        receiveIn receiver: Receiver) -> HTTPRouterRequestResult {
         return self.session
             .dataTaskPublisher(for: url)
             .subscribe(on: subscribtion)
             .receive(on: receiver)
             .eraseToAnyPublisher()
     }
-    
+
 }

@@ -14,20 +14,19 @@ protocol UserSource: User {
     var avatar: String? { get set }
 }
 
-
 /// User represent actual end user that working with app
 ///
 class User: UserSource {
-    
+
     static let shared: User = User()
     private init() { }
-    
+
     @AppStorage(key: "user.name")
     var name: String?
-    
+
     @AppStorage(key: "user.address")
     var address: String?
-    
+
     @AppStorage(key: "user.avatar")
     var avatar: String?
 }
@@ -38,7 +37,7 @@ extension User: Equatable {
             && lhs.address == rhs.address
             && lhs.avatar == rhs.avatar
     }
-    
+
 }
 
 extension User: Hashable {

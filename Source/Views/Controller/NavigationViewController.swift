@@ -9,22 +9,22 @@
 import UIKit
 
 class NavigationViewController: BaseViewController {
-    
+
     @IBOutlet weak var navigationBar: NavigationBar! {
         didSet {
             self.navigationBar.title = self.title
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle()
     }
-    
+
     open func pop() {
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     private func setTitle() {
         self.navigationBar.title = self.title
     }

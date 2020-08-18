@@ -9,14 +9,14 @@
 import Foundation
 
 enum Endpoint: HTTPEndpoint {
-    
+
     case goolgeIndex
     case customer
     case version2
     case home
     case categories
     case services(_ category: String)
-    
+
     var baseURL: Domain {
         switch self {
         case .goolgeIndex:
@@ -25,7 +25,7 @@ enum Endpoint: HTTPEndpoint {
             return .github
         }
     }
-    
+
     var method: HTTPMethod {
         switch self {
         case .goolgeIndex:
@@ -34,15 +34,15 @@ enum Endpoint: HTTPEndpoint {
             return .get
         }
     }
-    
+
     var task: HTTPTask {
         return .request
     }
-    
+
     var headers: HTTPHeaders? {
         return nil
     }
-    
+
     var path: String {
         switch self {
         case .goolgeIndex:
@@ -59,7 +59,7 @@ enum Endpoint: HTTPEndpoint {
             return Endpoint.categories.path + "\(category)/" + "services/" +  "\(category)"
         }
     }
-    
+
     var urlString: String {
         return self.baseURL.value + self.path
     }

@@ -9,9 +9,9 @@
 import Foundation
 
 protocol HTTPDomain {
-    
+
     var value: String { get }
-    
+
     var isSecure: Bool { get }
-     
+
 }

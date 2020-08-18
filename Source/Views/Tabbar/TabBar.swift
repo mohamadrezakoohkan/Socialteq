@@ -9,20 +9,20 @@
 import UIKit
 
 final class TabBar: UITabBar {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.removeSeparator()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.removeSeparator()
     }
-    
+
     private func removeSeparator() {
         self.shadowImage = .clear
         self.backgroundImage = .clear
     }
-    
+
 }

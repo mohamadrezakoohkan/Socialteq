@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    
+
     static var free: String { "free".localized }
     static var comma: String { "comma".localized }
     static var dot: String { "dot".localized }

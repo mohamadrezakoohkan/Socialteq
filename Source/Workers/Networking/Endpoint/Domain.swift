@@ -9,11 +9,10 @@
 import Foundation
 
 @frozen enum Domain: HTTPDomain {
-    
     case google
     case appspot
     case github
-    
+
     var value: String {
         switch self {
         case .google:
@@ -24,9 +23,9 @@ import Foundation
             return Configuration.shared.githubRepository
         }
     }
-    
+
     var isSecure: Bool {
         return self.value.contains("https")
     }
-    
+
 }

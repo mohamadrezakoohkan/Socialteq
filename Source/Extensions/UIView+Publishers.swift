@@ -10,15 +10,15 @@ import UIKit
 import Combine
 
 extension UITextField {
-    
+
     typealias KeyPathType<T> = KeyPath<UITextField, T>
     typealias PublishResult<T> = Publishers.MapKeyPath<Publishers.CompactMap<NotificationCenter.Publisher, UITextField>, T>
-   
+
     enum ControlEvent {
         case didBegin
         case didEnd
         case didChanged
-        
+
         var notification: Notification.Name {
             switch self {
             case .didBegin:
@@ -30,14 +30,13 @@ extension UITextField {
             }
         }
     }
-    
+
     func publisher<T>(for keypath: KeyPathType<T>,
                       event: ControlEvent) -> PublishResult<T> {
-        
+
         return NotificationCenter.default
             .publisher(for: event.notification)
             .compactMap { $0.object as? UITextField }
             .map(keypath)
     }
 }
-

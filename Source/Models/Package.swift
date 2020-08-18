@@ -8,12 +8,11 @@
 
 import Foundation
 
-typealias PackageSource = TitleSource & SingleTitleSource & DescriptionSource & ShortDescriptionSource & SingleDescriptionSource & SingleShortDescriptionSource & SubCategorySource & ShowOptionSource & PriceSource & CoverImageStorageSource & ImageStorageSource
+typealias PackageSource = DefinitionSource & SubCategorySource & ShowOptionSource & PriceSource & CoverImageStorageSource & ImageStorageSource
 
 /// Also known as packages in UI, in the backend object named service
 ///
 struct Package: Codable, PackageSource {
-    
     let titles: UniversalString?
     let subTitles: UniversalString?
     let title: String?
@@ -35,12 +34,9 @@ struct Package: Codable, PackageSource {
     let coverImageId: String?
     let coverImage: CoverImage?
     let image: Image?
-    
-    
 }
 
 extension Package: Equatable {
-    
     static func == (lhs: Package, rhs: Package) -> Bool {
         lhs.titles == rhs.titles
             && lhs.subTitles == rhs.subTitles
@@ -54,7 +50,6 @@ extension Package: Equatable {
 }
 
 extension Package: Hashable {
-    
     func hash(into hasher: inout Hasher) {
         hasher.combine((title ?? "") + (slogan ?? ""))
         hasher.combine((categoryId ?? "") + (shortDescription ?? ""))

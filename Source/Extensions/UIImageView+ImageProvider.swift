@@ -10,7 +10,6 @@ import UIKit
 import Combine
 
 extension UIImageView: ImageProvider {
-    
 
     func getImage(url: URL) -> AnyPublisher<String, Error> {
         return URLSession.shared
@@ -19,26 +18,26 @@ extension UIImageView: ImageProvider {
             .map({ _ in HTTPFile(url: url).path })
             .eraseToAnyPublisher()
     }
-    
+
     func set(imageURL: URL?) -> AnyCancellable? {
         guard let url = imageURL else {
             self.image = .error
             return nil
         }
-        
+
         let file = HTTPFile(url: url)
-        
+
         if file.exist {
             return CurrentValueSubject<String, Never>.init(file.path)
                 .map { UIImage(contentsOfFile: $0) }
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.image, on: self)
-        }else{
+        } else {
             return self.getImage(url: url)
                 .map { UIImage(contentsOfFile: $0) }
                 .replaceError(with: .error)
                 .assign(to: \.image, on: self)
-            
+
         }
     }
 }

@@ -9,28 +9,25 @@
 import UIKit
 
 final class HomeCoordinator: Coordinator, CategoryViewing {
-    
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
-    
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
-        let vc = HomeViewController.instantiate(in: .main)
-        vc.coordinator = self
-        self.navigationController.pushViewController(vc, animated: false)
+        let viewController = HomeViewController.instantiate(in: .main)
+        viewController.coordinator = self
+        self.navigationController.pushViewController(viewController, animated: false)
     }
-    
+
     func show(category: Category) {
-        let vc = CategoryViewController.instantiate(in: .main)
-        vc.coordinator = self
-        vc.viewModel = .init(category: category)
-        vc.title = category.title
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController.pushViewController(vc, animated: true)
+        let viewController = CategoryViewController.instantiate(in: .main)
+        viewController.coordinator = self
+        viewController.viewModel = .init(category: category)
+        viewController.title = category.title
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController.pushViewController(viewController, animated: true)
     }
-    
 }

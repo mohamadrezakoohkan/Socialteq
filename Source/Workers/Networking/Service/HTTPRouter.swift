@@ -13,7 +13,6 @@ typealias HTTPRouterRequestResult = AnyPublisher<URLSession.DataTaskPublisher.Ou
 
 typealias HTTPRouterDownloadResult = AnyPublisher<(url: URL, response: URLResponse), Error>
 
-
 protocol HTTPRouter: class {
     associatedtype EndpointType: HTTPEndpoint
     var timeout: TimeInterval { get }
@@ -24,11 +23,10 @@ protocol HTTPRouter: class {
 }
 
 extension HTTPRouter {
-    
+
     func requestGenerator(fromRoute route: EndpointType) -> URLRequest {
         var request = URLRequest(url: route.url, cachePolicy: self.cachePolicy, timeoutInterval: self.timeout)
         request.httpMethod = route.method.rawValue
         return request
     }
 }
-

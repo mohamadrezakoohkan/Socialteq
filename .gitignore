@@ -1,2 +1,4 @@
+swiftlint-report.*
+Report
 *.xcuserstate
 .DS_Store

@@ -14,18 +14,18 @@ import Combine
 ///
 @propertyWrapper
 struct AppStorage<Value> {
-    
+
     private let key: String
     private let defaultValue: Value
     private var storage: UserDefaults {
        return UserDefaults.standard
     }
-    
+
     init(key: String, defaultValue: Value) {
         self.key = "app.storage.\(key)"
         self.defaultValue = defaultValue
     }
-    
+
     var wrappedValue: Value {
         get { return self.storage.object(forKey: self.key) as? Value ?? self.defaultValue }
         set {
