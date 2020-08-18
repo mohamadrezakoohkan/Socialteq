@@ -1,3 +1,4 @@
+#!/bin/bash
 swiftlint --reporter csv > Report/Swiftlint/lint-report.csv \
   && swiftlint --reporter html > Report/Swiftlint/lint-report.html \
   && swiftlint --reporter json > Report/Swiftlint/lint-report.json \
