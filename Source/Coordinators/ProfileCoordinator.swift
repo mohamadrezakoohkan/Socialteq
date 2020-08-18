@@ -9,18 +9,17 @@
 import UIKit
 
 final class ProfileCoordinator: Coordinator {
-    
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
-        let vc = ProfileViewController.instantiate(in: .main)
-        vc.coordinator = self
-        self.navigationController.pushViewController(vc, animated: false)
+        let viewController = ProfileViewController.instantiate(in: .main)
+        viewController.coordinator = self
+        self.navigationController.pushViewController(viewController, animated: false)
     }
-    
+
 }

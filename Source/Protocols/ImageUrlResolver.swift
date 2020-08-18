@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ImageUrlResolver {
-    
+
     var imageURL: URL? { get }
 }

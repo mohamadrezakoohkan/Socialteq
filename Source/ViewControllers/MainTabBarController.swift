@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 final class MainTabBarController: TabBarController, Storyboarded {
-    
+
     weak var home: HomeCoordinator?
     weak var categories: CategoriesCoordinator?
     weak var profile: ProfileCoordinator?
@@ -19,25 +19,25 @@ final class MainTabBarController: TabBarController, Storyboarded {
     override var itemsFont: UIFont {
         return .semiBold(size: 14)
     }
-    
+
     override var startedIndex: Int {
         return .firstIndex
     }
-    
+
     override var selectedColor: UIColor {
         return .appHighlight
     }
-    
+
     override var unselectedColor: UIColor {
        return .appSecondary
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addViewControllers()
         self.startCoordinators()
     }
-    
+
     private func addViewControllers() {
         self.viewControllers = [
             self.home!.navigationController,
@@ -46,7 +46,7 @@ final class MainTabBarController: TabBarController, Storyboarded {
             self.help!.navigationController
         ]
     }
-    
+
     private func startCoordinators() {
         self.home!.start()
         self.categories!.start()

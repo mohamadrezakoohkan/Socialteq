@@ -9,7 +9,7 @@
 import UIKit
 
 final class CategoriesViewController: BaseViewController, Storyboarded {
-    
+
     weak var coordinator: CategoriesCoordinator?
 
     override func viewDidLoad() {

@@ -9,9 +9,9 @@
 import UIKit.UIStoryboard
 
 extension UIStoryboard {
-    
+
     class var main: UIStoryboard {
         return .init(name: "Main", bundle: .main)
     }
-    
+
 }

@@ -9,15 +9,15 @@
 import Foundation
 
 struct HTTPFile {
-    
+
     let manager: FileManager
     let url: URL
     let path: String
-    
+
     var exist: Bool {
         return self.manager.fileExists(atPath: self.path)
     }
-    
+
     init?(url value: URL?, fileManager: FileManager = .default) {
         guard let url = value else { return nil }
         self.init(url: url, fileManager: fileManager)
@@ -31,7 +31,7 @@ struct HTTPFile {
         self.manager = fileManager
         self.path = cacheDir.path
     }
-    
+
     func write(from cache: String) throws {
         if self.exist {
            try self.remove()
@@ -39,7 +39,7 @@ struct HTTPFile {
 //        guard self.exist == false else { return }
         try manager.moveItem(atPath: cache, toPath: self.path)
     }
-    
+
     func remove() throws {
         guard self.exist else { return }
         try manager.removeItem(at: URL(string: self.path)!)

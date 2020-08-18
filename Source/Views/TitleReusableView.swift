@@ -9,13 +9,13 @@
 import UIKit
 
 final class TitleReusableView: UICollectionReusableView, DequableReusableViewProtocol, IdentifiableProtocol {
-    
+
     @IBOutlet private weak var title: UILabel!
-    
+
     var titleValue: String = .emptyString {
         didSet {
             self.title.text = self.titleValue
         }
     }
-    
+
 }

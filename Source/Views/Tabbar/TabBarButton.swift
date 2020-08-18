@@ -9,25 +9,25 @@
 import UIKit.UIButton
 
 final class TabBarButton: UIButton {
-    
+
     private (set) var selectedTintColor: UIColor = .clear
     private (set) var unselectedTintColor: UIColor = .clear
     private (set) var text: String = .emptyString
-    
+
     private (set) lazy var badge: TabBarBadge = {
         return.init(font: self.titleLabel?.font ?? .bold())
     }()
-    
+
     private var image: UIImage? {
         get { self.imageView?.image }
         set { self.setImage(newValue, for: .normal) }
     }
-    
+
     private var title: String? {
         get { return self.titleLabel?.text }
         set { self.setTitle(.space + .space + (newValue ?? .emptyString), for: .normal) }
     }
-    
+
     private var color: UIColor {
         get { return self.tintColor }
         set {
@@ -35,7 +35,7 @@ final class TabBarButton: UIButton {
             self.tintColor = newValue
         }
     }
-    
+
     private var paddingInset: CGFloat {
         get { return self.titleEdgeInsets.left }
         set {
@@ -45,7 +45,7 @@ final class TabBarButton: UIButton {
     }
 
     init(text: String, font: UIFont, image: UIImage?, selectedColor: UIColor, unselectedColor: UIColor, tag: Int, paddingInset: CGFloat, selected: Bool, createBadge: Bool) {
-        
+
         super.init(frame: .zero)
         self.text = text
         self.selectedTintColor = selectedColor
@@ -57,23 +57,23 @@ final class TabBarButton: UIButton {
         selected ? self.select() : self.deselect()
 //        if createBadge { self.addBadge() }
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     @discardableResult
     func setColor(_ aColor: UIColor) -> TabBarButton {
         self.color = aColor
         return self
     }
-    
+
     @discardableResult
     func setText(_ text: String?) -> TabBarButton {
         self.title = text
         return self
     }
-    
+
     func deselect() {
         self.setText(nil)
             .setColor(self.unselectedTintColor)
@@ -83,16 +83,16 @@ final class TabBarButton: UIButton {
         self.setText(self.text)
             .setColor(self.selectedTintColor)
     }
-    
+
     func insert(into stackView: TabBarStackView) {
         stackView.addArrangedSubview(self)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
     }
-    
+
     private func addBadge() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.addSubview(self.badge)
@@ -104,11 +104,11 @@ final class TabBarButton: UIButton {
             self.badge.widthAnchor.constraint(equalToConstant: 3).isActive = true
         })
     }
-    
+
     class func batchCreate(using tabbarController: TabBarController,
                            badgeIndexes: Set<Int> = [],
                            padding: CGFloat = .zero) -> [TabBarButton] {
-        
+
         guard let viewControllers = tabbarController.viewControllers else { return [] }
         return viewControllers.enumerated().map {
             return .init(text: $1.tabBarItem.title ?? "",
@@ -123,4 +123,3 @@ final class TabBarButton: UIButton {
         }
     }
 }
-

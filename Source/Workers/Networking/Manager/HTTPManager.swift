@@ -11,21 +11,20 @@ import Combine
 import UIKit.UIImage
 
 struct HTTPManager {
-    
+
     static let environment: HTTPEnvironment = .production
     fileprivate let router: Router<Endpoint>
-    
+
     init(router: Router<Endpoint> = .init()) {
         self.router = router
     }
-    
-    
+
     fileprivate func handleError(data: Data?, response: URLResponse?) throws -> Data {
         guard let httpResponse = response as? HTTPURLResponse,
             let responeData = data else {
                 throw HTTPError.invalidResponseData
         }
-        
+
         switch httpResponse.statusCode {
         case 200...299:
             return responeData
@@ -40,13 +39,13 @@ struct HTTPManager {
         default:
             throw HTTPError.canceled
         }
-        
+
     }
-    
+
     fileprivate func handlePublishError(output: URLSession.DataTaskPublisher.Output) throws -> Data {
         try self.handleError(data: output.data, response: output.response)
     }
-    
+
     func request<D: Decodable>(route: Endpoint) -> AnyPublisher<D, Error> {
         self.router.request(route: route)
             .tryMap { try self.handlePublishError(output: $0) }
@@ -68,7 +67,7 @@ extension HTTPManager: CategoryProvider {
 }
 
 extension HTTPManager: ImageProvider {
-    
+
     /// Publish path to image file
     ///
     func getImage(url: URL) -> AnyPublisher<String, Error> {
@@ -78,13 +77,12 @@ extension HTTPManager: ImageProvider {
             return publisher
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
-        }else{
+        } else {
             return self.router.download(url: url)
                 .map { _ in HTTPFile(url: url).path }
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         }
     }
-    
-    
+
 }

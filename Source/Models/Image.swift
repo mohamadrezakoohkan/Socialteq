@@ -9,15 +9,15 @@
 import Foundation
 import UIKit.UIDevice
 
-struct Image: Codable, ImageSource  {
-    
+struct Image: Codable, ImageSource {
+
     let originalUrl: String?
     let originalUrl2x: String?
     let originalUrl3x: String?
     let originalUrl4x: String?
     let originalUrlPDF: String?
     let originalUrlSVG: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case originalUrl
         case originalUrl2x = "originalUrl@2x"
@@ -26,7 +26,7 @@ struct Image: Codable, ImageSource  {
         case originalUrlPDF
         case originalUrlSVG
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.originalUrl = try container.decode(String?.self, forKey: .originalUrl)
@@ -39,24 +39,24 @@ struct Image: Codable, ImageSource  {
 }
 
 extension Image: ImageUrlResolver {
-    
+
     var imageURL: URL? {
         if let highQuality = self.originalUrl4x {
             return URL(string: highQuality)
-            
+
         } else if let mediumQuality = self.originalUrl3x {
             return URL(string: mediumQuality)
-    
-        }else if let normalQuality = self.originalUrl2x {
+
+        } else if let normalQuality = self.originalUrl2x {
             return URL(string: normalQuality)
-            
-        }else if let lowQuality = self.originalUrl {
+
+        } else if let lowQuality = self.originalUrl {
             return URL(string: lowQuality)
         }
-        
+
         return nil
     }
-    
+
 }
 
 extension Image: Equatable {
@@ -70,9 +70,8 @@ extension Image: Equatable {
     }
 }
 
-
 extension Image: Hashable {
-    
+
     func hash(into hasher: inout Hasher) {
         let originalURL = (originalUrl ?? "")
         let originalURL2x = (originalUrl2x ?? "")
@@ -85,4 +84,3 @@ extension Image: Hashable {
         hasher.combine(originalURLPDF  + originalURLSVG)
     }
 }
- 

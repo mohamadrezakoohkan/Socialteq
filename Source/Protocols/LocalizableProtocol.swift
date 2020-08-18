@@ -29,4 +29,3 @@ extension UITextField: LocalizableProtocol {
             self.placeholder = string
     }
 }
-

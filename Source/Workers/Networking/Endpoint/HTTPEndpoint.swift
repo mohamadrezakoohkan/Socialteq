@@ -9,9 +9,9 @@
 import Foundation
 
 protocol HTTPEndpoint {
-    
+
     associatedtype DomainType: HTTPDomain
-    
+
     var baseURL: DomainType { get }
     var path: String { get }
     var method: HTTPMethod { get }

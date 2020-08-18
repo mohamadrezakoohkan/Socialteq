@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DD0DC3A624D1D6700045CDEB /* Int+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DC3A524D1D6700045CDEB /* Int+Constants.swift */; };
+		DD1CDD1A24E94946008C1BC4 /* DefinitionSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDD1924E94946008C1BC4 /* DefinitionSource.swift */; };
+		DD1CDD1D24E94986008C1BC4 /* IdentificationSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDD1C24E94986008C1BC4 /* IdentificationSources.swift */; };
+		DD1CDD2324E94A65008C1BC4 /* ShowSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDD2224E94A65008C1BC4 /* ShowSources.swift */; };
+		DD1CDD2524E95CFB008C1BC4 /* lint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DD1CDD2424E95CFB008C1BC4 /* lint.yml */; };
 		DD22277024D30A0A0034B6D2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22276F24D30A0A0034B6D2 /* MainCoordinator.swift */; };
 		DD22277224D33A5F0034B6D2 /* CurrentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22277124D33A5F0034B6D2 /* CurrentValue.swift */; };
 		DD22277424D3FB9F0034B6D2 /* AnyOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22277324D3FB9F0034B6D2 /* AnyOptional.swift */; };
@@ -106,8 +110,6 @@
 		DDC5D8FB24CC424B007538F7 /* URL+ExpressibleByStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8FA24CC424B007538F7 /* URL+ExpressibleByStringLiteral.swift */; };
 		DDC5D8FD24CC4F5C007538F7 /* TitleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8FC24CC4F5C007538F7 /* TitleSource.swift */; };
 		DDC5D8FF24CC4FAA007538F7 /* DescriptionSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D8FE24CC4FAA007538F7 /* DescriptionSource.swift */; };
-		DDC5D90124CC4FF3007538F7 /* SingleTitleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D90024CC4FF3007538F7 /* SingleTitleSource.swift */; };
-		DDC5D90324CC5000007538F7 /* SingleDescriptionSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D90224CC4FFF007538F7 /* SingleDescriptionSource.swift */; };
 		DDC5D90524CC50BB007538F7 /* ImageStorageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D90424CC50BB007538F7 /* ImageStorageSource.swift */; };
 		DDC5D90724CC52B0007538F7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D90624CC52B0007538F7 /* Category.swift */; };
 		DDC5D90924CC52C4007538F7 /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D90824CC52C4007538F7 /* Promotion.swift */; };
@@ -171,6 +173,10 @@
 
 /* Begin PBXFileReference section */
 		DD0DC3A524D1D6700045CDEB /* Int+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Constants.swift"; sourceTree = "<group>"; };
+		DD1CDD1924E94946008C1BC4 /* DefinitionSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionSource.swift; sourceTree = "<group>"; };
+		DD1CDD1C24E94986008C1BC4 /* IdentificationSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationSources.swift; sourceTree = "<group>"; };
+		DD1CDD2224E94A65008C1BC4 /* ShowSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSources.swift; sourceTree = "<group>"; };
+		DD1CDD2424E95CFB008C1BC4 /* lint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = lint.yml; sourceTree = "<group>"; };
 		DD22276F24D30A0A0034B6D2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DD22277124D33A5F0034B6D2 /* CurrentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentValue.swift; sourceTree = "<group>"; };
 		DD22277324D3FB9F0034B6D2 /* AnyOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyOptional.swift; sourceTree = "<group>"; };
@@ -275,8 +281,6 @@
 		DDC5D8FA24CC424B007538F7 /* URL+ExpressibleByStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ExpressibleByStringLiteral.swift"; sourceTree = "<group>"; };
 		DDC5D8FC24CC4F5C007538F7 /* TitleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSource.swift; sourceTree = "<group>"; };
 		DDC5D8FE24CC4FAA007538F7 /* DescriptionSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionSource.swift; sourceTree = "<group>"; };
-		DDC5D90024CC4FF3007538F7 /* SingleTitleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTitleSource.swift; sourceTree = "<group>"; };
-		DDC5D90224CC4FFF007538F7 /* SingleDescriptionSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDescriptionSource.swift; sourceTree = "<group>"; };
 		DDC5D90424CC50BB007538F7 /* ImageStorageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageSource.swift; sourceTree = "<group>"; };
 		DDC5D90624CC52B0007538F7 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Source/Models/Category.swift; sourceTree = SOURCE_ROOT; };
 		DDC5D90824CC52C4007538F7 /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Promotion.swift; path = Source/Models/Promotion.swift; sourceTree = SOURCE_ROOT; };
@@ -348,6 +352,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD1CDD1824E94927008C1BC4 /* Definition Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DD1CDD1924E94946008C1BC4 /* DefinitionSource.swift */,
+				DDC5D8FC24CC4F5C007538F7 /* TitleSource.swift */,
+				DDC5D8FE24CC4FAA007538F7 /* DescriptionSource.swift */,
+			);
+			path = "Definition Sources";
+			sourceTree = "<group>";
+		};
+		DD1CDD1B24E9494E008C1BC4 /* Identification Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DD1CDD1C24E94986008C1BC4 /* IdentificationSources.swift */,
+				DDC5D91024CC55A5007538F7 /* IdentificationSource.swift */,
+				DDC5D91624CC9D19007538F7 /* SlugSource.swift */,
+			);
+			path = "Identification Sources";
+			sourceTree = "<group>";
+		};
+		DD1CDD1E24E949DA008C1BC4 /* Media Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D90A24CC53EB007538F7 /* ImageSource.swift */,
+				DDC5D90424CC50BB007538F7 /* ImageStorageSource.swift */,
+				DDC5D91F24CC9F0B007538F7 /* CoverImageStorageSource.swift */,
+			);
+			path = "Media Sources";
+			sourceTree = "<group>";
+		};
+		DD1CDD2124E94A40008C1BC4 /* Show Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DD1CDD2224E94A65008C1BC4 /* ShowSources.swift */,
+				DDC5D90C24CC54D3007538F7 /* ShowOptionSource.swift */,
+				DDC5D91D24CC9EB9007538F7 /* DisplayTypeSource.swift */,
+				DD22277D24D434560034B6D2 /* NewBadgeSource.swift */,
+			);
+			path = "Show Sources";
+			sourceTree = "<group>";
+		};
 		DD22278924D571D10034B6D2 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB8A6F924D727D50023141E /* test.yml */,
+				DD1CDD2424E95CFB008C1BC4 /* lint.yml */,
 			);
 			name = workflows;
 			path = .github/workflows;
@@ -687,23 +733,15 @@
 		DDC5D91524CC9BFD007538F7 /* Source parts */ = {
 			isa = PBXGroup;
 			children = (
-				DDC5D90024CC4FF3007538F7 /* SingleTitleSource.swift */,
-				DDC5D8FC24CC4F5C007538F7 /* TitleSource.swift */,
-				DDC5D90224CC4FFF007538F7 /* SingleDescriptionSource.swift */,
-				DDC5D8FE24CC4FAA007538F7 /* DescriptionSource.swift */,
-				DDC5D91024CC55A5007538F7 /* IdentificationSource.swift */,
-				DDC5D90A24CC53EB007538F7 /* ImageSource.swift */,
-				DDC5D90424CC50BB007538F7 /* ImageStorageSource.swift */,
-				DDC5D90C24CC54D3007538F7 /* ShowOptionSource.swift */,
-				DDC5D91624CC9D19007538F7 /* SlugSource.swift */,
+				DD1CDD2124E94A40008C1BC4 /* Show Sources */,
+				DD1CDD1E24E949DA008C1BC4 /* Media Sources */,
+				DD1CDD1B24E9494E008C1BC4 /* Identification Sources */,
+				DD1CDD1824E94927008C1BC4 /* Definition Sources */,
 				DDC5D91924CC9D7E007538F7 /* SubCategorySource.swift */,
 				DDC5D91B24CC9E27007538F7 /* PriceSource.swift */,
-				DDC5D91D24CC9EB9007538F7 /* DisplayTypeSource.swift */,
-				DDC5D91F24CC9F0B007538F7 /* CoverImageStorageSource.swift */,
+				DDC5D92924CCA812007538F7 /* PromotionStorageSource.swift */,
 				DDC5D92324CC9FC8007538F7 /* CategoryPackageStorageSource.swift */,
 				DDC5D92724CCA7FB007538F7 /* CategoryStorageSource.swift */,
-				DDC5D92924CCA812007538F7 /* PromotionStorageSource.swift */,
-				DD22277D24D434560034B6D2 /* NewBadgeSource.swift */,
 			);
 			path = "Source parts";
 			sourceTree = "<group>";
@@ -803,6 +841,7 @@
 				DDC5D89724CC0CD9007538F7 /* Sources */,
 				DDC5D89824CC0CD9007538F7 /* Frameworks */,
 				DDC5D89924CC0CD9007538F7 /* Resources */,
+				DD1CDD1524E94370008C1BC4 /* Swiftlint Script */,
 			);
 			buildRules = (
 			);
@@ -894,6 +933,7 @@
 				DDC5D8A624CC0CD9007538F7 /* Main.storyboard in Resources */,
 				DD96C9EC24CEFB5E00E6689E /* Poppins-Light.ttf in Resources */,
 				DD96C9E924CEFB5E00E6689E /* Poppins-LightItalic.ttf in Resources */,
+				DD1CDD2524E95CFB008C1BC4 /* lint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +945,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DD1CDD1524E94370008C1BC4 /* Swiftlint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\nif which swiftlint >/dev/null; then\nswiftlint --config \"$SRCROOT/.swiftlint.yml\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DDC5D89724CC0CD9007538F7 /* Sources */ = {
@@ -938,6 +999,7 @@
 				DDC5D8EC24CC39CD007538F7 /* Image.swift in Sources */,
 				DDC5D90524CC50BB007538F7 /* ImageStorageSource.swift in Sources */,
 				DD96C9CB24CEF6BC00E6689E /* TabBarButton.swift in Sources */,
+				DD1CDD1A24E94946008C1BC4 /* DefinitionSource.swift in Sources */,
 				DD22278024D4550C0034B6D2 /* URLSession+DownloadTaskPublisher.swift in Sources */,
 				DDC5D8DE24CC22D5007538F7 /* LocalizableProtocol.swift in Sources */,
 				DD96CA1A24CF559300E6689E /* TabBarBadge.swift in Sources */,
@@ -953,7 +1015,6 @@
 				DD22278624D4A9C90034B6D2 /* UIImageView+ImageProvider.swift in Sources */,
 				DDC5D8D324CC1387007538F7 /* IdentifiableProtocol.swift in Sources */,
 				DDC6601824D58EAA00206D4B /* TitleBarButtonItem.swift in Sources */,
-				DDC5D90124CC4FF3007538F7 /* SingleTitleSource.swift in Sources */,
 				DDC5D89F24CC0CD9007538F7 /* AppDelegate.swift in Sources */,
 				DD96C9FC24CF423500E6689E /* Coordinator.swift in Sources */,
 				DD96C9F924CEFDED00E6689E /* MainTabBarController.swift in Sources */,
@@ -980,7 +1041,6 @@
 				DDC5D8D824CC1AD1007538F7 /* User.swift in Sources */,
 				DDC5D92624CCA7CA007538F7 /* Home.swift in Sources */,
 				DD96CA1C24CF594600E6689E /* UIView+Constraint.swift in Sources */,
-				DDC5D90324CC5000007538F7 /* SingleDescriptionSource.swift in Sources */,
 				DDC5D8F324CC3E5B007538F7 /* ImageUrlResolver.swift in Sources */,
 				DDC6601D24D5932D00206D4B /* NavigationViewController.swift in Sources */,
 				DDC5D8A124CC0CD9007538F7 /* SceneDelegate.swift in Sources */,
@@ -1024,6 +1084,7 @@
 				DD9C6C5524D090810066D6F2 /* CategoryCell.swift in Sources */,
 				DDC5D8E824CC34E0007538F7 /* Domain.swift in Sources */,
 				DD9C6C5024D087650066D6F2 /* BaseViewController.swift in Sources */,
+				DD1CDD1D24E94986008C1BC4 /* IdentificationSources.swift in Sources */,
 				DD96CA0624CF43AC00E6689E /* CategoriesCoordinator.swift in Sources */,
 				DDC5D94024CCB9BE007538F7 /* HTTPEnvironment.swift in Sources */,
 				DDCBA73424D5D330001AE36A /* CategoryCollectionView.swift in Sources */,
@@ -1036,6 +1097,7 @@
 				DDC5D91E24CC9EB9007538F7 /* DisplayTypeSource.swift in Sources */,
 				DD96CA0424CF432100E6689E /* HomeCoordinator.swift in Sources */,
 				DD22278B24D571E20034B6D2 /* BackBarButtonItem.swift in Sources */,
+				DD1CDD2324E94A65008C1BC4 /* ShowSources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

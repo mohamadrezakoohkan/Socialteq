@@ -9,17 +9,23 @@
 import Foundation
 
 final class DIContainer: DIContainerProtocol {
-    
+
     private init() { }
-    
+
     static let shared = DIContainer()
-    
+
     func resolve<T>() -> T {
         if T.self == User.self {
-            return User.shared as! T
-        }else{
+           return self.resolve(user: .shared)
+        } else {
             fatalError("\(String(describing: Self.self)) could not resolve: \(String(describing: T.self))")
         }
     }
-}
 
+    func resolve<T>(user: User) -> T {
+        guard let user = user as? T else {
+            fatalError("Could not resolve user")
+        }
+        return user
+    }
+}

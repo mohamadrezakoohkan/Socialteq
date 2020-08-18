@@ -20,27 +20,27 @@ protocol CategoryViewModelOutput {
 }
 
 final class CategoryViewModel: ViewModelType {
-    
+
     struct Input: CategoryViewModelInput {
         let cellDidTapped: AnyPublisher<AnyHashable?, Never>
     }
-    
+
     struct Output: CategoryViewModelOutput {
         let packageTappedSubscription: AnyCancellable
         let eventPublisher: AnyPublisher<EventCellViewModel, Never>
         let packagePublisher: AnyPublisher<[PackageCellViewModel], Never>
     }
-    
+
     @Injected(container: NetworkingDIContainer.shared)
     private var service: CategoryProvider
-    
+
     @CurrentValue
     private var category: Category
-        
+
     init(category: Category) {
         self.category = category
     }
-    
+
     func transform(input: Input) -> Output {
         return Output(
             packageTappedSubscription: self.subscribe(packageTapped: input.cellDidTapped),
@@ -48,22 +48,22 @@ final class CategoryViewModel: ViewModelType {
             packagePublisher: self.publishPackage()
         )
     }
-    
+
     private func subscribe(packageTapped publisher: AnyPublisher<AnyHashable?, Never>) -> AnyCancellable {
         publisher.receive(on: DispatchQueue.main)
             .compactMap({ $0 as? CategoryCellViewModel })
             .eraseToAnyPublisher()
-            .sink(receiveValue: { viewModel in
+            .sink(receiveValue: { _ in
                 // do something
             })
     }
-    
+
     private func publishEvent() -> AnyPublisher<EventCellViewModel, Never> {
         self.$category
             .map { self.createViewModels(from: $0) }
             .eraseToAnyPublisher()
     }
-    
+
     private func publishPackage() -> AnyPublisher<[PackageCellViewModel], Never> {
         self.service.getCategory(slug: self.category.slug ?? "")
             .compactMap { $0?.data }
@@ -71,7 +71,7 @@ final class CategoryViewModel: ViewModelType {
             .replaceError(with: [])
             .eraseToAnyPublisher()
     }
-    
+
     private func createViewModels(from category: Category) -> EventCellViewModel {
         return .init(category: category)
     }
@@ -80,4 +80,3 @@ final class CategoryViewModel: ViewModelType {
         return packages.map { .init(package: $0) }
     }
 }
-
