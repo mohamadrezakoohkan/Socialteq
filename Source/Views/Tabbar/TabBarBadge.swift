@@ -8,8 +8,6 @@
 
 import UIKit
 
-// MARK: - TODO: Create layout
-//
 final class TabBarBadge: UIView {
 
     private (set) var number: Int = 0 {
