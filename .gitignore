@@ -1,4 +1,7 @@
 swiftlint-report.*
+xcodebuild.log
+compile_commands.json
 Report
+build
 *.xcuserstate
 .DS_Store
